@@ -1359,3 +1359,260 @@ p {
     font-size: 12.5px;
   }
 }
+
+/* ---------- 빵부스러기 ---------- */
+
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-top: 24px;
+  font-size: 12.5px;
+  color: var(--z400);
+}
+
+.crumb a {
+  color: var(--z500);
+}
+
+.crumb a:hover,
+.crumb a:focus-visible {
+  color: var(--z900);
+}
+
+.crumb__sep {
+  color: var(--z300);
+}
+
+/* ---------- 본문 페이지 히어로 ---------- */
+
+.page-hero {
+  padding-top: 24px;
+  padding-bottom: 8px;
+}
+
+.page-hero h1 {
+  max-width: 20ch;
+  font-size: 30px;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .page-hero h1 {
+    font-size: 40px;
+  }
+}
+
+.page-hero__lead {
+  margin-top: 16px;
+  max-width: 62ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--z500);
+}
+
+.page-hero__meta {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- 본문 산문 ---------- */
+
+.prose {
+  max-width: 66ch;
+}
+
+.prose h2 {
+  margin-top: 48px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.prose h3 {
+  margin-top: 30px;
+  font-size: 16.5px;
+  font-weight: 600;
+}
+
+.prose p {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--z700);
+}
+
+.prose ul {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prose ul li {
+  position: relative;
+  padding-left: 17px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--z700);
+}
+
+.prose ul li::before {
+  content: "·";
+  position: absolute;
+  left: 5px;
+  color: var(--z400);
+}
+
+.prose a {
+  color: var(--z900);
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  text-decoration-color: var(--z300);
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose b {
+  font-weight: 600;
+  color: var(--z900);
+}
+
+/* ---------- 비교 표 (본문용) ---------- */
+
+.dtable {
+  margin-top: 20px;
+  overflow-x: auto;
+  border: 1px solid var(--z200);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.dtable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.dtable th,
+.dtable td {
+  padding: 11px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--z100);
+  line-height: 1.6;
+}
+
+.dtable thead th {
+  background: var(--z50);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--z400);
+  white-space: nowrap;
+}
+
+.dtable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.dtable td.n {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- 다음 읽을거리 ---------- */
+
+.next-up {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--z200);
+}
+
+.next-up__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--z400);
+  letter-spacing: 0.03em;
+}
+
+.next-up__grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .next-up__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.next-up__card {
+  display: block;
+  border: 1px solid var(--z200);
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+  transition: border-color 0.15s;
+}
+
+.next-up__card:hover {
+  border-color: var(--z400);
+}
+
+.next-up__card b {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.next-up__card span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--z500);
+}
+
+/* ---------- 카드에서 상세 페이지로 ---------- */
+
+.card__name a {
+  color: inherit;
+}
+
+.card__name a:hover,
+.card__name a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.card__more {
+  display: block;
+  border-top: 1px solid var(--z100);
+  background: #fff;
+  padding: 11px 24px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--z700);
+  transition: background 0.15s;
+}
+
+.card__more:hover,
+.card__more:focus-visible {
+  background: var(--z50);
+  color: var(--z900);
+}
+
+/* 비교표는 읽기 폭(66ch)보다 넓게 빼준다. 4열이 들어가면 본문 폭에선 답답하다. */
+.dtable {
+  max-width: 840px;
+}
