@@ -1616,3 +1616,129 @@ p {
 .dtable {
   max-width: 840px;
 }
+
+/* ---------- 본문 안 유도 블록 ----------
+   독자가 "그래서 나는 어디로 가야 하나"를 묻게 되는 지점에만 넣는다.
+   글을 억지로 쪼개 이동을 만드는 용도가 아니다. */
+
+.cta {
+  margin: 32px 0;
+  max-width: 66ch;
+  border: 1px solid var(--z200);
+  border-radius: 14px;
+  background: #fff;
+  padding: 20px 22px;
+}
+
+.cta--dark {
+  border-color: var(--z900);
+  background: var(--z900);
+}
+
+.cta__q {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--z900);
+}
+
+.cta--dark .cta__q {
+  color: #fff;
+}
+
+.cta__d {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--z600);
+}
+
+.cta--dark .cta__d {
+  color: var(--z300);
+}
+
+.cta__btn {
+  display: inline-block;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: var(--z900);
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  transition: opacity 0.15s;
+}
+
+.cta--dark .cta__btn {
+  background: #fff;
+  color: var(--z900);
+}
+
+.cta__btn:hover,
+.cta__btn:focus-visible {
+  opacity: 0.85;
+}
+
+.cta__note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--z400);
+}
+
+.cta--dark .cta__note {
+  color: var(--z500);
+}
+
+/* 절차 안내용 번호 목록 */
+.prose__ol {
+  margin-top: 14px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  counter-reset: step;
+}
+
+.prose__ol li {
+  position: relative;
+  padding-left: 32px;
+  list-style: none;
+  counter-increment: step;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--z700);
+}
+
+.prose__ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 3px;
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--z300);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--z500);
+}
+
+/* CTA 버튼은 .prose 안에 들어가므로 `.prose a`(0,1,1)를 이길 특정도가 필요하다.
+   클래스를 두 개 쓰면 (0,2,0) 이 되어 확실히 이긴다. */
+
+.cta .cta__btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.cta--dark .cta__btn {
+  background: #fff;
+  color: var(--z900);
+}
+
+.cta .cta__d a {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
