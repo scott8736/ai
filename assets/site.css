@@ -1325,3 +1325,37 @@ p {
     font-size: 10px;
   }
 }
+
+/* ---------- 4단 요금제 그리드 ----------
+   2026년 9월 개편으로 세 서비스 모두 플랜이 4개가 됐다.
+   1120px 에서 4열, 태블릿에서 2열, 모바일에서 1열. */
+
+@media (min-width: 768px) {
+  .plans--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1040px) {
+  .plans--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .plans--4 .plan {
+    padding: 20px 18px;
+  }
+
+  .plans--4 .plan__price {
+    font-size: 20px;
+  }
+
+  .plans--4 .plan__badge {
+    padding: 3px 7px;
+    font-size: 9px;
+  }
+
+  .plans--4 .plan__features li {
+    font-size: 12.5px;
+  }
+}
