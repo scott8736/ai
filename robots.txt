@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://ai.howtopackbook.com/sitemap.xml
