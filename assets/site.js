@@ -52,9 +52,9 @@
 
   var AD_CLIENT = "ca-pub-8646375689901020";
   var AD_SLOTS = {
-    top: { slot: "", format: "auto" },
-    mid: { slot: "", format: "fluid", layout: "in-article" },
-    bottom: { slot: "", format: "auto" }
+    top: { slot: "8618964805", format: "auto" },
+    mid: { slot: "4739429545", format: "fluid", layout: "in-article" },
+    bottom: { slot: "8618964805", format: "auto" }
   };
 
   document.querySelectorAll("[data-ad]").forEach(function (holder) {
@@ -77,6 +77,7 @@
 
     if (conf.layout) {
       ins.setAttribute("data-ad-layout", conf.layout);
+      ins.style.textAlign = "center";
     } else {
       ins.setAttribute("data-full-width-responsive", "true");
     }
