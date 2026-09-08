@@ -1829,3 +1829,31 @@ p {
   line-height: 1.7;
   color: var(--z500);
 }
+
+/* ---------- 요금 카드 CTA 를 공식 페이지 링크로 ---------- */
+
+a.plan__cta {
+  display: block;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+a.plan__cta:hover,
+a.plan__cta:focus-visible {
+  border-color: var(--z900);
+  background: var(--z900);
+  color: #fff;
+}
+
+.plan--hl a.plan__cta:hover,
+.plan--hl a.plan__cta:focus-visible {
+  border-color: var(--z300);
+  background: var(--z200);
+  color: var(--z900);
+}
+
+/* ---------- 본문 사이에 들어가는 광고 ---------- */
+
+.ad--mid {
+  margin: 32px 0;
+}
