@@ -1006,12 +1006,6 @@ p {
   margin: 40px 0;
 }
 
-.ad__label {
-  margin-bottom: 8px;
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  color: var(--z400);
-}
 
 .ad__box {
   width: 100%;
