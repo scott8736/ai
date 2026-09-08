@@ -1742,3 +1742,90 @@ p {
   color: inherit;
   text-decoration-color: currentColor;
 }
+
+/* ---------- 블로그 ---------- */
+
+.kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.kicker-tag {
+  border-radius: 999px;
+  background: var(--z900);
+  padding: 3px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.kicker-date {
+  font-size: 12px;
+  color: var(--z400);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.post-card {
+  display: block;
+  border: 1px solid var(--z200);
+  border-radius: 14px;
+  background: #fff;
+  padding: 22px 24px;
+  transition: border-color 0.15s;
+}
+
+.post-card:hover,
+.post-card:focus-visible {
+  border-color: var(--z400);
+}
+
+.post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--z400);
+}
+
+.post-card__cat {
+  border: 1px solid var(--z200);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-weight: 600;
+  color: var(--z600);
+}
+
+.post-card__title {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.post-card__desc {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--z500);
+}
+
+.blog-empty {
+  margin-top: 28px;
+  border: 1px dashed var(--z300);
+  border-radius: 14px;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--z500);
+}
