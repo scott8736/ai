@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>미드저니 사용법 - Fast·Relax 모드와 플랜별 차이 | AI요금제연구소</title>
+<meta name="description" content="미드저니를 디스코드에서 쓰는 기본 흐름과 Fast·Relax·Stealth 모드가 플랜마다 어떻게 갈리는지 공식 문서 기준으로 정리했습니다. 무료 플랜은 없습니다.">
+<link rel="canonical" href="https://ai.howtopackbook.com/blog/midjourney-guide/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI요금제연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://ai.howtopackbook.com/blog/midjourney-guide/">
+<meta property="og:title" content="미드저니 사용법 - Fast·Relax 모드와 플랜별 차이">
+<meta property="og:description" content="디스코드 기본 흐름과 Fast·Relax·Stealth 모드가 플랜마다 어떻게 갈리는지 공식 문서 기준으로 정리했습니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="미드저니 사용법 - Fast·Relax 모드와 플랜별 차이">
+<meta name="twitter:description" content="디스코드 기본 흐름과 Fast·Relax·Stealth 모드가 플랜마다 어떻게 갈리는지 공식 문서 기준으로 정리했습니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "AI 요금제 비교", "item": "https://ai.howtopackbook.com/" },
+        { "@type": "ListItem", "position": 2, "name": "블로그", "item": "https://ai.howtopackbook.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "미드저니 사용법", "item": "https://ai.howtopackbook.com/blog/midjourney-guide/" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ai.howtopackbook.com/blog/midjourney-guide/#webpage",
+      "url": "https://ai.howtopackbook.com/blog/midjourney-guide/",
+      "name": "미드저니 사용법",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-09-10",
+      "dateModified": "2026-09-10"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ai.howtopackbook.com/blog/midjourney-guide/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "미드저니 무료 플랜이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독입니다. 예전에 있던 무료 체험이 사라진 뒤로 이미지를 생성해보려면 최소 요금제를 결제해야 합니다. 다만 정확한 플랜별 금액은 이 글에 적지 않았습니다 — 공식 요금 페이지에서 확인하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fast 모드와 Relax 모드는 뭐가 다른가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Stealth 모드는 어느 플랜부터 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "공식 문서 기준으로 이미지와 영상을 비공개로 만드는 Stealth 모드는 Pro 플랜과 Mega 플랜에서만 됩니다. Basic·Standard 플랜에서 만든 이미지는 기본적으로 커뮤니티에 공개됩니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">AI Pack <span class="brand__sep">/</span> AI요금제연구소</span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/">비교</a>
+      <a href="/gemini/">제미나이</a>
+      <a href="/chatgpt/">ChatGPT</a>
+      <a href="/claude/">클로드</a>
+      <a href="/discount/">할인</a>
+    </nav>
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="wrap mobile-nav__list">
+      <a href="/">전체 비교</a>
+      <a href="/gemini/">제미나이 요금제</a>
+      <a href="/chatgpt/">ChatGPT 요금제</a>
+      <a href="/claude/">클로드 요금제</a>
+      <a href="/discount/">할인 모음</a>
+      <a href="/blog/">블로그</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 요금제 비교</a> <span class="crumb__sep">›</span> <a href="/blog/">블로그</a> <span class="crumb__sep">›</span> <span>미드저니 사용법</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#111111" aria-hidden="true">M</span>
+      <span class="eyebrow__label" style="color:#52525b">MIDJOURNEY</span>
+    </div>
+    <h1>미드저니 사용법 — Fast·Relax 모드와 플랜별 차이</h1>
+    <p class="page-hero__lead">미드저니는 <b>무료 플랜이 없다는 것부터 다른 AI 툴과 다릅니다.</b> 디스코드에서 어떻게 쓰는지, Basic·Standard·Pro·Mega 네 플랜이 속도와 공개 범위에서 정확히 어떻게 갈리는지 공식 문서 기준으로 정리했습니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ 디스코드 기본 흐름</span>
+      <span class="chip">✓ Fast vs Relax</span>
+      <span class="chip">✓ Stealth 모드 조건</span>
+      <span class="chip">✓ 2026년 9월 10일 확인</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:36px;padding-bottom:40px">
+    <div class="prose">
+
+      <h2>한 줄 요약</h2>
+      <p>
+        미드저니는 <b>무료 플랜이 없습니다.</b> 이미지를 한 장이라도 만들어보려면 최소 플랜을 결제해야 합니다.
+        플랜은 <b>Basic·Standard·Pro·Mega</b> 네 단계이고, 갈리는 기준은 성능이 아니라
+        <b>얼마나 빨리 만들 수 있는지(Fast/Relax)</b> 와 <b>결과물을 비공개로 할 수 있는지(Stealth)</b> 입니다.
+      </p>
+
+      <h2>기본 흐름 — 디스코드에서 시작합니다</h2>
+      <p>
+        미드저니는 별도 앱이 아니라 <b>디스코드 안의 봇</b>으로 작동합니다.
+        특별한 하드웨어 없이 디스코드 채널에서 미드저니 봇에게 명령어로 프롬프트를 보내면
+        이미지가 생성됩니다. 명령어로 이미지를 만들고, 기본 설정을 바꾸고, 계정 정보를 확인하는 것까지
+        전부 디스코드 명령어로 처리합니다.
+      </p>
+
+      <h2>Fast 모드 vs Relax 모드</h2>
+      <p>
+        생성 속도를 정하는 게 <b>GPU 속도 모드</b>입니다. 공식 문서가 설명하는 핵심은 이렇습니다.
+      </p>
+      <ul>
+        <li><b>Fast 모드</b> — 빠르게 생성되지만, 플랜마다 정해진 시간만큼만 쓸 수 있습니다</li>
+        <li><b>Relax 모드</b> — 느리지만 제한이 느슨합니다. 다만 <b>Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없습니다.</b></li>
+        <li><b>Turbo 모드</b> — Fast 보다도 더 빠른 상위 옵션입니다</li>
+      </ul>
+      <p>
+        <b>repeat 파라미터</b>(같은 프롬프트를 여러 번 반복 생성)는 Fast·Turbo 모드에서만 작동하고
+        Relax 모드에서는 안 됩니다. Relax 로 여유 있게 쓰다가 급할 때만 Fast 로 전환하는 식으로
+        속도와 한도를 조절하는 게 기본 운용 방식입니다.
+      </p>
+
+      <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
+
+      <h2>Stealth 모드 — 비공개로 만들기</h2>
+      <p>
+        미드저니로 만든 이미지는 기본적으로 <b>커뮤니티에 공개</b>됩니다.
+        결과물을 남에게 보이고 싶지 않다면 Stealth 모드가 필요한데, 공식 문서 기준으로
+        <b>Pro 플랜과 Mega 플랜에서만</b> 됩니다. Basic·Standard 로는 비공개 생성이 안 됩니다.
+      </p>
+      <p>
+        업무용으로 만드는 이미지, 아직 공개 전인 프로젝트 시안처럼 <b>남에게 보이면 안 되는 작업</b>이라면
+        플랜을 고를 때 이 조건부터 확인해야 합니다.
+      </p>
+
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>플랜</th><th>Relax 모드</th><th>Stealth 모드</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Basic</td><td>불가</td><td>불가</td></tr>
+            <tr><td>Standard</td><td>가능</td><td>불가</td></tr>
+            <tr><td>Pro</td><td>가능</td><td><b>가능</b></td></tr>
+            <tr><td>Mega</td><td>가능</td><td><b>가능</b></td></tr>
+            <tr><td>정확한 요금</td><td colspan="2"><a href="https://www.midjourney.com/plans" target="_blank" rel="noopener">공식 페이지에서 확인 →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tip">
+        이 글에는 정확한 요금을 적지 않았습니다. midjourney.com 과 docs.midjourney.com 이 자동 접근을
+        막고 있어서 <b>플랜별 정확한 금액을 확인하지 못했습니다.</b> 표의 "정확한 요금" 칸을 눌러
+        공식 페이지에서 그 시점의 금액을 확인하세요. 연간 결제 시 할인이 있다는 것까지는 공식 안내에서 확인했지만
+        정확한 할인율은 페이지 접근 후 직접 봐야 합니다.
+      </div>
+
+      <h2>이 글을 쓰면서</h2>
+      <p>
+        미드저니 요금제 페이지는 오늘 두 번의 시도 모두 접근이 막혔습니다.
+        대신 <b>도움말 문서 여러 개</b>에서 확인한 사실 — 무료 플랜이 없다는 것, 플랜 이름과 개수,
+        Fast/Relax/Stealth 가 정확히 어느 플랜부터 열리는지 — 만 모아 이 글을 만들었습니다.
+      </p>
+      <p>
+        검색해서 나오는 다른 글들은 대부분 <b>플랜별 정확한 시간(GPU 아워)까지 구체적으로 적어놓는데,</b>
+        저는 오늘 그 숫자를 공식 문서에서 직접 확인하지 못했습니다. 확인 안 된 숫자를 적느니
+        확실한 것만 적고 나머지는 링크로 넘기는 쪽을 택했습니다.
+      </p>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="bottom"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="next-up">
+      <div class="next-up__title">이어서 볼 만한 것</div>
+      <div class="next-up__grid">
+        <a class="next-up__card" href="/blog/canva-guide/">
+          <b>캔바 사용법</b>
+          <span>무료로 어디까지 되고 Pro는 뭐가 다른가</span>
+        </a>
+        <a class="next-up__card" href="/tools/capcut/">
+          <b>캡컷 요금제</b>
+          <span>워터마크는 해상도가 아니라 소재 문제</span>
+        </a>
+        <a class="next-up__card" href="/blog/">
+          <b>전체 글 목록</b>
+          <span>요금표에 안 적혀 있는 것들</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq__inner">
+      <div>
+        <h2>자주 묻는 질문</h2>
+        <p class="faq__lead">2026년 9월 10일 공식 문서 확인 기준입니다.</p>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <h3 class="faq__q">미드저니 무료 플랜이 있나요?</h3>
+          <p class="faq__a">없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독입니다. 예전에 있던 무료 체험이 사라진 뒤로 이미지를 생성해보려면 최소 요금제를 결제해야 합니다. 다만 정확한 플랜별 금액은 이 글에 적지 않았습니다 — 공식 요금 페이지에서 확인하세요.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">Fast 모드와 Relax 모드는 뭐가 다른가요?</h3>
+          <p class="faq__a">생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">Stealth 모드는 어느 플랜부터 되나요?</h3>
+          <p class="faq__a">공식 문서 기준으로 이미지와 영상을 비공개로 만드는 Stealth 모드는 Pro 플랜과 Mega 플랜에서만 됩니다. Basic·Standard 플랜에서 만든 이미지는 기본적으로 커뮤니티에 공개됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">AI Pack / AI요금제연구소</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 Google, OpenAI, Anthropic, ByteDance, Midjourney 와 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 요금제를 확인하세요.</p>
+      </div>
+      <div class="link-cols">
+        <div class="link-col">
+          <h2 class="link-col__title">요금제</h2>
+          <ul>
+            <li><a href="/gemini/">제미나이</a></li>
+            <li><a href="/chatgpt/">챗GPT</a></li>
+            <li><a href="/claude/">클로드</a></li>
+            <li><a href="/tools/capcut/">캡컷</a></li>
+            <li><a href="/discount/">할인 모음</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">사이트</h2>
+          <ul>
+            <li><a href="/blog/">블로그</a></li>
+            <li><a href="/about/">소개</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><a href="/terms">이용약관</a></li>
+            <li><a href="/contact">문의</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">공식</h2>
+          <ul>
+            <li><a href="https://gemini.google/kr/subscriptions/" target="_blank" rel="noopener">Gemini ↗</a></li>
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener">ChatGPT ↗</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

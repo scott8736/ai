@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>딥엘(DeepL) 사용법 - 문서 번역과 용어집, 무료와 뭐가 다른가 | AI요금제연구소</title>
+<meta name="description" content="딥엘의 문서 번역, 용어집, CAT 툴 연동을 공식 안내 기준으로 정리했습니다. 무료 번역기와 실제로 뭐가 다른지, 언제 유료가 필요한지 짚었습니다.">
+<link rel="canonical" href="https://ai.howtopackbook.com/blog/deepl-guide/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI요금제연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://ai.howtopackbook.com/blog/deepl-guide/">
+<meta property="og:title" content="딥엘(DeepL) 사용법 - 문서 번역과 용어집, 무료와 뭐가 다른가">
+<meta property="og:description" content="딥엘의 문서 번역, 용어집, CAT 툴 연동을 공식 안내 기준으로 정리했습니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="딥엘(DeepL) 사용법 - 문서 번역과 용어집, 무료와 뭐가 다른가">
+<meta name="twitter:description" content="딥엘의 문서 번역, 용어집, CAT 툴 연동을 공식 안내 기준으로 정리했습니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "AI 요금제 비교", "item": "https://ai.howtopackbook.com/" },
+        { "@type": "ListItem", "position": 2, "name": "블로그", "item": "https://ai.howtopackbook.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "딥엘 사용법", "item": "https://ai.howtopackbook.com/blog/deepl-guide/" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ai.howtopackbook.com/blog/deepl-guide/#webpage",
+      "url": "https://ai.howtopackbook.com/blog/deepl-guide/",
+      "name": "딥엘 사용법",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-09-10",
+      "dateModified": "2026-09-10"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ai.howtopackbook.com/blog/deepl-guide/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "딥엘과 파파고, 뭐가 다른가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일상적인 짧은 문장이면 파파고로도 충분한 경우가 많습니다. 딥엘이 갈리는 지점은 문서 번역과 용어집입니다. PDF·Word·PPT·Excel 같은 파일을 통째로 넣어 번역하거나, 브랜드·전문 용어를 항상 같은 방식으로 옮기고 싶을 때 딥엘의 용어집 기능이 값을 합니다. 둘 다 무료로 시작할 수 있으니 필요에 따라 골라 쓰면 됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "딥엘 용어집은 정확히 뭘 해주나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "브랜드명이나 내부 용어처럼 항상 같은 방식으로 번역돼야 하는 단어 목록을 미리 등록해두는 기능입니다. 단순 단어 치환이 아니라 대소문자, 성별, 시제를 고려해 문장에 맞는 형태로 자동으로 바꿔주는 게 다른 번역기와 다른 점이라고 공식 설명이 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "딥엘 정확한 가격은 어디서 확인하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이 글에는 의도적으로 가격을 적지 않았습니다. deepl.com/ko/pro 페이지가 자동 접근을 막고 있어서, 서드파티 글에 떠도는 숫자를 옮기는 대신 공식 페이지 링크로 대체했습니다. 결제 전에 그 페이지에서 그 시점의 금액을 직접 확인하는 걸 권합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">AI Pack <span class="brand__sep">/</span> AI요금제연구소</span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/">비교</a>
+      <a href="/gemini/">제미나이</a>
+      <a href="/chatgpt/">ChatGPT</a>
+      <a href="/claude/">클로드</a>
+      <a href="/discount/">할인</a>
+    </nav>
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="wrap mobile-nav__list">
+      <a href="/">전체 비교</a>
+      <a href="/gemini/">제미나이 요금제</a>
+      <a href="/chatgpt/">ChatGPT 요금제</a>
+      <a href="/claude/">클로드 요금제</a>
+      <a href="/discount/">할인 모음</a>
+      <a href="/blog/">블로그</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 요금제 비교</a> <span class="crumb__sep">›</span> <a href="/blog/">블로그</a> <span class="crumb__sep">›</span> <span>딥엘 사용법</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#0f2b6b" aria-hidden="true">D</span>
+      <span class="eyebrow__label" style="color:#0f2b6b">DEEPL</span>
+    </div>
+    <h1>딥엘 사용법 — 문서 번역과 용어집, 무료와 뭐가 다른가</h1>
+    <p class="page-hero__lead">"딥엘이 파파고보다 낫다"는 말은 많이 들었는데, <b>정확히 뭐가 다른지</b>는 설명 없이 넘어가는 글이 많습니다. 문서 통째로 번역하기와 용어집 — 딥엘이 실제로 갈리는 두 지점을 공식 안내 기준으로 정리했습니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ 문서 번역 지원 형식</span>
+      <span class="chip">✓ 용어집이란</span>
+      <span class="chip">✓ CAT 툴 연동</span>
+      <span class="chip">✓ 2026년 9월 10일 확인</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:36px;padding-bottom:40px">
+    <div class="prose">
+
+      <h2>한 줄 요약</h2>
+      <p>
+        일반적인 문장 번역은 딥엘도 파파고도 무료로 잘 됩니다.
+        딥엘이 값을 하는 지점은 두 가지입니다 — <b>파일을 통째로 넣어 번역하는 문서 번역</b>과,
+        <b>같은 용어를 항상 같은 방식으로 옮기는 용어집</b>입니다.
+        짧은 문장 하나 번역할 때는 굳이 딥엘을 고를 이유가 크지 않고,
+        문서 작업이나 반복되는 전문 용어가 있을 때부터 차이가 체감됩니다.
+      </p>
+
+      <h2>문서 번역 — 파일째로 넣기</h2>
+      <p>
+        공식 안내에 따르면 딥엘은 <b>PDF, Word 문서, PowerPoint 슬라이드, Excel 스프레드시트,
+        HTML, SRT, TXT</b> 파일을 드래그 앤 드롭하거나 OneDrive 에서 바로 불러와 번역할 수 있습니다.
+        텍스트를 일일이 복사해서 붙여넣는 대신 <b>파일 하나를 통째로 넣으면 같은 형식으로 번역돼 나옵니다.</b>
+      </p>
+      <p>
+        보고서나 계약서, 발표 자료처럼 <b>서식이 있는 문서</b>를 번역해야 할 때 이 차이가 큽니다.
+        일반 번역기에 문단을 복사해 넣으면 서식이 깨지는데, 문서 번역은 원본 레이아웃을 최대한 유지합니다.
+      </p>
+
+      <h2>용어집 — 같은 단어는 항상 같게</h2>
+      <p>
+        용어집은 <b>브랜드명이나 내부 용어처럼 늘 같은 방식으로 번역돼야 하는 단어 목록</b>을 미리 등록해두는 기능입니다.
+        공식 설명이 강조하는 차별점은, 이게 단순 단어 치환이 아니라는 겁니다.
+        <b>대소문자, 성별, 시제를 고려해서 문장에 맞는 형태로 자동으로 바꿔줍니다.</b>
+      </p>
+      <p>
+        회사 제품명이나 업계 용어를 문서마다 다르게 번역되는 걸 막고 싶을 때,
+        또는 여러 사람이 나눠서 번역하는데 용어 통일이 필요할 때 용어집이 그 문제를 해결합니다.
+      </p>
+
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>기능</th><th>일반 번역</th><th>딥엘이 다른 점</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>짧은 문장 번역</td><td>가능</td><td>큰 차이 없음</td></tr>
+            <tr><td>문서 파일 번역</td><td>서식 깨짐</td><td>PDF·Word·PPT·Excel 등 원본 형식 유지</td></tr>
+            <tr><td>용어 통일</td><td>매번 다르게 번역될 수 있음</td><td>용어집으로 항상 같은 형태 유지 (대소문자·성별·시제 반영)</td></tr>
+            <tr><td>CAT 툴(Phrase TMS 등) 연동</td><td>—</td><td>인증 키로 번역 엔진 직접 연동</td></tr>
+            <tr><td>정확한 요금</td><td colspan="2"><a href="https://www.deepl.com/ko/pro" target="_blank" rel="noopener">공식 페이지에서 확인 →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
+
+      <h2>CAT 툴을 쓰는 사람이라면</h2>
+      <p>
+        번역을 업으로 하는 사람이라면 CAT 툴(컴퓨터 보조 번역 도구) 연동이 중요합니다.
+        공식 안내에 따르면 <b>적격 딥엘 계정의 인증 키로 CAT 툴 플러그인을 연동</b>할 수 있고,
+        이를 통해 Phrase TMS 같은 번역 프로젝트에서 딥엘 번역 엔진에 직접 접근할 수 있습니다.
+        평소 쓰던 CAT 툴 환경을 벗어나지 않고도 딥엘의 번역 품질을 그대로 가져다 쓰는 구조입니다.
+      </p>
+
+      <div class="tip">
+        이 글에는 정확한 요금을 적지 않았습니다. deepl.com/ko/pro 페이지가 자동 접근을 막고 있어
+        <b>서드파티 글에 떠도는 숫자를 그대로 옮기지 않았습니다.</b>
+        표의 "정확한 요금" 칸을 눌러 그 시점의 공식 금액을 직접 확인하세요.
+      </div>
+
+      <h2>이 글을 쓰면서</h2>
+      <p>
+        검색하다 보면 딥엘 요금을 정리한 글에 구체적인 달러 숫자가 꽤 나옵니다.
+        확인해보니 대부분 deepl.com 이나 지원 페이지가 아니라 <b>서드파티 블로그를 인용한 것</b>이었습니다.
+        이 사이트가 지키는 원칙이 "공식 페이지에서 직접 확인"인데, 그 숫자를 그대로 옮기면 원칙이 깨집니다.
+      </p>
+      <p>
+        대신 <b>확실히 확인되는 기능 차이</b> — 문서 번역 지원 형식, 용어집의 정확한 동작 방식,
+        CAT 툴 연동 — 만 딥엘 공식 페이지에서 직접 확인해 담았습니다.
+      </p>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="bottom"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="next-up">
+      <div class="next-up__title">이어서 볼 만한 것</div>
+      <div class="next-up__grid">
+        <a class="next-up__card" href="/blog/canva-guide/">
+          <b>캔바 사용법</b>
+          <span>무료로 어디까지 되고 Pro는 뭐가 다른가</span>
+        </a>
+        <a class="next-up__card" href="/blog/midjourney-guide/">
+          <b>미드저니 사용법</b>
+          <span>Fast·Relax 모드와 플랜별 차이</span>
+        </a>
+        <a class="next-up__card" href="/blog/">
+          <b>전체 글 목록</b>
+          <span>요금표에 안 적혀 있는 것들</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq__inner">
+      <div>
+        <h2>자주 묻는 질문</h2>
+        <p class="faq__lead">2026년 9월 10일 공식 안내 확인 기준입니다.</p>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <h3 class="faq__q">딥엘과 파파고, 뭐가 다른가요?</h3>
+          <p class="faq__a">일상적인 짧은 문장이면 파파고로도 충분한 경우가 많습니다. 딥엘이 갈리는 지점은 문서 번역과 용어집입니다. PDF·Word·PPT·Excel 같은 파일을 통째로 넣어 번역하거나, 브랜드·전문 용어를 항상 같은 방식으로 옮기고 싶을 때 딥엘의 용어집 기능이 값을 합니다. 둘 다 무료로 시작할 수 있으니 필요에 따라 골라 쓰면 됩니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">딥엘 용어집은 정확히 뭘 해주나요?</h3>
+          <p class="faq__a">브랜드명이나 내부 용어처럼 항상 같은 방식으로 번역돼야 하는 단어 목록을 미리 등록해두는 기능입니다. 단순 단어 치환이 아니라 대소문자, 성별, 시제를 고려해 문장에 맞는 형태로 자동으로 바꿔주는 게 다른 번역기와 다른 점이라고 공식 설명이 안내합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">딥엘 정확한 가격은 어디서 확인하나요?</h3>
+          <p class="faq__a">이 글에는 의도적으로 가격을 적지 않았습니다. deepl.com/ko/pro 페이지가 자동 접근을 막고 있어서, 서드파티 글에 떠도는 숫자를 옮기는 대신 공식 페이지 링크로 대체했습니다. 결제 전에 그 페이지에서 그 시점의 금액을 직접 확인하는 걸 권합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">AI Pack / AI요금제연구소</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 Google, OpenAI, Anthropic, ByteDance, DeepL 과 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 요금제를 확인하세요.</p>
+      </div>
+      <div class="link-cols">
+        <div class="link-col">
+          <h2 class="link-col__title">요금제</h2>
+          <ul>
+            <li><a href="/gemini/">제미나이</a></li>
+            <li><a href="/chatgpt/">챗GPT</a></li>
+            <li><a href="/claude/">클로드</a></li>
+            <li><a href="/tools/capcut/">캡컷</a></li>
+            <li><a href="/discount/">할인 모음</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">사이트</h2>
+          <ul>
+            <li><a href="/blog/">블로그</a></li>
+            <li><a href="/about/">소개</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><a href="/terms">이용약관</a></li>
+            <li><a href="/contact">문의</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">공식</h2>
+          <ul>
+            <li><a href="https://gemini.google/kr/subscriptions/" target="_blank" rel="noopener">Gemini ↗</a></li>
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener">ChatGPT ↗</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
