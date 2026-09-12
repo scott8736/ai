@@ -160,11 +160,19 @@ p {
 .nav {
   display: none;
   align-items: center;
-  gap: 28px;
+  /* 카테고리가 늘어나도 한 줄에 들어가게. 넓어지면 다시 벌어진다 */
+  gap: 14px;
+}
+
+@media (min-width: 1100px) {
+  .nav {
+    gap: 24px;
+  }
 }
 
 .nav a {
-  font-size: 13.5px;
+  font-size: 13px;
+  white-space: nowrap;
   font-weight: 500;
   color: var(--z500);
   transition: color 0.15s;

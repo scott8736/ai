@@ -36,6 +36,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/blog/elevenlabs-guide/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/blog/gemini-api-key/</loc>
     <lastmod>2026-09-12</lastmod>
     <priority>0.6</priority>
@@ -58,6 +63,21 @@
   <url>
     <loc>https://ai.howtopackbook.com/blog/notion-ai/</loc>
     <lastmod>2026-09-10</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/blog/suno-guide/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/blog/typecast-guide/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/blog/valorant-ai/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -106,6 +126,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/game/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/gemini/free/</loc>
     <lastmod>2026-09-07</lastmod>
     <priority>0.6</priority>
@@ -136,6 +161,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/music/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/privacy.html</loc>
     <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
@@ -154,6 +184,11 @@
     <loc>https://ai.howtopackbook.com/tools/capcut/</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/tts/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/video/</loc>

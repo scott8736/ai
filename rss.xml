@@ -5,14 +5,42 @@
   <link>https://ai.howtopackbook.com/</link>
   <description>AI 도구의 요금·발급·사용법을 공식 페이지로 직접 확인해 정리하는 한국어 정보 사이트</description>
   <language>ko</language>
-  <lastBuildDate>Sat, 12 Sep 2026 14:57:21 +0900</lastBuildDate>
+  <lastBuildDate>Sat, 12 Sep 2026 15:54:28 +0900</lastBuildDate>
   <atom:link href="https://ai.howtopackbook.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>일레븐랩스 요금 - 무료는 출처를 넣어도 수익화가 안 됩니다</title>
+    <link>https://ai.howtopackbook.com/blog/elevenlabs-guide/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/elevenlabs-guide/</guid>
+    <pubDate>Sat, 12 Sep 2026 09:00:00 +0900</pubDate>
+    <description>일레븐랩스 무료 플랜은 상업적 이용이 금지입니다. 제목에 elevenlabs.io를 넣는 것은 비상업적으로 공개할 때의 의무지 수익화 조건이 아닙니다. 상업 라이선스는 월 6달러 Starter부터. 한국어는 공식 지원하지만 한국어 원어민 음성을 골라야 합니다. 2026년 9월 12일 공식 약관 확인.</description>
+  </item>
   <item>
     <title>제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다</title>
     <link>https://ai.howtopackbook.com/blog/gemini-api-key/</link>
     <guid isPermaLink="true">https://ai.howtopackbook.com/blog/gemini-api-key/</guid>
     <pubDate>Sat, 12 Sep 2026 09:00:00 +0900</pubDate>
     <description>제미나이 API 키는 Google AI Studio에서 신용카드 없이 받습니다. 약관에 동의하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부되고, 무료 한도 숫자는 더 이상 공개되지 않습니다. 2026년 9월 12일 공식 문서 확인.</description>
+  </item>
+  <item>
+    <title>수노(Suno) 요금 - 500곡을 만들어도 상업적으로 쓸 수 있는 건 월 20곡입니다</title>
+    <link>https://ai.howtopackbook.com/blog/suno-guide/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/suno-guide/</guid>
+    <pubDate>Sat, 12 Sep 2026 09:00:00 +0900</pubDate>
+    <description>Suno Pro는 월 10달러에 2,500크레딧, 500곡을 만들 수 있습니다. 그런데 2026년 9월 3일 약관 개정으로 상업적 이용 기준이 다운로드로 바뀌어서, 실제로 쓸 수 있는 건 월 20곡입니다. 무료로 만든 곡은 나중에 구독해도 소급되지 않습니다. 2026년 9월 12일 공식 약관 확인.</description>
+  </item>
+  <item>
+    <title>타입캐스트 요금 - 같은 크레딧으로 한국어가 1.65배 깁니다</title>
+    <link>https://ai.howtopackbook.com/blog/typecast-guide/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/typecast-guide/</guid>
+    <pubDate>Sat, 12 Sep 2026 09:00:00 +0900</pubDate>
+    <description>타입캐스트는 글자 수로 과금해서 한국어가 유리합니다. 같은 30,000크레딧이 한국어 약 60분, 영어 약 35분으로 공식 환산됩니다. 원화 결제가 되고 유튜브 수익화를 문자 그대로 명시합니다. 다만 감정 조절은 월 39,000원 프로부터이고 크레딧 이월이 없습니다. 2026년 9월 12일 공식 약관 확인.</description>
+  </item>
+  <item>
+    <title>발로란트 AI 도구 - 경기 중에 알려주면 정지, 끝나고 알려주면 허용</title>
+    <link>https://ai.howtopackbook.com/blog/valorant-ai/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/valorant-ai/</guid>
+    <pubDate>Sat, 12 Sep 2026 09:00:00 +0900</pubDate>
+    <description>발로란트 서드파티 도구의 판별 기준은 라이엇 정책 원문에 적혀 있습니다. 경기 중 즉시 이득을 주면 금지, 끝난 뒤 복기시키면 허용입니다. 공식 API에는 실시간 경기 엔드포인트가 아예 없어서, 실시간 적 정보를 광고하는 앱은 정의상 비공식입니다. 2026년 9월 1일부터 칼픽 프로그램도 제재됩니다. 2026년 9월 12일 공식 문서 확인.</description>
   </item>
   <item>
     <title>유튜브 API 키 발급방법 - 하루 검색 100회, 요금은 청구되지 않습니다</title>

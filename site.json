@@ -15,7 +15,6 @@
     "메뉴에 나오지 않습니다. 글이 한 편이라도 생기면 자동으로 올라옵니다.",
     "빈 '준비중' 페이지를 만들지 않는 이유입니다."
   ],
-
   "site": {
     "base": "https://ai.howtopackbook.com",
     "name": "AI 도구 연구소",
@@ -24,7 +23,6 @@
     "locale": "ko-KR",
     "desc": "AI 도구의 요금·발급·사용법을 공식 페이지로 직접 확인해 정리하는 한국어 정보 사이트"
   },
-
   "categories": [
     {
       "slug": "ai",
@@ -88,33 +86,41 @@
     {
       "slug": "music",
       "label": "뮤직",
-      "title": "음악 생성 AI - 요금과 사용법",
-      "desc": "AI 작곡·음악 생성 서비스의 요금과 사용법을 정리합니다.",
+      "title": "음악 생성 AI - 수노 요금과 상업적 이용",
+      "desc": "AI로 만든 곡을 유튜브에 올려도 되는지, 어느 요금제부터 상업적 이용이 열리는지 공식 약관 기준으로 정리했습니다.",
       "menu": true,
-      "pages": []
+      "pages": [
+        "/blog/suno-guide/"
+      ]
     },
     {
       "slug": "tts",
       "label": "TTS",
-      "title": "TTS 음성합성 - 요금과 사용법",
-      "desc": "AI 음성합성(TTS) 서비스의 요금, 한국어 지원, 상업적 이용 가능 범위를 정리합니다.",
+      "title": "TTS 음성합성 - 일레븐랩스, 타입캐스트 요금과 상업적 이용",
+      "desc": "AI 음성합성 서비스의 요금, 한국어 지원, 유튜브 수익 창출에 써도 되는 범위를 공식 문서와 약관으로 확인해 정리했습니다.",
       "menu": true,
-      "pages": []
+      "pages": [
+        "/blog/elevenlabs-guide/",
+        "/blog/typecast-guide/"
+      ]
     },
     {
       "slug": "game",
       "label": "게임",
-      "title": "게임 AI 도구 - 요금과 사용법",
-      "desc": "게임 제작과 플레이에 쓰는 AI 도구를 정리합니다.",
+      "title": "게임 AI 도구 - 발로란트 분석·코칭과 제재 경계",
+      "desc": "게임에 쓰는 AI 도구 중 무엇이 허용되고 무엇이 계정 정지 사유인지, 공식 정책 원문 기준으로 정리했습니다.",
       "menu": true,
-      "pages": []
+      "pages": [
+        "/blog/valorant-ai/"
+      ]
     }
   ],
-
   "nav_extra": [
-    { "href": "/blog/", "label": "블로그" }
+    {
+      "href": "/blog/",
+      "label": "블로그"
+    }
   ],
-
   "footer_cols": [
     {
       "title": "카테고리",
@@ -123,25 +129,58 @@
     {
       "title": "사이트",
       "links": [
-        { "href": "/blog/", "label": "블로그" },
-        { "href": "/discount/", "label": "할인 모음" },
-        { "href": "/about/", "label": "소개" },
-        { "href": "/privacy", "label": "개인정보처리방침" },
-        { "href": "/terms", "label": "이용약관" },
-        { "href": "/contact", "label": "문의" }
+        {
+          "href": "/blog/",
+          "label": "블로그"
+        },
+        {
+          "href": "/discount/",
+          "label": "할인 모음"
+        },
+        {
+          "href": "/about/",
+          "label": "소개"
+        },
+        {
+          "href": "/privacy",
+          "label": "개인정보처리방침"
+        },
+        {
+          "href": "/terms",
+          "label": "이용약관"
+        },
+        {
+          "href": "/contact",
+          "label": "문의"
+        }
       ]
     },
     {
       "title": "공식",
       "links": [
-        { "href": "https://gemini.google/kr/subscriptions/", "label": "Gemini ↗", "ext": true },
-        { "href": "https://openai.com/chatgpt/pricing/", "label": "ChatGPT ↗", "ext": true },
-        { "href": "https://claude.com/pricing", "label": "Claude ↗", "ext": true },
-        { "href": "https://ai.google.dev/", "label": "Gemini API ↗", "ext": true }
+        {
+          "href": "https://gemini.google/kr/subscriptions/",
+          "label": "Gemini ↗",
+          "ext": true
+        },
+        {
+          "href": "https://openai.com/chatgpt/pricing/",
+          "label": "ChatGPT ↗",
+          "ext": true
+        },
+        {
+          "href": "https://claude.com/pricing",
+          "label": "Claude ↗",
+          "ext": true
+        },
+        {
+          "href": "https://ai.google.dev/",
+          "label": "Gemini API ↗",
+          "ext": true
+        }
       ]
     }
   ],
-
   "sitemap_exclude": [
     "/404.html"
   ]

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>발로란트 AI 도구 - 경기 중에 알려주면 정지, 끝나고 알려주면 허용 | AI 도구 연구소</title>
+<meta name="description" content="발로란트 서드파티 도구의 판별 기준은 라이엇 정책 원문에 적혀 있습니다. 경기 중 즉시 이득을 주면 금지, 끝난 뒤 복기시키면 허용입니다. 공식 API에는 실시간 경기 엔드포인트가 아예 없어서, 실시간 적 정보를 광고하는 앱은 정의상 비공식입니다. 2026년 9월 1일부터 칼픽 프로그램도 제재됩니다. 2026년 9월 12일 공식 문서 확인.">
+<link rel="canonical" href="https://ai.howtopackbook.com/blog/valorant-ai/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+<meta name="cat" content="발로란트">
+<meta name="kicker" content="도구·제재">
+<meta name="posted" content="2026-09-12">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 도구 연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://ai.howtopackbook.com/blog/valorant-ai/">
+<meta property="og:title" content="발로란트 AI 도구 - 경기 중에 알려주면 정지, 끝나고 알려주면 허용">
+<meta property="og:description" content="공식 API에는 실시간 경기 엔드포인트가 없습니다. 실시간 적 정보를 광고하는 앱은 정의상 비공식입니다. 2026년 9월 1일부터 칼픽 프로그램도 제재 대상입니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="발로란트 AI 도구 - 경기 중에 알려주면 정지, 끝나고 알려주면 허용">
+<meta name="twitter:description" content="공식 API에는 실시간 경기 엔드포인트가 없습니다. 실시간 적 정보를 광고하는 앱은 정의상 비공식입니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="AI 도구 연구소" href="https://ai.howtopackbook.com/rss.xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "AI 도구 비교", "item": "https://ai.howtopackbook.com/" },
+        { "@type": "ListItem", "position": 2, "name": "게임", "item": "https://ai.howtopackbook.com/game/" },
+        { "@type": "ListItem", "position": 3, "name": "발로란트 AI 도구", "item": "https://ai.howtopackbook.com/blog/valorant-ai/" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ai.howtopackbook.com/blog/valorant-ai/#webpage",
+      "url": "https://ai.howtopackbook.com/blog/valorant-ai/",
+      "name": "발로란트 AI 도구와 제재 경계",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-09-12",
+      "dateModified": "2026-09-12"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ai.howtopackbook.com/blog/valorant-ai/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "발로란트 전적검색 프로그램을 쓰면 계정이 정지되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "경기가 끝난 뒤 전적과 통계를 보여주는 도구는 라이엇이 승인 가능한 용례로 명시하고 있습니다. 정지 대상이 되는 것은 게임 메모리를 읽는 방식이거나, 경기 중에 즉시 이득을 주거나, 동의하지 않은 상대의 정보를 보여주는 경우입니다. 라이엇은 안전한 앱의 전체 목록을 제공하지 않는다고 밝히면서, 의심스러우면 쓰지 않는 편이 안전하다고 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "발로란트에서 오버레이 프로그램을 써도 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "오버레이 자체가 금지는 아닙니다. 라이엇 공식 FAQ는 API와 게임 클라이언트를 쓰는 오버레이는 계속 동작하지만 메모리를 읽는 외부 도구는 더 이상 작동하지 않는다고 설명합니다. 금지되는 것은 오버레이라는 형태가 아니라 메모리를 읽는 방식과, 지도 일부를 가리거나 경기 중 즉시 이득을 주는 내용입니다. 뱅가드에는 허용 목록이 없다고 공식적으로 못 박혀 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "발로란트 음성 채팅이 녹음되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "오디오 파일은 신고 여부와 관계없이 최소 24시간 보존됩니다. 대화 기록은 신고되거나 위반이 감지되어 제재가 적용된 경우에만 생성됩니다. 신고가 접수되면 오디오 파일은 7일, 제재가 적용되면 2년까지 보관됩니다. 한국은 공식 보관 기간표에 별도 항목이 없고 기타 지역에 해당하는 것으로 읽힙니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "발로란트 분석 도구는 유료가 더 좋나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "대표적인 두 서비스는 유료로 올려도 분석 기능이 열리지 않습니다. Tracker.gg와 Blitz.gg 모두 월 3.99달러 프리미엄의 내용이 광고 제거와 프로필 꾸미기입니다. 한국어를 지원하는 OP.GG와 DAK.GG는 유료 표기 자체가 없는 무료 서비스입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI에게 발로란트 치트를 만들어 달라고 하면 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "안 됩니다. 라이엇 전사 안티치트 총괄은 공식 글에서 AI에게 발로란트 트리거봇을 만들어 달라고 하지 말라고 직접 경고했습니다. 만드는 데 쓰는 토큰이 뱅가드가 정지시키는 데 드는 비용보다 많다는 표현을 썼고, 파이썬으로 만든 컬러봇은 너무 많고 조악해서 집계할 가치도 없다고 적었습니다. 부정 행위 계정은 영구 이용 제한이며, 부정 행위자와 함께 플레이한 계정도 180일 제한입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "칼픽 프로그램도 제재 대상인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년 9월 1일 패치 13.05부터 제재가 시작됐습니다. 공식 한국어 패치 노트는 스트리밍 저격 및 칼픽 프로그램 사용이 감지되면 일시적 게임 이용 제한을 받고, 적발이 반복되면 영구 정지로 강화된다고 명시합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">AI Pack <span class="brand__sep">/</span> AI 도구 연구소</span>
+    </a>
+    <!--NAV-->
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/music/">뮤직</a>
+      <a href="/tts/">TTS</a>
+      <a href="/game/">게임</a>
+      <a href="/blog/">블로그</a>
+    </nav>
+    <!--/NAV-->
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <!--MNAV-->
+    <div class="wrap mobile-nav__list">
+      <a href="/">전체 비교</a>
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/music/">뮤직</a>
+      <a href="/tts/">TTS</a>
+      <a href="/game/">게임</a>
+      <a href="/blog/">블로그</a>
+      <a href="/discount/">할인 모음</a>
+    </div>
+    <!--/MNAV-->
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 도구 비교</a> <span class="crumb__sep">›</span> <a href="/game/">게임</a> <span class="crumb__sep">›</span> <span>발로란트 AI 도구</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#ff4655" aria-hidden="true">V</span>
+      <span class="eyebrow__label" style="color:#ff4655">VALORANT</span>
+    </div>
+    <h1>발로란트 AI 도구 — 경기 중에 알려주면 정지, 끝나고 알려주면 허용입니다</h1>
+    <p class="page-hero__lead"><b>기준은 라이엇이 정책 원문에 한 문장으로 써 뒀습니다.</b> 경기 중에 <b>"지금 여기로 가라"</b>처럼 즉시 행동을 바꾸게 하면 금지, <b>경기가 끝난 뒤 복기시키고 가르치면</b> 허용입니다. 더 확실한 판별법도 있습니다 — <b>공식 API에는 진행 중인 경기의 적 정보를 주는 기능이 아예 없습니다.</b> 실시간 적 전적을 광고하는 앱은 정의상 공식 경로가 아닙니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ 라이엇 정책 원문</span>
+      <span class="chip">✓ 9월 1일 칼픽 제재</span>
+      <span class="chip">✓ 유료=광고 제거뿐</span>
+      <span class="chip">✓ 9월 12일 확인</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:36px;padding-bottom:40px">
+    <div class="prose">
+
+      <h2>한 줄 요약</h2>
+      <p>
+        <b>전적검색·리플레이 분석처럼 경기가 끝난 뒤 보는 도구는 괜찮습니다.</b>
+        라이엇이 승인 가능한 용례로 <b>"자신의 전적과 통계를 볼 수 있게 하는 훈련 도구"</b>를 직접 적어 뒀습니다.
+      </p>
+      <p>
+        <b>위험한 건 경기 중에 무언가를 알려주는 쪽입니다.</b>
+        특히 <b>2026년 9월 1일부터 칼픽(인스타락) 프로그램도 제재 대상</b>이 됐습니다.
+        이전까지 "이건 치트는 아니잖아"로 통하던 영역이 이번에 막혔습니다.
+      </p>
+
+      <div class="ad" data-ad="top"><div class="ad__box"></div></div>
+
+      <h2>★ 판별 기준 — 라이엇이 쓴 문장 그대로</h2>
+      <p>
+        개발자 정책에 <b>승인되지 않는 용례</b>가 나열되어 있는데, 첫 줄이 기준 전체를 요약합니다.
+      </p>
+      <div class="tip">
+        <b>"In-game apps and overlays that include any real-time data that would improve a player's
+        performance immediately by altering player behavior (i.e. 'go here now'),
+        <u>vs altering it upon reflection, learning and coaching the player game over game</u>."</b>
+        <br><br>
+        — 라이엇 개발자 정책, 발로란트
+      </div>
+      <p>
+        <b>"지금 여기로 가라" 대 "경기가 끝난 뒤 복기·학습"</b>. 이 대비가 전부입니다.
+        같은 정책에 나열된 나머지 금지 항목도 이 기준의 변형입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>금지 (승인 불가)</th><th>허용 (옵트인 시)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>경기 중 즉시 이득을 주는 실시간 데이터</td><td>플레이어 전적 표시</td></tr>
+            <tr><td><b>지도 일부를 가리는 고정 오버레이</b></td><td><b>자기 경기 기록·통계를 보는 훈련 도구</b></td></tr>
+            <tr><td><b>스카우팅</b> — 경기 시작 전에 상대 전적 보기</td><td>파티 구인(LFG) 도구</td></tr>
+            <tr><td>비공개·개인용으로만 만든 앱</td><td>방송 보조(전적 불러오기 등)</td></tr>
+            <tr><td>상점 추적 — <b>API에 기능 자체가 없음</b></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        게임 무결성 조항도 따로 있습니다 — <b>불공정한 이득을 만들면 안 되고</b>,
+        <b>게임의 판단을 대신 내려서는 안 되며</b>(중요한 판단을 강조하는 것까지는 가능),
+        <b>MMR·ELO 계산기 같은 공식 랭크 대체물</b>을 만들면 안 되고,
+        <b>게임이 의도적으로 숨긴 플레이어</b>를 식별·분석해서는 안 됩니다.
+      </p>
+
+      <h2>★ 가장 확실한 판별법 — 공식 API에 실시간 기능이 없습니다</h2>
+      <p>
+        <b>정책 문구를 외울 필요 없이 이것만 알면 됩니다.</b>
+        발로란트 공식 API는 네 개가 전부입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>API</th><th>주는 것</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>VAL-CONTENT-V1</td><td>에이전트·맵 같은 콘텐츠 정보</td></tr>
+            <tr><td>VAL-MATCH-V1</td><td><b>종료된</b> 경기 조회·매치리스트</td></tr>
+            <tr><td>VAL-RANKED-V1</td><td>리더보드</td></tr>
+            <tr><td>VAL-STATUS-V1</td><td>서버 상태</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>진행 중인 경기의 적 정보를 주는 엔드포인트가 존재하지 않습니다.</b>
+        그래서 <b>"실시간으로 상대 전적을 보여준다", "라운드 시작 전에 팀원 정보를 알려준다"고
+        광고하는 앱은 정의상 공식 경로를 쓰고 있지 않습니다.</b>
+        공식 API로는 물리적으로 불가능한 기능이기 때문입니다.
+      </p>
+      <p>
+        추가로 모든 발로란트 앱은 <b>RSO(Riot Sign On) 옵트인</b>이 의무입니다.
+        정책 원문이 <b>"플레이어가 데이터 공유에 동의하지 않았다면
+        그 정보는 웹사이트·앱·게임 오버레이를 통해 다른 플레이어에게 제공되어서는 안 된다"</b>고 적고 있습니다.
+      </p>
+      <div class="tip">
+        <b>"어떤 앱이 안전한가요?"에 대한 라이엇의 공식 답은 "목록을 줄 수 없다"입니다.</b>
+        원문이 <b>"서드파티 개발자가 너무 많아서 어떤 것이 안전한지 전체 목록을 제공할 수 없다"</b>,
+        그리고 <b>"어떤 앱이 여기 해당할 수 있다는 우려가 조금이라도 든다면,
+        안전하게 가서 쓰지 않는 편이 낫다"</b>입니다.
+        <br><br>
+        2023년에 <b>"승인된 앱의 검색 가능한 색인"</b>을 만들겠다고 예고한 적은 있지만,
+        개발자 포털 공개 영역에 그런 목록은 <b>확인되지 않습니다.</b>
+        "공식 승인 목록에서 확인하라"고 적은 글이 있다면 근거가 없습니다.
+      </div>
+
+      <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
+
+      <h2>★ 2026년 9월 1일 — 칼픽 프로그램이 제재 대상이 됐습니다</h2>
+      <p>
+        <b>이 글에서 가장 시의성 있는 부분입니다.</b> 패치 13.05 한국어 공식 노트입니다.
+      </p>
+      <div class="tip">
+        <b>"스트리밍 저격 및 칼픽 프로그램 사용이 감지될 경우 제재가 적용됩니다.
+        해당 프로그램을 사용한 것으로 확인된 플레이어는 일시적 게임 이용 제한 처분을 받게 되며,
+        적발이 반복될 경우 제재 수위가 영구 정지로 강화됩니다."</b>
+        <br><br>
+        — 발로란트 패치 노트 13.05, 2026년 9월 1일
+      </div>
+      <p>
+        <b>"칼픽 프로그램"이 라이엇의 공식 한국어 표현입니다.</b>
+        에이전트 선택창에서 남보다 빨리 눌러주는 프로그램인데,
+        조준을 도와주는 게 아니라서 <b>"이건 치트가 아니다"라는 인식이 있었습니다.</b>
+        이제 아닙니다. 스트림 스나이핑과 같은 줄에서 다뤄집니다.
+      </p>
+      <p>
+        참고로 스트림 스나이핑은 이용약관에도 이미 명시되어 있었습니다 —
+        <b>"상대 플레이어의 생방송을 악용해 다른 플레이어에게 불공정한 이득을 주는 행위"</b>로
+        부정 행위 항목에 들어 있습니다.
+      </p>
+
+      <h2>오버레이는 되나 — 형태가 아니라 방식이 문제입니다</h2>
+      <p>
+        <b>"오버레이 = 무조건 정지"는 사실이 아닙니다.</b> 뱅가드 공식 FAQ가 구분해 줍니다.
+      </p>
+      <div class="tip">
+        <b>"Overlays and internal tools using the API, game client, and in-game APIs should
+        continue to function. <u>External tools reading memory will no longer work</u>,
+        and you'll need to change methods."</b>
+        <br><br>
+        — Riot Vanguard 공식 FAQ
+      </div>
+      <p>
+        <b>금지되는 것은 두 가지이고 서로 별개입니다.</b>
+      </p>
+      <ul>
+        <li><b>방식</b> — 게임 메모리를 읽는 것. 이용약관 7.1이 <b>"서비스가 정보를 저장하는 데 쓰는 메모리 영역을 읽어 정보를 수집하는 비인가 서드파티 프로그램"</b>을 직접 금지합니다.</li>
+        <li><b>내용</b> — 지도를 가리거나, 경기 중 즉시 이득을 주거나, 동의하지 않은 상대 정보를 노출하는 것.</li>
+      </ul>
+      <p>
+        공식 API와 게임 클라이언트를 통해 도는 오버레이는 계속 동작합니다.
+        Overwolf 기반 도구들이 여기 해당하는데, <b>라이엇과 Overwolf 양쪽 승인</b>을 받아야 하고
+        <b>스파이크 타이머를 경기 중에 표시하는 것은 금지</b>되어 있습니다.
+      </p>
+      <div class="tip">
+        <b>허용 목록(allow list)은 없습니다.</b> 공식 FAQ 원문이
+        <b>"아니요 — 뱅가드에는 허용 목록이라는 것이 절대 존재하지 않습니다"</b>이고,
+        <b>"개발자 관계팀은 예외를 만들거나, 허점을 파거나,
+        신비한 허용 목록에 초대하는 비밀 악수를 할 수 없다"</b>는 표현까지 씁니다.
+        "라이엇이 봐준다"는 이야기는 근거가 없습니다.
+      </div>
+      <p>
+        참고로 뱅가드는 <b>커널 모드 드라이버</b>를 쓰고 <b>부팅 시 실행</b>됩니다.
+        PC 구성이 치트에 취약하다고 판단되면 접속 자체가 제한되며(<code>VAN: RESTRICTION</code>),
+        TPM 2.0·UEFI·보안 부팅 설정이 요구됩니다.
+      </p>
+
+      <h2>★ "AI에게 치트를 만들어 달라고 하면?"</h2>
+      <p>
+        <b>라이엇 전사 안티치트 총괄이 공식 글에서 직접 답했습니다.</b>
+        요즘 코딩 에이전트로 치트를 만드는 시도가 늘어난 것에 대한 반응입니다.
+      </p>
+      <div class="tip">
+        <b>"Seriously, don't ask AI to make a VALORANT triggerbot.
+        <u>You will spend more tokens making it than Vanguard will spend banning you.</u>
+        I cannot stress enough how sad the agent subscription → valorant ban pipeline is."</b>
+        <br><br>
+        같은 글에서: <b>"bans for local python colorbots
+        (<u>AI's favorite thing to make for VALORANT</u>) are not represented here,
+        because frankly, <u>there are too many of them and they are too dumb to be worth counting.</u>"</b>
+        <br><br>
+        — Phillip Koskinas, 라이엇 안티치트 총괄, 2026년 6월
+      </div>
+      <p>
+        기술적으로도 설명해 뒀습니다. 화면을 읽어 적 윤곽을 찾아내는 방식을
+        <b>픽셀봇(컬러봇)</b>이라 부르는데, 마우스 입력을 대신 넣어야 하는 이유가
+        <b>"뱅가드가 주 입력장치가 아닌 주변기기의 입력을 아예 거부하기 때문"</b>이라고 적혀 있습니다.
+        그리고 <b>"설치하기 쉬운 만큼 탐지하기도 쉬워서 대부분 빠르게 처리했다"</b>고 덧붙입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>행위</th><th>공식 제재</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>자동 클릭 프로그램, <b>조준봇</b>, 기타 비인가 하드웨어·소프트웨어</td><td><b>계정 영구 이용 제한</b></td></tr>
+            <tr><td><b>부정 행위자와 같이 게임</b></td><td><b>180일 이용 제한</b></td></tr>
+            <tr><td>칼픽·스트림 스나이핑 프로그램</td><td>일시 제한 → 반복 시 영구</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>치트 종류별로 며칠이라는 표는 라이엇이 공개하지 않습니다.</b>
+        공식 수치는 위 두 줄("치팅 = 영구", "치터와 큐 = 180일")뿐입니다.
+        다른 글에 적힌 세부 밴 기간표는 근거를 확인하셔야 합니다.
+      </p>
+
+      <h2>★ 한국은 "영혼 단위"로 밴이 먹힌다</h2>
+      <p>
+        라이엇이 지역별 치터 비율을 설명하면서 <b>한국을 따로 언급</b>한 대목이 있습니다.
+      </p>
+      <div class="tip">
+        <b>"KR (Korea) requires national identity numbers for gaming, which opens up a convenient
+        opportunity to <u>ban cheaters at the 'soul' level</u>. It is remarkably effective at keeping
+        them out of game for longer periods of time — <u>cheaters have to buy whole new identities
+        to keep playing, so the bans really stick.</u>"</b>
+        <br><br>
+        — 라이엇 공식 개발 블로그, 2025년 2월
+      </div>
+      <p>
+        <b>실명 확인 제도 때문에 한국에서는 밴이 실제로 붙어 있는다</b>는 뜻입니다.
+        다른 지역처럼 계정만 새로 만들어 돌아오는 게 어렵습니다.
+        <b>한국 플레이어에게는 "한 번 날아가면 정말 끝"에 가깝다는 의미</b>라,
+        위험한 앱을 시험 삼아 써보는 비용이 다른 지역보다 큽니다.
+      </p>
+      <p>
+        참고로 라이엇이 공개한 최근 수치는 이렇습니다 —
+        2026년 6월 기준 <b>PC 랭크 경기의 약 0.7%</b>에 치터가 있고,
+        2025년 1월 10~13일 주말에는 <b>분당 약 7건</b>의 정지가 이뤄져 기록을 세웠습니다.
+      </p>
+
+      <h2>실제로 쓸 만한 도구 — 그리고 돈 낼 필요가 없다는 사실</h2>
+      <p>
+        <b>한국 독자가 가장 모르는 지점부터 말씀드립니다. 유료로 올려도 분석 기능이 안 열립니다.</b>
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>서비스</th><th>요금</th><th>유료로 열리는 것</th><th>한국어</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>OP.GG</b></td><td><b>무료</b></td><td>—</td><td><b>완전 지원</b></td></tr>
+            <tr><td><b>DAK.GG</b></td><td><b>무료</b></td><td>—</td><td><b>완전 지원</b></td></tr>
+            <tr><td>Tracker.gg</td><td>$3.99/월</td><td><b>광고 제거 + 프로필 꾸미기</b></td><td>없음</td></tr>
+            <tr><td>Blitz.gg</td><td>$3.99/월</td><td><b>광고 제거</b></td><td>UI만</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>Tracker.gg와 Blitz.gg의 프리미엄은 둘 다 광고 제거입니다.</b>
+        분석이 더 깊어지지 않습니다.
+        한국어를 쓰신다면 <b>OP.GG</b>(리플레이 분석·2D 리플레이 베타 제공)나
+        <b>DAK.GG</b>로 충분하고, 둘 다 <b>라이엇 로그인 옵트인</b>을 제대로 구현하고 있습니다.
+      </p>
+      <p>
+        <b>AI 코칭을 표방하는 유료 서비스</b>는 사실상 <b>UpForge</b> 정도입니다
+        (Plus $14.99 / Pro $24.99, AI 로드맵 $49/10주).
+        데스크톱이 화면을 녹화해 두고 <b>경기가 끝난 10~30분 뒤에 디브리핑</b>을 주는 방식이라,
+        라이엇의 "복기·학습" 기준에 정확히 들어맞습니다.
+        다만 사이트 표기가 <b>플레이어 1,208명 · 디브리핑 603건</b>으로 아주 작은 서비스입니다.
+      </p>
+      <p>
+        <b>에임 훈련</b>은 게임 밖에서 도는 별도 프로그램이라 정책 리스크가 아예 없습니다 —
+        <b>Aimlabs</b>(본편 무료, Aimlabs+ 월 $7~10)와
+        <b>KovaaK's</b>(스팀 <b>₩10,500</b> 매절)입니다.
+        <b>원화 결제가 확인된 건 KovaaK's 하나뿐</b>입니다.
+      </p>
+
+      <h2>이런 앱은 피하세요</h2>
+      <p>
+        구글 플레이에 있는 <b>ValoCoach.AI</b>를 예로 들면,
+        광고 문구를 라이엇 정책과 나란히 놓기만 해도 답이 나옵니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>앱 광고 문구</th><th>충돌하는 정책</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>"Insta Locker — 누구보다 먼저 에이전트 선택"</td><td>패치 13.05 <b>칼픽 프로그램 제재</b></td></tr>
+            <tr><td>"라운드 시작 전에 모든 플레이어 실시간 정보"</td><td><b>스카우팅</b> = 승인 불가</td></tr>
+            <tr><td>"상점 추적기"</td><td><b>"API에 기술 자체가 없음"</b> = 승인 불가</td></tr>
+            <tr><td>"실시간 가이드"</td><td>경기 중 즉시 이득 = 승인 불가</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>네 기능 모두 공식 API로는 만들 수 없습니다.</b>
+        변경 이력에 "riot session persistence를 고쳤다"는 문구가 있는데,
+        공식 RSO 인증이 아니라 <b>플레이어의 라이엇 세션을 붙들고 있는 방식</b>이라는 뜻으로 읽힙니다.
+      </p>
+      <div class="tip">
+        <b>문 닫았는데 아직 추천되는 서비스들이 있습니다.</b>
+        <b>ProGuides</b>(2024년 5월 종료), <b>Gamer Sensei</b>(corsair.com으로 리다이렉트),
+        <b>Reflexion</b>(도메인 해석 자체가 안 됨)은 지금 존재하지 않습니다.
+        <b>Aimlab</b>은 <code>aimlabs.com</code>으로 주소가 바뀌었습니다.
+        <b>Mobalytics</b>는 웹 게임 목록에서 발로란트가 빠졌습니다.
+        <br><br>
+        2~3년 전 글을 그대로 옮긴 목록이 아직 검색에 많이 잡힙니다.
+      </div>
+
+      <h2>음성 채팅은 녹음되나</h2>
+      <p>
+        <b>오디오 파일은 신고 여부와 관계없이 최소 24시간 보존됩니다.</b>
+        다만 <b>대화 기록(텍스트로 옮긴 것)은 신고되거나 위반이 감지된 경우에만 생성</b>됩니다.
+        공식 한국어 문서 표현으로는 <b>"대부분의 대화는 짧은 시간 후 자동 삭제되며,
+        대화 기록의 경우에는 애초에 생성되지 않습니다."</b>
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>구분</th><th>보관</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>오디오 파일 (기본)</td><td><b>최소 24시간</b></td></tr>
+            <tr><td>오디오 파일 (신고 접수 시)</td><td>7일</td></tr>
+            <tr><td>오디오 파일 (제재 적용 시)</td><td>2년</td></tr>
+            <tr><td>대화 기록 (신고 시)</td><td>2년 <span class="muted">(브라질만 7년)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <b>한국은 공식 보관 기간표에 별도 항목이 없습니다.</b>
+        북미·라틴아메리카·EU·EMEA·브라질이 따로 적혀 있고 나머지는 "기타"인데,
+        한국은 여기 해당하는 것으로 읽힙니다. <b>표에 명시되어 있지는 않습니다.</b>
+      </p>
+      <div class="tip">
+        <b>한국어 음성이 AI 평가 대상인지는 확인되지 않습니다.</b>
+        라이엇이 발표한 음성 평가 확장은 <b>전부 "영어 한정"</b>입니다 —
+        2023년 2월 북미 영어 베타로 시작해 APAC·LATAM에 <b>영어 베타</b>를 도입하고,
+        연말까지 <b>영어 평가</b>를 전 세계에 정식 도입한 뒤 <b>"추후 다른 언어도 지원"</b>하겠다는 내용입니다.
+        <br><br>
+        <b>한국어 음성이 평가된다고 밝힌 라이엇 공식 문서는 없습니다.</b>
+        한국어 고객지원 문서가 음성 평가 소프트웨어를 설명하는 것은
+        <b>시스템의 존재를 안내한 것</b>이지 한국어가 평가된다는 뜻이 아닙니다.
+      </div>
+      <p>
+        한 가지 한국 관련 변화는 있습니다. 라이엇게임즈코리아의 개인정보 처리방침이
+        <b>2026년 7월 19일 시행으로 개정</b>되면서
+        <b>"자동화된 시스템 처리에 대한 이용자의 권리 보장 내용"</b>이 추가됐습니다.
+        AI가 자동으로 내리는 제재에 대한 권리가 한국 이용자에게 명문화된 것입니다.
+      </p>
+
+      <h2>정지당했다면</h2>
+      <p>
+        <b>이의신청 경로가 있습니다.</b> 이용약관 7.1이
+        <b>"저희가 실수했다고 생각하시면 플레이어 지원팀에 문의해 주십시오. 사례를 검토하겠습니다"</b>라고 적고 있고,
+        개인정보 처리방침은 <b>"불만 처리 절차를 통해 결정에 이의를 제기할 수 있으며,
+        상담원이 사례를 검토해 최종 수동 판단을 내릴 수 있다"</b>고 명시합니다.
+      </p>
+      <p>
+        한국어 티켓 창구는 <a href="https://support.riotgames.com/ko-kr/riot/tickets/submit" target="_blank" rel="noopener">support.riotgames.com/ko-kr/riot/tickets/submit ↗</a> 입니다.
+      </p>
+      <div class="tip">
+        <b>"치팅 영구정지는 절대 안 풀린다"는 라이엇 공식 문구는 찾지 못했습니다.</b>
+        비슷한 강경 표현("영구정지는 거의 해제되지 않는다")은
+        <b>리그 오브 레전드의 언행 제재 관련 옛 문서</b>에만 있고,
+        발로란트 치팅 제재 정책이 아닙니다.
+        다른 블로그가 이걸 발로란트에 갖다 붙이는 경우가 있는데 출처가 다릅니다.
+        <br><br>
+        이용약관에는 결정의 최종성을 선언하는 조항이 없고, 오히려 재검토와 분쟁해결 경로가 적혀 있습니다.
+        그렇다고 잘 풀린다는 뜻은 아닙니다 — <b>"공식 근거가 없다"까지가 확인된 사실</b>입니다.
+      </div>
+
+      <div class="tip">
+        <b>2026년 9월 12일 라이엇 공식 문서 확인 기준입니다.</b>
+        <b>서드파티 서비스는 문 닫거나 정책이 바뀌는 일이 잦습니다.</b>
+        도구를 쓰기 전에
+        <a href="https://support.riotgames.com/ko-kr/league-of-legends/security/third-party-applications" target="_blank" rel="noopener">라이엇 서드파티 앱 안내 ↗</a>와
+        <a href="https://developer.riotgames.com/docs/valorant" target="_blank" rel="noopener">개발자 정책 ↗</a>을 확인하세요.
+        <b>라이엇의 공식 조언은 "조금이라도 의심되면 쓰지 말라"입니다.</b>
+      </div>
+
+      <h2>이 글을 쓰면서</h2>
+      <p>
+        "어떤 앱이 안전한가"를 목록으로 만들어 드리려고 시작했습니다.
+        <b>그런데 라이엇이 목록을 줄 수 없다고 공식적으로 적어 놨습니다.</b>
+        서드파티가 너무 많아서 전체 목록을 제공할 수 없다는 것입니다.
+      </p>
+      <p>
+        목록이 안 되면 <b>기준</b>을 드려야 하는데, 정책을 읽다 보니
+        기준도 라이엇이 이미 한 문장으로 써 놨더군요 —
+        <b>"경기 중에 즉시 행동을 바꾸게 하는가, 끝난 뒤 복기시키는가."</b>
+        여기에 더 강력한 판별법이 하나 붙었습니다.
+        <b>공식 API에 실시간 경기 엔드포인트가 아예 없다</b>는 사실입니다.
+        앱 설명에 "실시간"과 "상대 정보"가 같이 들어 있으면 그걸로 끝납니다.
+      </p>
+      <p>
+        예상 못 했던 건 <b>돈 이야기</b>였습니다.
+        Tracker.gg와 Blitz.gg의 유료 플랜을 열어봤더니 <b>둘 다 광고 제거</b>였습니다.
+        분석 도구인데 유료로 올려도 분석이 안 깊어집니다.
+        한국어를 쓰는 OP.GG와 DAK.GG는 아예 무료고요.
+        <b>"발로란트 분석 도구 추천"으로 검색해 들어온 사람에게 가장 쓸모 있는 답이
+        "돈 낼 필요 없습니다"가 될 줄은 몰랐습니다.</b>
+      </p>
+      <p>
+        마지막으로, 라이엇 안티치트 총괄이 AI로 치트를 만드는 것에 대해
+        <b>"만드는 데 쓰는 토큰이 우리가 정지시키는 데 드는 비용보다 많을 것"</b>이라고 쓴 대목이
+        인상적이었습니다. 그리고 한국은 실명제 때문에 밴이 <b>"영혼 단위"</b>로 붙는다는 언급도요.
+        <b>한국 플레이어에게는 시험 삼아 써보는 비용이 다른 지역보다 훨씬 큽니다.</b>
+      </p>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="bottom"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="next-up">
+      <div class="next-up__title">이어서 볼 만한 것</div>
+      <div class="next-up__grid">
+        <a class="next-up__card" href="/game/">
+          <b>게임 AI 글 모음</b>
+          <span>허용되는 도구와 제재 경계</span>
+        </a>
+        <a class="next-up__card" href="/blog/elevenlabs-guide/">
+          <b>일레븐랩스 요금</b>
+          <span>게임 영상에 넣을 AI 음성</span>
+        </a>
+        <a class="next-up__card" href="/blog/">
+          <b>전체 글 목록</b>
+          <span>요금표에 안 적혀 있는 것들</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq__inner">
+      <div>
+        <h2>자주 묻는 질문</h2>
+        <p class="faq__lead">2026년 9월 12일 라이엇 공식 문서 확인 기준입니다.</p>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <h3 class="faq__q">발로란트 전적검색 프로그램을 쓰면 계정이 정지되나요?</h3>
+          <p class="faq__a">경기가 끝난 뒤 전적과 통계를 보여주는 도구는 라이엇이 승인 가능한 용례로 명시하고 있습니다. 정지 대상이 되는 것은 게임 메모리를 읽는 방식이거나, 경기 중에 즉시 이득을 주거나, 동의하지 않은 상대의 정보를 보여주는 경우입니다. 라이엇은 안전한 앱의 전체 목록을 제공하지 않는다고 밝히면서, 의심스러우면 쓰지 않는 편이 안전하다고 안내합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">발로란트에서 오버레이 프로그램을 써도 되나요?</h3>
+          <p class="faq__a">오버레이 자체가 금지는 아닙니다. 라이엇 공식 FAQ는 API와 게임 클라이언트를 쓰는 오버레이는 계속 동작하지만 메모리를 읽는 외부 도구는 더 이상 작동하지 않는다고 설명합니다. 금지되는 것은 오버레이라는 형태가 아니라 메모리를 읽는 방식과, 지도 일부를 가리거나 경기 중 즉시 이득을 주는 내용입니다. 뱅가드에는 허용 목록이 없다고 공식적으로 못 박혀 있습니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">발로란트 음성 채팅이 녹음되나요?</h3>
+          <p class="faq__a">오디오 파일은 신고 여부와 관계없이 최소 24시간 보존됩니다. 대화 기록은 신고되거나 위반이 감지되어 제재가 적용된 경우에만 생성됩니다. 신고가 접수되면 오디오 파일은 7일, 제재가 적용되면 2년까지 보관됩니다. 한국은 공식 보관 기간표에 별도 항목이 없고 기타 지역에 해당하는 것으로 읽힙니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">발로란트 분석 도구는 유료가 더 좋나요?</h3>
+          <p class="faq__a">대표적인 두 서비스는 유료로 올려도 분석 기능이 열리지 않습니다. Tracker.gg와 Blitz.gg 모두 월 3.99달러 프리미엄의 내용이 광고 제거와 프로필 꾸미기입니다. 한국어를 지원하는 OP.GG와 DAK.GG는 유료 표기 자체가 없는 무료 서비스입니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">AI에게 발로란트 치트를 만들어 달라고 하면 되나요?</h3>
+          <p class="faq__a">안 됩니다. 라이엇 전사 안티치트 총괄은 공식 글에서 AI에게 발로란트 트리거봇을 만들어 달라고 하지 말라고 직접 경고했습니다. 만드는 데 쓰는 토큰이 뱅가드가 정지시키는 데 드는 비용보다 많다는 표현을 썼고, 파이썬으로 만든 컬러봇은 너무 많고 조악해서 집계할 가치도 없다고 적었습니다. 부정 행위 계정은 영구 이용 제한이며, 부정 행위자와 함께 플레이한 계정도 180일 제한입니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">칼픽 프로그램도 제재 대상인가요?</h3>
+          <p class="faq__a">2026년 9월 1일 패치 13.05부터 제재가 시작됐습니다. 공식 한국어 패치 노트는 스트리밍 저격 및 칼픽 프로그램 사용이 감지되면 일시적 게임 이용 제한을 받고, 적발이 반복되면 영구 정지로 강화된다고 명시합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:40px;padding-bottom:56px">
+    <div class="cta">
+      <div class="cta__q">게임 영상을 만드신다면</div>
+      <div class="cta__d">내레이션에 쓸 AI 음성과 배경음악도 상업적 이용 조건이 따로 있습니다. 요금과 함께 정리해 뒀습니다.</div>
+      <a class="cta__btn" href="/tts/">TTS 요금 보기</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">AI Pack / AI 도구 연구소</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 여기 소개하는 어떤 회사와도 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 페이지를 확인하세요.</p>
+      </div>
+      <!--FOOTLINKS-->
+    <div class="link-cols">
+        <div class="link-col">
+          <h2 class="link-col__title">카테고리</h2>
+          <ul>
+            <li><a href="/ai/">AI</a></li>
+            <li><a href="/api/">API</a></li>
+            <li><a href="/video/">영상</a></li>
+            <li><a href="/image/">이미지</a></li>
+            <li><a href="/software/">소프트웨어</a></li>
+            <li><a href="/music/">뮤직</a></li>
+            <li><a href="/tts/">TTS</a></li>
+            <li><a href="/game/">게임</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">사이트</h2>
+          <ul>
+            <li><a href="/blog/">블로그</a></li>
+            <li><a href="/discount/">할인 모음</a></li>
+            <li><a href="/about/">소개</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><a href="/terms">이용약관</a></li>
+            <li><a href="/contact">문의</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">공식</h2>
+          <ul>
+            <li><a href="https://gemini.google/kr/subscriptions/" target="_blank" rel="noopener">Gemini ↗</a></li>
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener">ChatGPT ↗</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude ↗</a></li>
+            <li><a href="https://ai.google.dev/" target="_blank" rel="noopener">Gemini API ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    <!--/FOOTLINKS-->
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
