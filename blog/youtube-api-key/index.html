@@ -17,9 +17,13 @@
 <meta property="og:site_name" content="AI 도구 연구소">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://ai.howtopackbook.com/blog/youtube-api-key/">
+<meta property="og:image" content="https://ai.howtopackbook.com/og/blog-youtube-api-key.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://ai.howtopackbook.com/og/blog-youtube-api-key.png">
 <meta property="og:title" content="유튜브 API 키 발급방법 - 하루 검색 100회, 요금은 청구되지 않습니다">
 <meta property="og:description" content="할당량을 넘겨도 과금되지 않고 403으로 막힙니다. 2026년 6월 1일부터 검색과 업로드가 별도 할당량 버킷으로 분리됐습니다.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="유튜브 API 키 발급방법 - 하루 검색 100회, 요금은 청구되지 않습니다">
 <meta name="twitter:description" content="할당량을 넘겨도 과금되지 않고 403으로 막힙니다. 2026년 6월 1일부터 할당량 체계가 바뀌었습니다.">
 
@@ -225,11 +229,22 @@
       <span class="chip">✓ 9월 12일 확인</span>
     </div>
   </section>
+  <div class="wrap">
+    <!--SHARE-->
+    <div class="share">
+      <span class="share__label">공유</span>
+      <button class="share__btn" type="button" data-copy="https://ai.howtopackbook.com/blog/youtube-api-key/">링크 복사</button>
+      <a class="share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fyoutube-api-key%2F&amp;text=%EC%9C%A0%ED%8A%9C%EB%B8%8C%20API%20%ED%82%A4%20%EB%B0%9C%EA%B8%89%EB%B0%A9%EB%B2%95" target="_blank" rel="noopener">X</a>
+      <a class="share__btn" href="https://share.naver.com/web/shareView?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fyoutube-api-key%2F&amp;title=%EC%9C%A0%ED%8A%9C%EB%B8%8C%20API%20%ED%82%A4%20%EB%B0%9C%EA%B8%89%EB%B0%A9%EB%B2%95" target="_blank" rel="noopener">네이버</a>
+    </div>
+    <!--/SHARE-->
+  </div>
+
 
   <section class="wrap" style="padding-top:36px;padding-bottom:40px">
     <div class="prose">
 
-      <h2>한 줄 요약</h2>
+      <h2 id="한-줄-요약">한 줄 요약</h2>
       <p>
         <b>유튜브 API 키는 무료로 받고, 쓰다가 돈이 청구되는 일은 없습니다.</b>
         YouTube Data API 공식 문서에는 <b>가격표 자체가 없습니다.</b>
@@ -249,7 +264,25 @@
 
       <div class="ad" data-ad="top"><div class="ad__box"></div></div>
 
-      <h2>발급 절차</h2>
+      <!--TOC-->
+      <nav class="toc" aria-label="목차">
+        <div class="toc__title">이 글의 순서</div>
+        <ol class="toc__list">
+          <li><a href="#한-줄-요약">한 줄 요약</a></li>
+          <li><a href="#발급-절차">발급 절차</a></li>
+          <li><a href="#API-키로-되는-것-OAuth가-필요한-것">API 키로 되는 것, OAuth가 필요한 것</a></li>
+          <li><a href="#할당량-2026년-6월에-바뀌었습니다">★ 할당량 — 2026년 6월에 바뀌었습니다</a></li>
+          <li><a href="#할당량을-늘리려면-돈이-아니라-감사입니다">할당량을 늘리려면 — 돈이 아니라 감사입니다</a></li>
+          <li><a href="#OAuth를-붙일-때-걸리는-것들">OAuth를 붙일 때 걸리는 것들</a></li>
+          <li><a href="#오류가-나면-403의-이름부터-봅니다">오류가 나면 — 403의 이름부터 봅니다</a></li>
+          <li><a href="#키-제한-하나만-고를-수-있습니다">키 제한 — 하나만 고를 수 있습니다</a></li>
+          <li><a href="#프론트엔드에-키를-넣으면-안-되는-이유">프론트엔드에 키를 넣으면 안 되는 이유</a></li>
+          <li><a href="#이-글을-쓰면서">이 글을 쓰면서</a></li>
+        </ol>
+      </nav>
+      <!--/TOC-->
+
+      <h2 id="발급-절차">발급 절차</h2>
       <p>
         <b>4단계이고, 세 번째까지만 하면 키는 손에 들어옵니다.</b>
         네 번째(제한 걸기)는 건너뛰어도 동작하지만 구글이 "프로덕션 전에 하라"고 명시한 단계입니다.
@@ -281,7 +314,7 @@
         이 글의 숫자는 전부 영문 원문 기준입니다.
       </div>
 
-      <h2>API 키로 되는 것, OAuth가 필요한 것</h2>
+      <h2 id="API-키로-되는-것-OAuth가-필요한-것">API 키로 되는 것, OAuth가 필요한 것</h2>
       <p>
         여기서 갈리는 기준은 공식 문서에 한 줄로 적혀 있습니다 —
         <b>비공개 사용자 데이터(private user data)를 요청하는가.</b>
@@ -312,7 +345,7 @@
 
       <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
 
-      <h2>★ 할당량 — 2026년 6월에 바뀌었습니다</h2>
+      <h2 id="할당량-2026년-6월에-바뀌었습니다">★ 할당량 — 2026년 6월에 바뀌었습니다</h2>
       <p>
         <b>이 글에서 가장 값어치 있는 부분입니다.</b>
         "유튜브 API 할당량"으로 검색하면 <b>"search.list는 100 units"</b> 라는 설명이 거의 전부인데,
@@ -378,7 +411,7 @@
         낡은 문장이 남아 있습니다. 본문 표와 변경 이력이 정본이니, 요약 위젯을 인용하지 마세요.
       </div>
 
-      <h2>할당량을 늘리려면 — 돈이 아니라 감사입니다</h2>
+      <h2 id="할당량을-늘리려면-돈이-아니라-감사입니다">할당량을 늘리려면 — 돈이 아니라 감사입니다</h2>
       <p>
         기본 할당량보다 더 필요하면 <b>결제가 아니라 규정 준수 감사(Compliance Audit)를 먼저 통과</b>해야 합니다.
         공식 문구가 <b>"추가 할당량을 요청하려면 먼저 감사를 완료해 프로젝트가 YouTube API 서비스 약관을 준수함을 보여야 한다"</b> 입니다.
@@ -401,7 +434,7 @@
         "가능한 한 빨리 연락하겠다"는 표현이 전부라, 다른 글에 적힌 "2~4주"는 근거 없는 추정입니다.
       </p>
 
-      <h2>OAuth를 붙일 때 걸리는 것들</h2>
+      <h2 id="OAuth를-붙일-때-걸리는-것들">OAuth를 붙일 때 걸리는 것들</h2>
       <p>
         공개 데이터만 읽을 거면 이 절은 건너뛰셔도 됩니다.
         업로드나 내 채널 관리를 하려면 세 가지를 미리 알고 시작하는 편이 낫습니다.
@@ -444,7 +477,7 @@
         <b>Your sensitive scopes</b> 와 <b>Your restricted scopes</b> 중 어디로 들어가는지로 바로 갈립니다.
       </div>
 
-      <h2>오류가 나면 — 403의 이름부터 봅니다</h2>
+      <h2 id="오류가-나면-403의-이름부터-봅니다">오류가 나면 — 403의 이름부터 봅니다</h2>
       <p>
         유튜브 API는 <b>대부분의 문제가 403으로 나옵니다.</b> 그래서 HTTP 코드만 보면 구분이 안 됩니다.
         <b>응답 본문의 오류 이름(reason)을 보면 원인이 한 번에 갈립니다.</b>
@@ -477,7 +510,7 @@
         API를 분명히 켰는데도 같은 오류가 계속 나면 프로젝트 상태를 확인해 보세요.
       </p>
 
-      <h2>키 제한 — 하나만 고를 수 있습니다</h2>
+      <h2 id="키-제한-하나만-고를-수-있습니다">키 제한 — 하나만 고를 수 있습니다</h2>
       <p>
         구글은 <b>클라이언트 제한과 API 제한을 둘 다 걸라</b>고 권장하고, 키 생성 절차에도
         <b>"최소 하나의 제한을 추가하라"</b>가 들어 있습니다.
@@ -507,7 +540,7 @@
         <b><code>x-goog-api-key</code> 헤더</b>나 클라이언트 라이브러리를 쓰라는 것입니다.
       </p>
 
-      <h2>프론트엔드에 키를 넣으면 안 되는 이유</h2>
+      <h2 id="프론트엔드에-키를-넣으면-안-되는-이유">프론트엔드에 키를 넣으면 안 되는 이유</h2>
       <p>
         <b>API 키는 "누가" 호출했는지 증명하지 못합니다.</b>
         공식 문서의 표현으로는 <b>표준 API 키는 주체(principal)를 인증하지 않으며</b>,
@@ -544,7 +577,7 @@
         <b>한국어 공식 문서는 아직 구버전 숫자를 보여주고 있으니 영문으로 보셔야 합니다.</b>
       </div>
 
-      <h2>이 글을 쓰면서</h2>
+      <h2 id="이-글을-쓰면서">이 글을 쓰면서</h2>
       <p>
         처음에는 "할당량 10,000이 왜 빨리 닳는가"를 주제로 잡고 있었습니다.
         검색 한 번에 100 units가 깎이니 100번이면 끝난다는, 흔히 아는 그 이야기입니다.

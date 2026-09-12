@@ -28,6 +28,47 @@
     });
   }
 
+  /* ---------- 링크 복사 ---------- */
+
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var url = btn.getAttribute("data-copy");
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = "복사했습니다";
+        btn.classList.add("is-done");
+        setTimeout(function () {
+          btn.textContent = old;
+          btn.classList.remove("is-done");
+        }, 1600);
+      };
+
+      // 클립보드 API 는 https 와 사용자 동작이 있어야 돈다. 안 되면 옛 방식으로
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done, fallback);
+      } else {
+        fallback();
+      }
+
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = url;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          done();
+        } catch (e) {
+          /* 복사가 막힌 환경 — 주소창에서 직접 복사하면 된다 */
+        }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
   /* ---------- 애드센스 ----------
 
      AD_SLOTS 에는 애드센스 콘솔에서 발급받은 "광고 단위 ID"(숫자 10자리)를 넣습니다.

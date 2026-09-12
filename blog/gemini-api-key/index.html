@@ -17,9 +17,13 @@
 <meta property="og:site_name" content="AI 도구 연구소">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:url" content="https://ai.howtopackbook.com/blog/gemini-api-key/">
+<meta property="og:image" content="https://ai.howtopackbook.com/og/blog-gemini-api-key.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://ai.howtopackbook.com/og/blog-gemini-api-key.png">
 <meta property="og:title" content="제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다">
 <meta property="og:description" content="약관 동의만 하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부되고, 무료 한도 숫자는 공개되지 않습니다.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다">
 <meta name="twitter:description" content="약관 동의만 하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부됩니다.">
 
@@ -219,11 +223,22 @@
       <span class="chip">✓ 9월 12일 확인</span>
     </div>
   </section>
+  <div class="wrap">
+    <!--SHARE-->
+    <div class="share">
+      <span class="share__label">공유</span>
+      <button class="share__btn" type="button" data-copy="https://ai.howtopackbook.com/blog/gemini-api-key/">링크 복사</button>
+      <a class="share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fgemini-api-key%2F&amp;text=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%20API%20%ED%82%A4%20%EB%B0%9C%EA%B8%89%EB%B0%A9%EB%B2%95" target="_blank" rel="noopener">X</a>
+      <a class="share__btn" href="https://share.naver.com/web/shareView?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fgemini-api-key%2F&amp;title=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%20API%20%ED%82%A4%20%EB%B0%9C%EA%B8%89%EB%B0%A9%EB%B2%95" target="_blank" rel="noopener">네이버</a>
+    </div>
+    <!--/SHARE-->
+  </div>
+
 
   <section class="wrap" style="padding-top:36px;padding-bottom:40px">
     <div class="prose">
 
-      <h2>한 줄 요약</h2>
+      <h2 id="한-줄-요약">한 줄 요약</h2>
       <p>
         <b><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey ↗</a> 에 구글 계정으로 들어가 약관에 동의하면 끝입니다.</b>
         구글 클라우드 프로젝트와 API 키가 함께 자동으로 만들어집니다. 결제수단을 묻지 않습니다.
@@ -237,7 +252,26 @@
 
       <div class="ad" data-ad="top"><div class="ad__box"></div></div>
 
-      <h2>발급 절차</h2>
+      <!--TOC-->
+      <nav class="toc" aria-label="목차">
+        <div class="toc__title">이 글의 순서</div>
+        <ol class="toc__list">
+          <li><a href="#한-줄-요약">한 줄 요약</a></li>
+          <li><a href="#발급-절차">발급 절차</a></li>
+          <li><a href="#2026년-9월-예전에-받아둔-키가-막힙니다">★ 2026년 9월, 예전에 받아둔 키가 막힙니다</a></li>
+          <li><a href="#무료-한도-숫자가-적혀-있는-글은-지금-전부-틀렸습니다">★ 무료 한도 — 숫자가 적혀 있는 글은 지금 전부 틀렸습니다</a></li>
+          <li><a href="#무료로-쓰면-입력한-내용이-학습에-들어갑니다-한국은-예외가-아닙니다">★ 무료로 쓰면 입력한 내용이 학습에 들어갑니다 (한국은 예외가 아닙니다)</a></li>
+          <li><a href="#유료-전환-5달러-선불부터">유료 전환 — 5달러 선불부터</a></li>
+          <li><a href="#첫-호출-패키지-이름이-바뀌었습니다">첫 호출 — 패키지 이름이 바뀌었습니다</a></li>
+          <li><a href="#막히면-여기부터-봅니다">막히면 여기부터 봅니다</a></li>
+          <li><a href="#키-관리-비밀번호와-같게-다룹니다">키 관리 — 비밀번호와 같게 다룹니다</a></li>
+          <li><a href="#Vertex-AI는-언제-쓰나">Vertex AI는 언제 쓰나</a></li>
+          <li><a href="#이-글을-쓰면서">이 글을 쓰면서</a></li>
+        </ol>
+      </nav>
+      <!--/TOC-->
+
+      <h2 id="발급-절차">발급 절차</h2>
       <p>
         갈림길이 하나 있습니다. <b>구글 클라우드를 한 번도 안 써본 계정이냐, 써본 계정이냐</b>로 절차가 달라집니다.
         대부분의 안내 글이 앞쪽만 설명해서, 뒤쪽에 해당하는 사람이 중간에 막힙니다.
@@ -298,7 +332,7 @@
         버튼 위치는 같으니 영어 이름으로 찾으시는 편이 빠릅니다.
       </div>
 
-      <h2>★ 2026년 9월, 예전에 받아둔 키가 막힙니다</h2>
+      <h2 id="2026년-9월-예전에-받아둔-키가-막힙니다">★ 2026년 9월, 예전에 받아둔 키가 막힙니다</h2>
       <p>
         <b>이게 이 글에서 가장 시급한 부분입니다.</b>
         제미나이 API 키에는 두 종류가 있습니다.
@@ -351,7 +385,7 @@
 
       <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
 
-      <h2>★ 무료 한도 — 숫자가 적혀 있는 글은 지금 전부 틀렸습니다</h2>
+      <h2 id="무료-한도-숫자가-적혀-있는-글은-지금-전부-틀렸습니다">★ 무료 한도 — 숫자가 적혀 있는 글은 지금 전부 틀렸습니다</h2>
       <p>
         "제미나이 API 무료 한도"로 검색하면 <b>분당 15회, 하루 1,500회</b> 같은 숫자가 잔뜩 나옵니다.
         <b>지금 그 숫자의 근거가 공식 문서에 없습니다.</b>
@@ -398,7 +432,7 @@
         </table>
       </div>
 
-      <h2>★ 무료로 쓰면 입력한 내용이 학습에 들어갑니다 (한국은 예외가 아닙니다)</h2>
+      <h2 id="무료로-쓰면-입력한-내용이-학습에-들어갑니다-한국은-예외가-아닙니다">★ 무료로 쓰면 입력한 내용이 학습에 들어갑니다 (한국은 예외가 아닙니다)</h2>
       <p>
         <b>이 항목이 이 글에서 가장 중요합니다.</b> 한국어 자료에 거의 안 나오는데,
         업무 문서나 고객 데이터를 API에 넣을 생각이라면 발급보다 먼저 알아야 할 내용입니다.
@@ -436,7 +470,7 @@
         업무용으로 쓸 계획이면 이 5달러가 가장 값싼 안전장치입니다.
       </p>
 
-      <h2>유료 전환 — 5달러 선불부터</h2>
+      <h2 id="유료-전환-5달러-선불부터">유료 전환 — 5달러 선불부터</h2>
       <p>
         무료에서 올라가는 것은 <b>결제 계정을 연결하고 최소 5달러(또는 상당액)를 미리 충전</b>하는 일입니다.
         AI Studio의 <b>API keys</b> 또는 <b>Projects</b> 페이지에서 <b>Set up billing</b> 을 누르는 데서 시작합니다.
@@ -472,7 +506,7 @@
         개인 실험용이라면 <b>5달러만 넣고 자동 충전을 꺼두는 것</b>이 가장 안전합니다.
       </p>
 
-      <h2>첫 호출 — 패키지 이름이 바뀌었습니다</h2>
+      <h2 id="첫-호출-패키지-이름이-바뀌었습니다">첫 호출 — 패키지 이름이 바뀌었습니다</h2>
       <p>
         검색해서 나오는 예제 상당수가 <code>google-generativeai</code> 를 설치하라고 합니다.
         <b>지금은 <code>google-genai</code> 입니다.</b>
@@ -516,7 +550,7 @@
         <code>generate_content</code> 방식도 아직 살아 있지만, 새로 쓰신다면 공식 빠른 시작을 따라가는 편이 낫습니다.
       </p>
 
-      <h2>막히면 여기부터 봅니다</h2>
+      <h2 id="막히면-여기부터-봅니다">막히면 여기부터 봅니다</h2>
       <div class="dtable">
         <table>
           <thead>
@@ -545,7 +579,7 @@
         한국에서 접속해도 인스턴스가 미지원 지역이면 막힙니다. <code>!curl ipinfo.io</code> 로 확인하세요.
       </p>
 
-      <h2>키 관리 — 비밀번호와 같게 다룹니다</h2>
+      <h2 id="키-관리-비밀번호와-같게-다룹니다">키 관리 — 비밀번호와 같게 다룹니다</h2>
       <p>
         공식 문서의 첫 문장이 <b>"제미나이 API 키를 비밀번호처럼 다루라"</b> 입니다.
         유출되면 남이 내 할당량을 쓰고, 예상치 못한 요금이 청구되고, 비공개 리소스에 접근합니다.
@@ -562,7 +596,7 @@
         청구 로그와 사용량 감사. 옛 키를 먼저 지우면 서비스가 멈춥니다.
       </p>
 
-      <h2>Vertex AI는 언제 쓰나</h2>
+      <h2 id="Vertex-AI는-언제-쓰나">Vertex AI는 언제 쓰나</h2>
       <p>
         구글은 제미나이를 두 갈래로 팝니다. <b>AI Studio 키로 쓰는 Gemini Developer API</b>와,
         기업용인 <b>Gemini Enterprise Agent Platform</b>(예전 이름 Vertex AI)입니다.
@@ -583,7 +617,7 @@
         <b>무료 한도 숫자를 적어둔 글은 출처를 의심하시는 편이 좋습니다.</b> 지금 공개된 수치가 없습니다.
       </div>
 
-      <h2>이 글을 쓰면서</h2>
+      <h2 id="이-글을-쓰면서">이 글을 쓰면서</h2>
       <p>
         "제미나이 API 발급"은 단계가 단순해서 글로 쓸 게 없는 주제입니다.
         실제로 공식 문서를 열어보니 신규 계정은 <b>약관 동의 한 번에 키까지 나옵니다.</b>

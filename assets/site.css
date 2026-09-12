@@ -1859,3 +1859,103 @@ a.plan__cta:focus-visible {
 .ad--mid {
   margin: 32px 0;
 }
+
+
+/* ---------- 목차 ---------- */
+/* 첫 절(답) 뒤에 놓는다. 답보다 위에 두면 스니펫에 불리하다 */
+
+.toc {
+  margin: 32px 0 36px;
+  border: 1px solid var(--z200);
+  border-radius: 12px;
+  background: var(--z50);
+  padding: 20px 24px;
+}
+
+.toc__title {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--z500);
+}
+
+.toc__list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 7px;
+}
+
+.toc__list li {
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+
+.toc__list a {
+  color: var(--z700);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.toc__list a:hover,
+.toc__list a:focus-visible {
+  color: var(--z900);
+  border-bottom-color: var(--z300);
+}
+
+@media (min-width: 720px) {
+  .toc__list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 28px;
+  }
+}
+
+/* 고정 헤더에 소제목이 가리지 않게 */
+.prose h2[id] {
+  scroll-margin-top: 84px;
+}
+
+/* ---------- 공유 ---------- */
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0 8px;
+}
+
+.share__label {
+  margin-right: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--z500);
+}
+
+.share__btn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--z200);
+  border-radius: 999px;
+  background: #fff;
+  padding: 7px 15px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--z700);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.share__btn:hover,
+.share__btn:focus-visible {
+  border-color: var(--z400);
+  color: var(--z900);
+}
+
+.share__btn.is-done {
+  border-color: var(--z900);
+  color: var(--z900);
+}

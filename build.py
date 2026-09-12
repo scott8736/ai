@@ -45,6 +45,8 @@ NAV_A, NAV_B = "<!--NAV-->", "<!--/NAV-->"
 MNAV_A, MNAV_B = "<!--MNAV-->", "<!--/MNAV-->"
 FOOT_A, FOOT_B = "<!--FOOTLINKS-->", "<!--/FOOTLINKS-->"
 LIST_A, LIST_B = "<!--POSTLIST-->", "<!--/POSTLIST-->"
+TOC_A, TOC_B = "<!--TOC-->", "<!--/TOC-->"
+SHARE_A, SHARE_B = "<!--SHARE-->", "<!--/SHARE-->"
 
 OLD_NAV = re.compile(r'<nav class="nav"[^>]*>.*?</nav>', re.S)
 OLD_MNAV = re.compile(r'<div class="wrap mobile-nav__list">.*?</div>\s*(?=</div>)', re.S)
@@ -417,6 +419,194 @@ def build_category_pages(cfg, metas):
     return made
 
 
+# og:image · 목차 · 공유 ---------------------------------------------------
+
+
+def og_slug(url):
+    s = url.strip("/").replace("/", "-") or "index"
+    return re.sub(r"[^a-zA-Z0-9_-]", "-", s)
+
+
+def inject_og(text, url, cfg):
+    """페이지마다 다른 카드를 물린다. 네이버 결과 썸네일로 그대로 쓰인다."""
+    if url == "/404.html":
+        return text
+    slug = og_slug(url)
+    if not os.path.exists(os.path.join(ROOT, "og", slug + ".png")):
+        return text
+    src = "%s/og/%s.png" % (cfg["site"]["base"], slug)
+
+    block = "\n".join([
+        '<meta property="og:image" content="%s">' % src,
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta name="twitter:image" content="%s">' % src,
+    ])
+
+    if 'property="og:image"' in text:
+        # 이미 있으면 통째로 갈아끼운다
+        text = re.sub(
+            r'<meta property="og:image"[^>]*>\s*'
+            r'(?:<meta property="og:image:width"[^>]*>\s*)?'
+            r'(?:<meta property="og:image:height"[^>]*>\s*)?'
+            r'(?:<meta name="twitter:image"[^>]*>)?',
+            lambda _: block,
+            text,
+            count=1,
+        )
+    else:
+        m = re.search(r'<meta property="og:url"[^>]*>', text)
+        if not m:
+            return text
+        text = text[: m.end()] + "\n" + block + text[m.end():]
+
+    # 이미지가 붙었으니 큰 카드로
+    return text.replace(
+        '<meta name="twitter:card" content="summary">',
+        '<meta name="twitter:card" content="summary_large_image">',
+    )
+
+
+RE_H2 = re.compile(r"<h2(?![^>]*\bid=)>(.*?)</h2>", re.S)
+
+
+def _anchor_id(label, used):
+    plain = re.sub(r"<[^>]+>", "", label)
+    base = re.sub(r"[^0-9a-zA-Z가-힣]+", "-", plain).strip("-")[:40] or "sec"
+    slug, n = base, 2
+    while slug in used:
+        slug, n = "%s-%d" % (base, n), n + 1
+    used.add(slug)
+    return slug
+
+
+def add_toc(text):
+    """소제목이 5개를 넘으면 목차를 넣는다.
+
+    첫 번째 절(대개 '한 줄 요약') 뒤에 놓는다. 지식스니펫은 첫 문단에서
+    답을 찾으므로 목차를 답 위에 두면 손해다."""
+    m = re.search(r'<div class="prose">(.*?)\n    </div>', text, re.S)
+    if not m:
+        return text
+    prose = m.group(1)
+
+    used, items = set(), []
+
+    def tag(mm):
+        label = mm.group(1).strip()
+        sid = _anchor_id(label, used)
+        items.append((sid, re.sub(r"<[^>]+>", "", label)))
+        return '<h2 id="%s">%s</h2>' % (sid, label)
+
+    prose = RE_H2.sub(tag, prose)
+    if len(items) < 5:
+        return text
+
+    links = "\n".join(
+        '          <li><a href="#%s">%s</a></li>' % (sid, lb) for sid, lb in items
+    )
+    toc = "\n".join([
+        TOC_A,
+        '      <nav class="toc" aria-label="목차">',
+        '        <div class="toc__title">이 글의 순서</div>',
+        '        <ol class="toc__list">',
+        links,
+        "        </ol>",
+        "      </nav>",
+        "      " + TOC_B,
+    ])
+
+    if TOC_A in prose:
+        prose = re.sub(
+            re.escape(TOC_A) + r".*?" + re.escape(TOC_B),
+            lambda _: toc,
+            prose,
+            count=1,
+            flags=re.S,
+        )
+    else:
+        heads = list(re.finditer(r'<h2 id="', prose))
+        if len(heads) < 2:
+            return text
+        cut = heads[1].start()
+        prose = prose[:cut] + toc + "\n\n      " + prose[cut:]
+
+    return text[: m.start(1)] + prose + text[m.end(1):]
+
+
+def build_share(url, cfg, title):
+    """카카오톡 공유는 앱 키가 있어야 해서 뺐다. 링크 복사·X·네이버만."""
+    import urllib.parse as up
+
+    full = cfg["site"]["base"] + url
+    enc_u = up.quote(full, safe="")
+    enc_t = up.quote(title, safe="")
+    return "\n".join([
+        '<div class="share">',
+        '      <span class="share__label">공유</span>',
+        '      <button class="share__btn" type="button" data-copy="%s">링크 복사</button>' % full,
+        '      <a class="share__btn" href="https://twitter.com/intent/tweet?url=%s&amp;text=%s" target="_blank" rel="noopener">X</a>'
+        % (enc_u, enc_t),
+        '      <a class="share__btn" href="https://share.naver.com/web/shareView?url=%s&amp;title=%s" target="_blank" rel="noopener">네이버</a>'
+        % (enc_u, enc_t),
+        "    </div>",
+    ])
+
+
+def add_share(text, url, cfg, title):
+    if 'class="prose"' not in text:
+        return text
+    payload = build_share(url, cfg, title)
+
+    if SHARE_A in text and SHARE_B in text:
+        return re.sub(
+            re.escape(SHARE_A) + r".*?" + re.escape(SHARE_B),
+            lambda _: SHARE_A + "\n    " + payload + "\n    " + SHARE_B,
+            text,
+            count=1,
+            flags=re.S,
+        )
+
+    m = re.search(r"</div>\n  </section>\n", text)
+    if not m:
+        return text
+    blk = "".join([
+        '  <div class="wrap">\n    ',
+        SHARE_A,
+        "\n    ",
+        payload,
+        "\n    ",
+        SHARE_B,
+        "\n  </div>\n\n",
+    ])
+    return text[: m.end()] + blk + text[m.end():]
+
+
+def add_breadcrumb(text, url, cfg, title):
+    """카테고리·정책 페이지에 빵부스러기 스키마. 구현 비용이 거의 없다."""
+    if '"BreadcrumbList"' in text or url in ("/", "/404.html"):
+        return text
+    if not title:
+        return text
+    base = cfg["site"]["base"]
+    data = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "AI 도구 비교", "item": base + "/"},
+            {"@type": "ListItem", "position": 2, "name": title, "item": base + url},
+        ],
+    }
+    tag = '<script type="application/ld+json">\n%s\n</script>\n\n' % json.dumps(
+        data, ensure_ascii=False, indent=2
+    )
+    # 애드센스가 없는 정책 페이지도 있으므로 </head> 를 기준으로 삼는다
+    m = re.search(r'<script async src="https://pagead2', text) or re.search(r"</head>", text)
+    if not m:
+        return text
+    return text[: m.start()] + tag + text[m.start():]
+
+
 # 마커 주입 --------------------------------------------------------------
 
 
@@ -550,6 +740,7 @@ def main():
     postlist = build_postlist(rows)
     footer = build_footer(cfg)
     stats = {"갱신": 0, "마커생성": 0, "없음": 0}
+    tocs = [0]
 
     for path in html_files():
         here = url_of(path)
@@ -560,6 +751,15 @@ def main():
         text, _ = splice(text, "mnav", build_mnav(cfg, here), OLD_MNAV)
         text, _ = splice(text, "foot", footer, OLD_FOOT)
         stats[s1] += 1
+
+        m = metas.get(here) or {}
+        short = (m.get("title") or "").split(" - ")[0].split(" — ")[0]
+        text = inject_og(text, here, cfg)
+        text = add_breadcrumb(text, here, cfg, short)
+        text = add_toc(text)
+        if TOC_A in text:
+            tocs[0] += 1
+        text = add_share(text, here, cfg, short)
 
         # 블로그 목록은 /blog/ 만. 카테고리 페이지는 자기 목록을 이미 갖고 있다
         if here == "/blog/":
@@ -575,7 +775,7 @@ def main():
             write(path, text)
 
     print("메뉴 주입: 갱신 %(갱신)d · 마커생성 %(마커생성)d · 못찾음 %(없음)d" % stats)
-    print("목록 글 %d편" % len(rows))
+    print("목록 글 %d편 · 목차 %d개" % (len(rows), tocs[0]))
 
     pages = [(url_of(p), meta_of(p, brand)) for p in html_files()]
     write(os.path.join(ROOT, "sitemap.xml"), build_sitemap(cfg, pages))
