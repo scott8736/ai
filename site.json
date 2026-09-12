@@ -1,0 +1,148 @@
+{
+  "_읽어주세요": [
+    "이 파일이 사이트 구조의 정본입니다. 메뉴·카테고리 페이지·사이트맵·RSS 가 전부 여기서 나옵니다.",
+    "HTML 26개를 일일이 고치지 말고 이 파일을 고친 다음 build.py 를 돌리세요.",
+    "",
+    "새 글을 추가하는 법:",
+    "  1) HTML 파일을 만든다 (기존 글 아무거나 복사해서 쓰면 됩니다)",
+    "  2) 그 글이 속할 카테고리의 pages 배열에 URL 을 한 줄 추가한다",
+    "  3) python build.py",
+    "",
+    "제목·설명은 여기 안 적습니다. build.py 가 각 HTML 의 <title> 과",
+    "meta description 을 직접 읽어 갑니다. 한 곳에만 적으라는 뜻입니다.",
+    "",
+    "menu 가 false 인 카테고리, 또는 pages 가 비어 있는 카테고리는",
+    "메뉴에 나오지 않습니다. 글이 한 편이라도 생기면 자동으로 올라옵니다.",
+    "빈 '준비중' 페이지를 만들지 않는 이유입니다."
+  ],
+
+  "site": {
+    "base": "https://ai.howtopackbook.com",
+    "name": "AI 도구 연구소",
+    "alt": "AI Pack",
+    "mark": "AI",
+    "locale": "ko-KR",
+    "desc": "AI 도구의 요금·발급·사용법을 공식 페이지로 직접 확인해 정리하는 한국어 정보 사이트"
+  },
+
+  "categories": [
+    {
+      "slug": "ai",
+      "label": "AI",
+      "title": "AI 챗봇 총정리 - 제미나이·ChatGPT·클로드 요금과 사용법",
+      "desc": "제미나이, ChatGPT, 클로드의 요금제와 무료 한계, 실제 사용법을 공식 페이지 확인 기준으로 정리했습니다.",
+      "menu": true,
+      "pages": [
+        "/gemini/",
+        "/chatgpt/",
+        "/claude/",
+        "/blog/gemini-guide/",
+        "/blog/chatgpt-error/",
+        "/blog/claude-code/",
+        "/blog/notion-ai/"
+      ]
+    },
+    {
+      "slug": "api",
+      "label": "API",
+      "title": "AI·개발 API 키 발급방법 - 제미나이, 유튜브",
+      "desc": "제미나이 API와 유튜브 Data API 키를 받는 절차, 무료 한도, 할당량, 자주 막히는 지점을 공식 문서 기준으로 정리했습니다.",
+      "menu": true,
+      "pages": [
+        "/blog/gemini-api-key/",
+        "/blog/youtube-api-key/"
+      ]
+    },
+    {
+      "slug": "video",
+      "label": "영상",
+      "title": "영상 편집 AI 도구 - 캡컷, 브루 요금과 사용법",
+      "desc": "캡컷과 브루를 비롯한 영상 편집·자막·AI 더빙 도구를 요금과 실제 사용법 기준으로 정리했습니다.",
+      "menu": true,
+      "pages": [
+        "/tools/capcut/",
+        "/blog/vrew-guide/"
+      ]
+    },
+    {
+      "slug": "image",
+      "label": "이미지",
+      "title": "이미지 생성 AI - 미드저니 요금과 사용법",
+      "desc": "미드저니를 비롯한 이미지 생성 AI의 플랜별 차이와 사용법을 공식 문서 기준으로 정리했습니다.",
+      "menu": true,
+      "pages": [
+        "/blog/midjourney-guide/"
+      ]
+    },
+    {
+      "slug": "software",
+      "label": "소프트웨어",
+      "title": "AI 소프트웨어 - 캔바, 딥엘, 노션 요금과 사용법",
+      "desc": "디자인·번역·문서 도구의 무료 범위와 유료 플랜 차이를 공식 안내 기준으로 정리했습니다.",
+      "menu": true,
+      "pages": [
+        "/blog/canva-guide/",
+        "/blog/deepl-guide/"
+      ]
+    },
+    {
+      "slug": "music",
+      "label": "뮤직",
+      "title": "음악 생성 AI - 요금과 사용법",
+      "desc": "AI 작곡·음악 생성 서비스의 요금과 사용법을 정리합니다.",
+      "menu": true,
+      "pages": []
+    },
+    {
+      "slug": "tts",
+      "label": "TTS",
+      "title": "TTS 음성합성 - 요금과 사용법",
+      "desc": "AI 음성합성(TTS) 서비스의 요금, 한국어 지원, 상업적 이용 가능 범위를 정리합니다.",
+      "menu": true,
+      "pages": []
+    },
+    {
+      "slug": "game",
+      "label": "게임",
+      "title": "게임 AI 도구 - 요금과 사용법",
+      "desc": "게임 제작과 플레이에 쓰는 AI 도구를 정리합니다.",
+      "menu": true,
+      "pages": []
+    }
+  ],
+
+  "nav_extra": [
+    { "href": "/blog/", "label": "블로그" }
+  ],
+
+  "footer_cols": [
+    {
+      "title": "카테고리",
+      "auto": "categories"
+    },
+    {
+      "title": "사이트",
+      "links": [
+        { "href": "/blog/", "label": "블로그" },
+        { "href": "/discount/", "label": "할인 모음" },
+        { "href": "/about/", "label": "소개" },
+        { "href": "/privacy", "label": "개인정보처리방침" },
+        { "href": "/terms", "label": "이용약관" },
+        { "href": "/contact", "label": "문의" }
+      ]
+    },
+    {
+      "title": "공식",
+      "links": [
+        { "href": "https://gemini.google/kr/subscriptions/", "label": "Gemini ↗", "ext": true },
+        { "href": "https://openai.com/chatgpt/pricing/", "label": "ChatGPT ↗", "ext": true },
+        { "href": "https://claude.com/pricing", "label": "Claude ↗", "ext": true },
+        { "href": "https://ai.google.dev/", "label": "Gemini API ↗", "ext": true }
+      ]
+    }
+  ],
+
+  "sitemap_exclude": [
+    "/404.html"
+  ]
+}

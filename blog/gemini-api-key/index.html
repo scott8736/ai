@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다 | AI 도구 연구소</title>
+<meta name="description" content="제미나이 API 키는 Google AI Studio에서 신용카드 없이 받습니다. 약관에 동의하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부되고, 무료 한도 숫자는 더 이상 공개되지 않습니다. 2026년 9월 12일 공식 문서 확인.">
+<link rel="canonical" href="https://ai.howtopackbook.com/blog/gemini-api-key/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+<meta name="cat" content="제미나이">
+<meta name="kicker" content="API 발급">
+<meta name="posted" content="2026-09-12">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 도구 연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://ai.howtopackbook.com/blog/gemini-api-key/">
+<meta property="og:title" content="제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다">
+<meta property="og:description" content="약관 동의만 하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부되고, 무료 한도 숫자는 공개되지 않습니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="제미나이 API 키 발급방법 - 카드 없이 3분, 무료 한도는 공개되지 않습니다">
+<meta name="twitter:description" content="약관 동의만 하면 프로젝트와 키가 자동 생성됩니다. 다만 2026년 9월부터 예전 방식 키가 거부됩니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="AI 도구 연구소" href="https://ai.howtopackbook.com/rss.xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 도구 비교",
+          "item": "https://ai.howtopackbook.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "API",
+          "item": "https://ai.howtopackbook.com/api/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "제미나이 API 키 발급방법",
+          "item": "https://ai.howtopackbook.com/blog/gemini-api-key/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key/#webpage",
+      "url": "https://ai.howtopackbook.com/blog/gemini-api-key/",
+      "name": "제미나이 API 키 발급방법",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-09-12",
+      "dateModified": "2026-09-12"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key/#howto",
+      "name": "제미나이 API 키 발급하기",
+      "inLanguage": "ko-KR",
+      "totalTime": "PT3M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "KRW", "value": "0" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Google AI Studio 접속",
+          "text": "aistudio.google.com/apikey 에 구글 계정으로 로그인합니다. 만 18세 이상이어야 하고, 계정 연령 확인이 되어 있어야 합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "약관 동의",
+          "text": "약관에 동의하면 구글 클라우드 프로젝트와 API 키가 자동으로 함께 생성됩니다. 신용카드는 필요하지 않습니다."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "키 복사와 보관",
+          "text": "생성된 키를 복사해 환경변수 GEMINI_API_KEY 에 넣습니다. 코드나 깃 저장소에 직접 적지 않습니다."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "제미나이 API 키 발급에 신용카드가 필요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "필요 없습니다. 새 계정은 무료 등급으로 시작하고, Google AI Studio에서 약관에 동의하면 프로젝트와 키가 자동으로 만들어집니다. 결제수단은 유료 등급으로 올라갈 때만 필요하며, 이때 최소 5달러를 미리 충전해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제미나이 API 무료 한도는 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년 9월 현재 구글은 모델별 무료 한도 숫자를 공식 문서에 공개하지 않습니다. 예전 문서에 있던 분당 요청수 표는 삭제되었고, 지금은 aistudio.google.com/rate-limit 에서 로그인한 뒤 본인 계정 기준으로 확인하도록 안내합니다. 공식 문서는 표시된 한도조차 보장되지 않는다고 명시하고 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제미나이 API를 무료로 쓰면 입력한 내용이 학습에 쓰이나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 쓰입니다. 무료 등급에서는 구글이 입력과 응답을 제품 개선과 머신러닝 기술 개발에 사용하고, 품질 확인을 위해 사람이 읽고 주석을 달 수 있습니다. 유럽경제지역과 스위스, 영국 사용자는 무료로 써도 유료와 같은 처리를 받지만 한국은 이 예외에 포함되지 않습니다. 민감한 정보는 무료 등급에 넣지 않는 것이 맞습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "API 키를 여러 개 만들면 무료 한도가 늘어나나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "늘어나지 않습니다. 한도는 API 키 단위가 아니라 구글 클라우드 프로젝트 단위로 적용됩니다. 같은 프로젝트 안에서 키를 여러 개 만들어도 한도를 나눠 쓰는 것이라 총량은 같습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "키를 만들려는데 권한이 없다고 나옵니다.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "회사나 학교 구글 계정에서 자주 나는 문제로, 해당 클라우드 프로젝트에 대한 IAM 권한이 부족한 경우입니다. 공식 문서는 관리자 권한을 받을 수 없다면 조직에 속하지 않은 새 구글 클라우드 프로젝트를 직접 만들어 거기서 키를 생성하라고 안내합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "google-generativeai 와 google-genai 중 무엇을 설치해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "google-genai 입니다. 예전 패키지인 google-generativeai 는 2025년 11월 30일부로 지원이 중단되었고 최신 기능을 쓸 수 없습니다. 설치 명령은 pip install -U google-genai 입니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">AI Pack <span class="brand__sep">/</span> AI 도구 연구소</span>
+    </a>
+    <!--NAV-->
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/blog/">블로그</a>
+    </nav>
+    <!--/NAV-->
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <!--MNAV-->
+    <div class="wrap mobile-nav__list">
+      <a href="/">전체 비교</a>
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/blog/">블로그</a>
+      <a href="/discount/">할인 모음</a>
+    </div>
+    <!--/MNAV-->
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 도구 비교</a> <span class="crumb__sep">›</span> <a href="/api/">API</a> <span class="crumb__sep">›</span> <span>제미나이 API 키 발급</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#4285f4" aria-hidden="true">G</span>
+      <span class="eyebrow__label" style="color:#4285f4">GOOGLE GEMINI API</span>
+    </div>
+    <h1>제미나이 API 키 발급방법 — 카드 없이 3분, 무료 한도는 공개되지 않습니다</h1>
+    <p class="page-hero__lead"><b>Google AI Studio에서 약관에 동의하면 프로젝트와 키가 자동으로 만들어집니다. 신용카드는 필요 없습니다.</b> 문제는 그다음입니다. 2026년 9월부터 예전 방식 키가 거부되고, 무료 한도 숫자는 구글이 더 이상 공개하지 않으며, 한국에서 무료로 쓰면 입력한 내용이 학습에 들어갑니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ 카드 없이 발급</span>
+      <span class="chip">✓ 9월 키 정책 변경</span>
+      <span class="chip">✓ 데이터 학습 여부</span>
+      <span class="chip">✓ 9월 12일 확인</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:36px;padding-bottom:40px">
+    <div class="prose">
+
+      <h2>한 줄 요약</h2>
+      <p>
+        <b><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey ↗</a> 에 구글 계정으로 들어가 약관에 동의하면 끝입니다.</b>
+        구글 클라우드 프로젝트와 API 키가 함께 자동으로 만들어집니다. 결제수단을 묻지 않습니다.
+        걸리는 시간은 3분이 안 됩니다.
+      </p>
+      <p>
+        그래서 "발급 방법"만 찾고 계셨다면 이 문단에서 끝나도 됩니다.
+        이 글의 나머지는 <b>발급 뒤에 사람들이 실제로 부딪히는 세 가지</b>입니다 —
+        이번 달부터 바뀐 키 정책, 아무도 정확히 못 쓰는 무료 한도, 그리고 한국 사용자에게만 해당하는 데이터 문제입니다.
+      </p>
+
+      <div class="ad" data-ad="top"><div class="ad__box"></div></div>
+
+      <h2>발급 절차</h2>
+      <p>
+        갈림길이 하나 있습니다. <b>구글 클라우드를 한 번도 안 써본 계정이냐, 써본 계정이냐</b>로 절차가 달라집니다.
+        대부분의 안내 글이 앞쪽만 설명해서, 뒤쪽에 해당하는 사람이 중간에 막힙니다.
+      </p>
+
+      <h3>① 구글 클라우드를 처음 쓰는 계정</h3>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>화면에서 누를 것</th><th>결과</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td>aistudio.google.com/apikey 접속</td><td>로그인 화면</td></tr>
+            <tr><td class="n">2</td><td>약관 동의</td><td><b>프로젝트 + 키 자동 생성</b></td></tr>
+            <tr><td class="n">3</td><td>키 복사</td><td>바로 사용 가능</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        공식 문서의 표현은 이렇습니다 — 신규 사용자라면 약관에 동의한 뒤
+        <b>AI Studio가 기본 클라우드 프로젝트와 API 키를 자동으로 만들어 준다</b>는 것입니다.
+        따로 "프로젝트 만들기"를 찾아 헤맬 필요가 없습니다.
+      </p>
+
+      <h3>② 구글 클라우드를 써본 적 있는 계정</h3>
+      <p>
+        <b>여기서는 자동 생성이 되지 않습니다.</b> 공식 문서가 명시합니다 —
+        이미 구글 클라우드 계정이 있으면 AI Studio는 기본 프로젝트를 만들지 않고,
+        <b>기존 프로젝트를 직접 가져와야(import)</b> 합니다.
+        그런데 AI Studio는 기본적으로 내 클라우드 프로젝트를 전부 보여주지 않기 때문에,
+        "프로젝트 선택" 목록이 비어 보이는 상황이 생깁니다. 순서는 이렇습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>메뉴</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td>AI Studio 왼쪽 패널에서 <b>Dashboard</b> 열기</td></tr>
+            <tr><td class="n">2</td><td><b>Projects</b> 선택</td></tr>
+            <tr><td class="n">3</td><td><b>Import projects</b> 클릭</td></tr>
+            <tr><td class="n">4</td><td>쓸 프로젝트를 검색해서 고르고 <b>Import</b></td></tr>
+            <tr><td class="n">5</td><td><b>API Keys</b> 페이지에서 <b>Create API key</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        가져온 뒤에도 목록에 키가 안 보일 수 있습니다.
+        AI Studio는 <b>제한이 없거나 제미나이 API로만 제한된 키</b>만 보여줍니다.
+        다른 구글 API용으로 제한해 둔 키는 아예 표시되지 않습니다.
+      </p>
+
+      <div class="tip">
+        <b>한국어 화면 문구는 직접 확인하세요.</b>
+        이 글의 메뉴 이름은 구글 공식 문서 기준입니다.
+        AI Studio 화면의 한국어 표기는 기계 번역이라 문서와 다르게 나올 수 있고,
+        구글 스스로 문서 상단에 "AI 번역에는 오류가 있을 수 있습니다"라고 적어두었습니다.
+        버튼 위치는 같으니 영어 이름으로 찾으시는 편이 빠릅니다.
+      </div>
+
+      <h2>★ 2026년 9월, 예전에 받아둔 키가 막힙니다</h2>
+      <p>
+        <b>이게 이 글에서 가장 시급한 부분입니다.</b>
+        제미나이 API 키에는 두 종류가 있습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>종류</th><th>성격</th><th>현재 상태</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>표준 키</b><br>Standard</td><td>프로젝트에 요청을 연결해 과금·할당량을 매기는 용도. 호출자를 특정하지 못함</td><td><b>2026년 9월부터 거부</b></td></tr>
+            <tr><td><b>승인 키</b><br>Authorization (auth)</td><td>클라우드 서비스 계정에 직접 묶임. 기본적으로 제미나이 API로만 제한되고 유출 시 빠르게 차단됨</td><td>현재 표준</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        공식 문서의 문장은 이렇습니다 — <b>2026년 9월에 제미나이 API가 표준 키의 요청을 거부하며,
+        그전에 승인 키로 옮겨야 서비스 중단을 피할 수 있다</b>는 것입니다.
+        제한이 걸려 있지 않은 표준 키는 <b>이미 거부되고 있습니다.</b>
+        2026년 5월 7일부터는 오랫동안 쓰지 않은 제한 없는 키도 차단되며, AI Studio에 <b>Blocked</b> 태그가 붙습니다.
+      </p>
+      <p>
+        <b>지금 새로 만드는 키는 신경 쓸 것이 없습니다.</b>
+        AI Studio에서 만드는 모든 새 키는 자동으로 승인 키입니다.
+        문제는 작년이나 올해 초에 받아서 어딘가에 넣어둔 키입니다. 확인하는 법은 이렇습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>할 일</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td>AI Studio <b>API Keys</b> 페이지에서 <b>Key Type</b> 열을 본다</td></tr>
+            <tr><td class="n">2</td><td><code>Standard</code> 라고 적혀 있으면 교체 대상</td></tr>
+            <tr><td class="n">3</td><td><b>Create API key</b> 로 새 키를 만든다</td></tr>
+            <tr><td class="n">4</td><td>코드·환경변수·배포 설정을 새 키로 갱신하고 테스트</td></tr>
+            <tr><td class="n">5</td><td><b>새 키가 완전히 도는 것을 확인한 뒤에</b> 옛 키 삭제</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        순서가 중요합니다. 공식 문서도 <b>새 키가 완전히 활성화되기 전에 옛 키를 지우지 말라</b>고 못을 박습니다.
+        먼저 지우면 그 사이에 서비스가 멈춥니다.
+      </p>
+      <p>
+        <b>다만 정확히 9월 며칠인지는 구글이 밝히지 않았습니다.</b>
+        문서에 "September 2026"까지만 적혀 있습니다. 이 글을 쓰는 9월 12일 기준으로
+        이미 적용됐을 수도 있고 이달 안에 적용될 수도 있습니다. 미루지 않는 편이 낫습니다.
+      </p>
+
+      <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
+
+      <h2>★ 무료 한도 — 숫자가 적혀 있는 글은 지금 전부 틀렸습니다</h2>
+      <p>
+        "제미나이 API 무료 한도"로 검색하면 <b>분당 15회, 하루 1,500회</b> 같은 숫자가 잔뜩 나옵니다.
+        <b>지금 그 숫자의 근거가 공식 문서에 없습니다.</b>
+        구글이 모델별 무료 등급 한도 표를 문서에서 <b>삭제했습니다.</b>
+      </p>
+      <p>
+        2026년 9월 2일 자로 갱신된 공식 rate limits 페이지에 남아 있는 것은
+        개념 설명과 유료 티어 표뿐이고, 무료 등급의 분당 요청수·일일 요청수 표는 존재하지 않습니다.
+        대신 이렇게 안내합니다 — <b>한도는 사용 등급 등 여러 요인에 따라 달라지며 Google AI Studio에서 확인하라</b>는 것입니다.
+        게다가 한 줄을 더 붙여 뒀습니다. <b>"명시된 한도는 보장되지 않으며 실제 용량은 달라질 수 있습니다."</b>
+      </p>
+      <div class="tip">
+        <b>그래서 정확한 답은 이것입니다 —</b> 본인 계정의 실제 한도는
+        <a href="https://aistudio.google.com/rate-limit" target="_blank" rel="noopener">aistudio.google.com/rate-limit ↗</a> 에
+        <b>로그인해서 직접 확인</b>해야 합니다. 이 페이지는 비로그인으로 열리지 않습니다.
+        남의 글에 적힌 숫자는 그 사람 계정 기준이거나, 더 흔하게는 없어진 문서를 베낀 것입니다.
+      </div>
+      <p>
+        숫자 없이도 확인되는 <b>규칙</b>은 있습니다. 이쪽이 오히려 실무에 더 중요합니다.
+      </p>
+      <ul>
+        <li><b>한도는 키가 아니라 프로젝트 단위입니다.</b> 키를 열 개 만들어도 같은 프로젝트면 총량은 그대로입니다. 한국어 안내 글에서 가장 자주 틀리는 부분입니다.</li>
+        <li><b>측정 축이 세 개</b>입니다 — 분당 요청수(RPM), 분당 입력 토큰수(TPM), 일일 요청수(RPD). <b>셋 중 하나만 넘어도</b> 한도 오류가 납니다.</li>
+        <li><b>일일 한도는 태평양시 자정에 초기화</b>됩니다. 한국시간으로는 <b>오후 4시 또는 5시</b>입니다(서머타임에 따라 다름). 문서는 태평양시로만 적습니다.</li>
+        <li>실험·프리뷰 모델은 한도가 더 빡빡합니다. 이미지 모델은 분당 이미지 수(IPM)라는 별도 축을 씁니다.</li>
+      </ul>
+      <p>
+        <b>어떤 모델이 무료인지</b>는 가격 페이지에서 확인됩니다. 2026년 9월 11일 갱신 기준입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>모델</th><th>무료 등급</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Gemini 3.8 / 3.7 / 3.6 / 3.5 Flash</td><td><b>무료</b></td></tr>
+            <tr><td>Gemini 3.5 · 3.1 Flash-Lite</td><td><b>무료</b></td></tr>
+            <tr><td>Gemini 2.5 Pro · Flash · Flash-Lite</td><td><b>무료</b></td></tr>
+            <tr><td>Gemini 3.1 Pro Preview</td><td>불가</td></tr>
+            <tr><td>이미지 생성 계열</td><td>불가</td></tr>
+            <tr><td>Batch · Flex 모드</td><td>불가</td></tr>
+            <tr><td>구글 검색 그라운딩</td><td>불가</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>★ 무료로 쓰면 입력한 내용이 학습에 들어갑니다 (한국은 예외가 아닙니다)</h2>
+      <p>
+        <b>이 항목이 이 글에서 가장 중요합니다.</b> 한국어 자료에 거의 안 나오는데,
+        업무 문서나 고객 데이터를 API에 넣을 생각이라면 발급보다 먼저 알아야 할 내용입니다.
+      </p>
+      <p>
+        구글의 <b>서비스 약관</b>(2026년 3월 23일 발효)은 무료 서비스와 유료 서비스를 나눠서 이렇게 적습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th></th><th>무료 등급</th><th>유료 등급</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>제품 개선에 사용</td><td><b>사용함</b></td><td>사용 안 함</td></tr>
+            <tr><td>사람이 읽고 주석</td><td><b>가능</b></td><td>해당 없음</td></tr>
+            <tr><td>보관</td><td colspan="2">악용 모니터링 목적 <b>55일</b> (양쪽 공통)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        약관 원문은 더 직설적입니다 — 품질 개선을 위해 <b>사람 검토자가 API 입력과 출력을 읽고 주석을 달 수 있으며</b>,
+        구글은 검토자가 보기 전에 그 데이터를 계정·API 키·클라우드 프로젝트에서 분리한다고 적습니다.
+        그리고 한 문장을 덧붙입니다. <b>"무료 서비스에 민감하거나 기밀이거나 개인적인 정보를 제출하지 마십시오."</b>
+      </p>
+      <div class="tip">
+        <b>그런데 유럽은 다릅니다.</b> 약관에 예외 조항이 있습니다 —
+        <b>유럽경제지역·스위스·영국</b>에 있는 사용자는 무료로 제공되더라도 유료 서비스 조항이 적용됩니다.
+        즉 무료로 써도 학습에 쓰이지 않습니다.
+        <b>이 목록에 한국은 없습니다.</b> 한국에서 무료 등급으로 넣은 프롬프트는 모델 개선에 사용됩니다.
+      </div>
+      <p>
+        빠져나갈 길은 있고, 생각보다 쌉니다. 약관은 <b>"유료"를 요금이 아니라 결제 계정 연결 여부로 정의</b>합니다 —
+        활성 결제 계정이 연결된 클라우드 프로젝트로 API를 호출하면 유료 서비스로 취급됩니다.
+        <b>최소 충전액이 5달러</b>이니, 실제 사용료가 0원에 가깝더라도 5달러를 넣어두면 데이터 취급이 달라집니다.
+        업무용으로 쓸 계획이면 이 5달러가 가장 값싼 안전장치입니다.
+      </p>
+
+      <h2>유료 전환 — 5달러 선불부터</h2>
+      <p>
+        무료에서 올라가는 것은 <b>결제 계정을 연결하고 최소 5달러(또는 상당액)를 미리 충전</b>하는 일입니다.
+        AI Studio의 <b>API keys</b> 또는 <b>Projects</b> 페이지에서 <b>Set up billing</b> 을 누르는 데서 시작합니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>등급</th><th>조건</th><th>월 상한</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Free</td><td>기본</td><td class="n">—</td></tr>
+            <tr><td>Tier 1</td><td>결제 계정 연결</td><td class="n">$250</td></tr>
+            <tr><td>Tier 2</td><td>$100 결제 + 첫 결제로부터 3일</td><td class="n">$2,000</td></tr>
+            <tr><td>Tier 3</td><td>$1,000 결제 + 첫 결제로부터 30일</td><td class="n">$20,000 ~</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        무료에서 Tier 1로는 <b>즉시</b>, 그 위로는 <b>10분 이내</b>에 반영됩니다.
+        조건을 채워도 심사 과정에서 거절될 수 있다는 단서가 붙어 있습니다.
+      </p>
+      <p>
+        2026년 3월 23일부터 <b>선불(Prepay)과 후불(Postpay)</b>로 나뉘었고 <b>신규 사용자는 선불이 기본값</b>입니다.
+        선불에서 조심할 것이 세 가지입니다.
+      </p>
+      <ul>
+        <li><b>미사용 크레딧은 12개월 뒤 소멸하고 환불되지 않습니다.</b> 넉넉히 충전해 둘 이유가 없습니다.</li>
+        <li><b>잔액이 0이 되면 그 결제 계정에 연결된 모든 프로젝트의 모든 키가 동시에 멈춥니다.</b> 키 하나만 죽는 게 아닙니다.</li>
+        <li>청구 반영에 <b>약 10분</b>이 걸려서, 그사이 잔액을 넘겨 쓰는 일이 생길 수 있다고 문서가 인정합니다.</li>
+      </ul>
+      <p>
+        자동 충전과 월간 자동충전 상한을 걸 수 있고, 프로젝트별 월 지출 상한도 따로 설정할 수 있습니다.
+        개인 실험용이라면 <b>5달러만 넣고 자동 충전을 꺼두는 것</b>이 가장 안전합니다.
+      </p>
+
+      <h2>첫 호출 — 패키지 이름이 바뀌었습니다</h2>
+      <p>
+        검색해서 나오는 예제 상당수가 <code>google-generativeai</code> 를 설치하라고 합니다.
+        <b>지금은 <code>google-genai</code> 입니다.</b>
+        옛 패키지는 <b>2025년 11월 30일부로 지원이 중단</b>됐고, Live API나 Veo 같은 최신 기능에 접근할 수 없습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>언어</th><th>옛 패키지 (중단)</th><th>지금 쓸 것</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Python</td><td>google-generativeai</td><td><b>google-genai</b></td></tr>
+            <tr><td>JavaScript</td><td>@google/generativeai</td><td><b>@google/genai</b></td></tr>
+            <tr><td>Go</td><td>generative-ai</td><td><b>google.golang.org/genai</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        환경변수 <code>GEMINI_API_KEY</code> 에 키를 넣어두면 클라이언트가 알아서 읽습니다.
+        윈도우에서는 검색창에 "환경 변수"를 치고 <b>시스템 속성 → 환경 변수 → 새로 만들기</b> 순서로 넣은 뒤,
+        <b>터미널을 새로 열어야</b> 반영됩니다. 열려 있던 창에서는 안 잡힙니다.
+      </p>
+      <p>
+        현재 공식 빠른 시작은 <code>generate_content</code> 가 아니라 <b>Interactions API</b> 를 씁니다.
+        가장 짧은 파이썬 예제는 이렇습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <tbody>
+            <tr><td><code>pip install -U google-genai</code></td></tr>
+            <tr><td><code>from google import genai</code></td></tr>
+            <tr><td><code>client = genai.Client()</code></td></tr>
+            <tr><td><code>r = client.interactions.create(model="gemini-3.8-flash", input="안녕")</code></td></tr>
+            <tr><td><code>print(r.output_text)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        curl로 확인할 때 인증 헤더는 <code>Bearer</code> 가 아니라 <b><code>x-goog-api-key</code></b> 입니다.
+        엔드포인트는 <code>generativelanguage.googleapis.com/v1beta/interactions</code> 입니다.
+        <code>generate_content</code> 방식도 아직 살아 있지만, 새로 쓰신다면 공식 빠른 시작을 따라가는 편이 낫습니다.
+      </p>
+
+      <h2>막히면 여기부터 봅니다</h2>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>증상</th><th>원인</th><th>조치</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>"이 프로젝트에서 키를 만들 권한이 없습니다"</b><br>Create API key 버튼 비활성</td><td>IAM 권한 부족 (회사·학교 계정에서 흔함)</td><td><b>조직에 속하지 않은 새 클라우드 프로젝트</b>를 만들어 거기서 발급 — 공식 권장 우회책</td></tr>
+            <tr><td>프로젝트 목록이 비어 보임</td><td>AI Studio가 클라우드 프로젝트를 자동으로 안 보여줌</td><td>Dashboard → Projects → <b>Import projects</b></td></tr>
+            <tr><td><b>403 Access Restricted</b></td><td>지원 지역 아님 / 약관 위반 사용</td><td>한국은 지원 지역. VPN·해외 서버·Colab 인스턴스 위치 확인</td></tr>
+            <tr><td>401 authentication</td><td>키 없음·무효·만료</td><td>환경변수와 키 값 확인</td></tr>
+            <tr><td>400 failed_precondition</td><td><b>결제 비활성화</b></td><td>프로젝트 결제 상태 확인</td></tr>
+            <tr><td>429 rate_limit_exceeded</td><td>분당 한도 초과</td><td>지수 백오프 후 재시도</td></tr>
+            <tr><td>429 quota_exceeded</td><td><b>일일 한도 초과</b></td><td>태평양시 자정(한국 오후 4~5시)까지 대기</td></tr>
+            <tr><td>"Organization Administrator에게 문의" 안내</td><td>워크스페이스 관리자가 AI Studio를 막음</td><td>개인 구글 계정으로 발급</td></tr>
+            <tr><td>응답이 느리고 토큰이 많이 나감</td><td><b>Gemini 3.x는 사고(thinking)가 기본 활성</b></td><td>thinking 수준을 낮추거나 끔. 출력 요금에 사고 토큰이 포함됨</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        재시도는 <b>일시적 오류에만</b> 겁니다. 429·408·5xx는 1초 → 2초 → 4초 → 8초로 늘려가며 재시도하되
+        무작위 지연을 섞고, <b>400·403은 재시도하지 않습니다</b> — 키가 틀렸거나 문법이 틀린 것이라 몇 번을 보내도 같습니다.
+        파이썬 SDK는 일시적 오류를 <b>기본 4회</b> 자동 재시도합니다.
+      </p>
+      <p>
+        참고로 <b>Colab에서는 지역 판정이 내 위치가 아니라 인스턴스 위치</b> 기준입니다.
+        한국에서 접속해도 인스턴스가 미지원 지역이면 막힙니다. <code>!curl ipinfo.io</code> 로 확인하세요.
+      </p>
+
+      <h2>키 관리 — 비밀번호와 같게 다룹니다</h2>
+      <p>
+        공식 문서의 첫 문장이 <b>"제미나이 API 키를 비밀번호처럼 다루라"</b> 입니다.
+        유출되면 남이 내 할당량을 쓰고, 예상치 못한 요금이 청구되고, 비공개 리소스에 접근합니다.
+      </p>
+      <ul>
+        <li><b>깃 저장소에 절대 넣지 않습니다.</b> 공개 저장소에 올라간 키는 자동으로 수집됩니다.</li>
+        <li><b>웹·모바일 앱에 키를 박지 않습니다.</b> 클라이언트 코드에 컴파일된 키는 추출됩니다. 공식 권장은 <b>백엔드 프록시 서버를 두고 거기서 호출</b>하는 것입니다.</li>
+        <li>설정 파일이 아니라 <b>환경변수</b>에서 읽습니다. 운영 환경은 시크릿 관리 서비스를 씁니다.</li>
+        <li>클라우드 콘솔에서 <b>결제 알림</b>을 걸어둡니다.</li>
+        <li>AI Studio의 API Keys 페이지에서 <b>Unrestricted</b> 라벨에 마우스를 올려 <b>Add restrictions → Restrict to Gemini API only</b> 로 키를 제한합니다.</li>
+      </ul>
+      <p>
+        유출됐을 때는 <b>순서</b>가 중요합니다. 새 키 생성 → 배포 교체 → <b>그다음에</b> 옛 키 삭제 →
+        청구 로그와 사용량 감사. 옛 키를 먼저 지우면 서비스가 멈춥니다.
+      </p>
+
+      <h2>Vertex AI는 언제 쓰나</h2>
+      <p>
+        구글은 제미나이를 두 갈래로 팝니다. <b>AI Studio 키로 쓰는 Gemini Developer API</b>와,
+        기업용인 <b>Gemini Enterprise Agent Platform</b>(예전 이름 Vertex AI)입니다.
+        공식 문서의 판단 기준은 명확합니다 — <b>특정한 기업용 통제가 필요한 게 아니라면 대부분의 개발자는 Developer API를 쓰라</b>는 것입니다.
+      </p>
+      <p>
+        서비스 계정 기반 인증, 리전 고정, 조직 단위 IAM, 컴플라이언스가 필요할 때만 넘어갑니다.
+        SDK는 같고 클라이언트 초기화 한 줄만 다릅니다. 다만 <b>가격표가 서로 다르고</b>,
+        AI Studio에서 튜닝한 모델은 <b>다시 학습시켜야</b> 합니다.
+      </p>
+
+      <div class="tip">
+        <b>2026년 9월 12일 구글 공식 문서 확인 기준입니다.</b>
+        제미나이 API는 정책이 자주 바뀌는 편이고, 특히 이 글에 적은 키 정책 전환은 이번 달에 걸쳐 있습니다.
+        발급 전에
+        <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank" rel="noopener">공식 API 키 문서 ↗</a>와
+        <a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener">가격 문서 ↗</a>를 한 번 더 확인하세요.
+        <b>무료 한도 숫자를 적어둔 글은 출처를 의심하시는 편이 좋습니다.</b> 지금 공개된 수치가 없습니다.
+      </div>
+
+      <h2>이 글을 쓰면서</h2>
+      <p>
+        "제미나이 API 발급"은 단계가 단순해서 글로 쓸 게 없는 주제입니다.
+        실제로 공식 문서를 열어보니 신규 계정은 <b>약관 동의 한 번에 키까지 나옵니다.</b>
+        그래서 발급 절차만으로는 어느 글이나 똑같아집니다.
+      </p>
+      <p>
+        차이가 나는 곳은 그 뒤였습니다. rate limits 문서를 열었더니
+        <b>다들 인용하는 무료 한도 표가 통째로 없었습니다.</b>
+        원본 마크다운까지 받아 대조해도 없었고, 대신 "AI Studio에서 확인하라"는 안내와
+        "명시된 한도는 보장되지 않는다"는 단서만 남아 있었습니다.
+        지금 한국어 글에 떠도는 숫자는 근거를 잃은 상태입니다.
+      </p>
+      <p>
+        약관을 읽다가 유럽 예외 조항을 발견한 것이 두 번째였습니다.
+        무료 등급의 데이터 취급이 지역에 따라 다르고, <b>한국이 보호받는 쪽에 없다</b>는 사실은
+        업무에 쓸 사람에게 발급 절차보다 훨씬 중요한 정보라고 봤습니다.
+        그래서 이 글은 발급 방법을 세 문단에 끝내고 나머지를 여기에 썼습니다.
+      </p>
+      <p>
+        요금 구조가 궁금하시면 <a href="/gemini/">제미나이 요금제 총정리</a>를,
+        API 말고 일반 사용이 목적이면 <a href="/blog/gemini-guide/">제미나이 사용법</a>을 보시면 됩니다.
+      </p>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="bottom"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="next-up">
+      <div class="next-up__title">이어서 볼 만한 것</div>
+      <div class="next-up__grid">
+        <a class="next-up__card" href="/blog/youtube-api-key/">
+          <b>유튜브 API 키 발급방법</b>
+          <span>하루 검색 100회, 그런데 요금은 안 나옵니다</span>
+        </a>
+        <a class="next-up__card" href="/gemini/">
+          <b>제미나이 요금제 전체</b>
+          <span>무료·Plus·Pro·Ultra 차이와 학생 12개월 무료</span>
+        </a>
+        <a class="next-up__card" href="/api/">
+          <b>API 발급 글 모음</b>
+          <span>공식 문서로 확인한 발급 절차와 한도</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq__inner">
+      <div>
+        <h2>자주 묻는 질문</h2>
+        <p class="faq__lead">2026년 9월 12일 구글 공식 문서 확인 기준입니다.</p>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <h3 class="faq__q">제미나이 API 키 발급에 신용카드가 필요한가요?</h3>
+          <p class="faq__a">필요 없습니다. 새 계정은 무료 등급으로 시작하고, Google AI Studio에서 약관에 동의하면 프로젝트와 키가 자동으로 만들어집니다. 결제수단은 유료 등급으로 올라갈 때만 필요하며, 이때 최소 5달러를 미리 충전해야 합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">제미나이 API 무료 한도는 얼마인가요?</h3>
+          <p class="faq__a">2026년 9월 현재 구글은 모델별 무료 한도 숫자를 공식 문서에 공개하지 않습니다. 예전 문서에 있던 분당 요청수 표는 삭제되었고, 지금은 aistudio.google.com/rate-limit 에서 로그인한 뒤 본인 계정 기준으로 확인하도록 안내합니다. 공식 문서는 표시된 한도조차 보장되지 않는다고 명시하고 있습니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">제미나이 API를 무료로 쓰면 입력한 내용이 학습에 쓰이나요?</h3>
+          <p class="faq__a">네, 쓰입니다. 무료 등급에서는 구글이 입력과 응답을 제품 개선과 머신러닝 기술 개발에 사용하고, 품질 확인을 위해 사람이 읽고 주석을 달 수 있습니다. 유럽경제지역과 스위스, 영국 사용자는 무료로 써도 유료와 같은 처리를 받지만 한국은 이 예외에 포함되지 않습니다. 민감한 정보는 무료 등급에 넣지 않는 것이 맞습니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">API 키를 여러 개 만들면 무료 한도가 늘어나나요?</h3>
+          <p class="faq__a">늘어나지 않습니다. 한도는 API 키 단위가 아니라 구글 클라우드 프로젝트 단위로 적용됩니다. 같은 프로젝트 안에서 키를 여러 개 만들어도 한도를 나눠 쓰는 것이라 총량은 같습니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">키를 만들려는데 권한이 없다고 나옵니다.</h3>
+          <p class="faq__a">회사나 학교 구글 계정에서 자주 나는 문제로, 해당 클라우드 프로젝트에 대한 IAM 권한이 부족한 경우입니다. 공식 문서는 관리자 권한을 받을 수 없다면 조직에 속하지 않은 새 구글 클라우드 프로젝트를 직접 만들어 거기서 키를 생성하라고 안내합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">google-generativeai 와 google-genai 중 무엇을 설치해야 하나요?</h3>
+          <p class="faq__a">google-genai 입니다. 예전 패키지인 google-generativeai 는 2025년 11월 30일부로 지원이 중단되었고 최신 기능을 쓸 수 없습니다. 설치 명령은 pip install -U google-genai 입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:40px;padding-bottom:56px">
+    <div class="cta">
+      <div class="cta__q">API 말고 그냥 제미나이를 쓰려면 얼마인가요?</div>
+      <div class="cta__d">무료로 어디까지 되고 어디서 막히는지, 유료는 세 단계가 어떻게 갈리는지 정리해 뒀습니다.</div>
+      <a class="cta__btn" href="/gemini/">제미나이 요금제 보기</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">AI Pack / AI 도구 연구소</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 여기 소개하는 어떤 회사와도 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 페이지를 확인하세요.</p>
+      </div>
+      <!--FOOTLINKS-->
+    <div class="link-cols">
+        <div class="link-col">
+          <h2 class="link-col__title">카테고리</h2>
+          <ul>
+            <li><a href="/ai/">AI</a></li>
+            <li><a href="/api/">API</a></li>
+            <li><a href="/video/">영상</a></li>
+            <li><a href="/image/">이미지</a></li>
+            <li><a href="/software/">소프트웨어</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">사이트</h2>
+          <ul>
+            <li><a href="/blog/">블로그</a></li>
+            <li><a href="/discount/">할인 모음</a></li>
+            <li><a href="/about/">소개</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><a href="/terms">이용약관</a></li>
+            <li><a href="/contact">문의</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">공식</h2>
+          <ul>
+            <li><a href="https://gemini.google/kr/subscriptions/" target="_blank" rel="noopener">Gemini ↗</a></li>
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener">ChatGPT ↗</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude ↗</a></li>
+            <li><a href="https://ai.google.dev/" target="_blank" rel="noopener">Gemini API ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    <!--/FOOTLINKS-->
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
