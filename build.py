@@ -607,6 +607,638 @@ def add_breadcrumb(text, url, cfg, title):
     return text[: m.start()] + tag + text[m.start():]
 
 
+# 요금 비교표 ------------------------------------------------------------
+
+PRICING_PAGE = """<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AI 요금 비교 - {n}개 서비스, 확인한 날짜까지 적었습니다 | {brand}</title>
+<meta name="description" content="{n}개 AI 서비스의 무료 범위와 유료 시작가를 한 표에 모았습니다. 숫자마다 어느 글에서 언제 공식 페이지를 보고 확인했는지 적어 두었습니다. {todayko} 기준.">
+<link rel="canonical" href="{base}/pricing/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{brand}">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="{base}/pricing/">
+<meta property="og:title" content="AI 요금 비교 - {n}개 서비스, 확인한 날짜까지 적었습니다">
+<meta property="og:description" content="무료 범위와 유료 시작가를 한 표에. 숫자마다 출처 글과 확인 날짜를 답니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI 요금 비교 - {n}개 서비스, 확인한 날짜까지 적었습니다">
+<meta name="twitter:description" content="무료 범위와 유료 시작가를 한 표에. 숫자마다 출처 글과 확인 날짜를 답니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="{brand}" href="{base}/rss.xml">
+
+<script type="application/ld+json">
+{schema}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">{alt} <span class="brand__sep">/</span> {brand}</span>
+    </a>
+    {NAV_A}
+    {NAV_B}
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    {MNAV_A}
+    {MNAV_B}
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 도구 비교</a> <span class="crumb__sep">›</span> <span>요금 비교</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#18181b" aria-hidden="true">₩</span>
+      <span class="eyebrow__label" style="color:#52525b">PRICING</span>
+    </div>
+    <h1>AI 요금 비교 — {n}개 서비스</h1>
+    <p class="page-hero__lead"><b>요금표를 옮겨 적은 것이 아니라, 각 서비스의 공식 페이지를 직접 열어 확인한 숫자만 모았습니다.</b> 그래서 표의 모든 행에 <b>어느 글에서 언제 확인했는지</b>가 같이 적혀 있습니다. 확인하지 못한 요금은 빈칸으로 두고 공식 페이지로 보냅니다 — 채워 넣지 않습니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ 행마다 확인 날짜</span>
+      <span class="chip">✓ 1차 출처 링크</span>
+      <span class="chip">✓ 추측 금액 없음</span>
+      <span class="chip">✓ 제휴 링크 없음</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:8px;padding-bottom:16px">
+    <div class="kicker-row">
+      <span class="kicker-tag">전체</span>
+      <span class="kicker-date">{n}개 서비스 · 최근 확인 {lastko}</span>
+    </div>
+
+    <div class="pricing-filter" role="group" aria-label="분류 거르기">
+{filters}
+    </div>
+
+    <div class="dtable">
+      <table class="pricing">
+        <thead>
+          <tr>
+            <th>서비스</th>
+            <th>무료</th>
+            <th>유료 시작</th>
+            <th>상업 이용</th>
+            <th class="sm-hide">원화 결제</th>
+            <th>확인</th>
+          </tr>
+        </thead>
+        <tbody>
+{rows}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="pricing-note">
+      <b>빈칸(—)은 모른다는 뜻입니다.</b> 해당 글에서 요금을 공식 페이지 기준으로만 안내하고
+      숫자를 옮겨 적지 않은 경우라, 여기서도 지어내지 않고 공식 링크로 보냅니다.
+      달러 표기는 환율에 따라 원화가 달라지므로 결제 직전에 공식 페이지를 확인하세요.
+    </p>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="mid"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-top:8px;padding-bottom:48px">
+    <div class="prose">
+      <h2>이 표를 읽는 법</h2>
+      <p>
+        <b>"무료"가 곧 "공짜로 써도 된다"는 뜻이 아닙니다.</b>
+        AI 음악·음성 서비스는 무료 플랜으로 만든 결과물의 <b>상업적 이용을 금지</b>합니다.
+        유튜브 수익 창출에 쓸 계획이라면 <b>상업 이용</b> 칸을 먼저 보세요.
+      </p>
+      <p>
+        <b>같은 이름의 플랜이라도 기능 층이 다릅니다.</b>
+        예를 들어 타입캐스트 베이직(₩9,900)은 일레븐랩스 Starter($6)보다 싸 보이지만,
+        타입캐스트의 간판인 감정 조절은 <b>프로(₩39,000)</b>부터 열립니다.
+        가격 비교는 <b>쓰려는 기능이 열리는 지점</b>에서 해야 의미가 있습니다.
+      </p>
+      <p>
+        <b>확인 날짜가 오래된 행은 의심하세요.</b>
+        AI 요금은 분기마다 바뀝니다. 이 표에서 가장 오래된 확인일과 가장 최근 확인일이
+        몇 주 차이 나기도 합니다. 날짜를 적어 두는 이유가 그것입니다 —
+        <b>날짜 없는 요금 정보는 없는 것보다 나쁩니다.</b>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">{alt} / {brand}</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 여기 소개하는 어떤 회사와도 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 페이지를 확인하세요.</p>
+      </div>
+      {FOOT_A}
+      {FOOT_B}
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+"""
+
+
+def build_pricing(cfg):
+    """요금 비교표 한 장. 숫자는 전부 우리 글에서 확인한 것만 들어간다."""
+    path = os.path.join(ROOT, "pricing.json")
+    if not os.path.exists(path):
+        return None
+    data = json.loads(read(path))
+    rows = data["rows"]
+    base = cfg["site"]["base"]
+
+    # 유료 시작가 낮은 순. 미확인은 맨 뒤로
+    rows = sorted(rows, key=lambda r: (r["paid_n"] is None, r["paid_n"] or 0))
+
+    cats = []
+    for r in rows:
+        if r["cat"] not in cats:
+            cats.append(r["cat"])
+
+    filters = ['      <button class="pricing-filter__btn is-on" type="button" data-cat="all">전체</button>']
+    for c in cats:
+        filters.append(
+            '      <button class="pricing-filter__btn" type="button" data-cat="%s">%s</button>'
+            % (esc(c), esc(c))
+        )
+
+    body = []
+    for r in rows:
+        krw = {True: "가능", False: "USD만", None: "—"}[r.get("krw")]
+        paid = r["paid"] or '<span class="muted">—</span>'
+        comm = r["commercial"] or '<span class="muted">—</span>'
+        note = (
+            '<span class="pricing-note__inline">%s</span>' % esc(r["note"])
+            if r.get("note")
+            else ""
+        )
+        body.append(
+            "\n".join([
+                '          <tr data-cat="%s">' % esc(r["cat"]),
+                "            <td>",
+                '              <a href="%s"><b>%s</b></a>' % (r["src"], esc(r["name"])),
+                '              <span class="pricing-cat">%s</span>' % esc(r["cat"]),
+                "              %s" % note,
+                "            </td>",
+                "            <td>%s</td>" % esc(r["free"] or "없음"),
+                '            <td class="n">%s</td>' % paid,
+                "            <td>%s</td>" % comm,
+                '            <td class="n sm-hide">%s</td>' % krw,
+                "            <td>",
+                '              <a href="%s">%s</a><br>' % (r["src"], ko_date(r["checked"])),
+                '              <a class="pricing-official" href="%s" target="_blank" rel="noopener nofollow">공식 ↗</a>'
+                % r["official"],
+                "            </td>",
+                "          </tr>",
+            ])
+        )
+
+    last = max(r["checked"] for r in rows)
+    items = [
+        {
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+                "@type": "SoftwareApplication",
+                "name": r["name"],
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "url": base + r["src"],
+            },
+        }
+        for i, r in enumerate(rows)
+    ]
+    schema = json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "AI 도구 비교", "item": base + "/"},
+                        {"@type": "ListItem", "position": 2, "name": "요금 비교", "item": base + "/pricing/"},
+                    ],
+                },
+                {
+                    "@type": "CollectionPage",
+                    "@id": base + "/pricing/#webpage",
+                    "url": base + "/pricing/",
+                    "name": "AI 요금 비교",
+                    "inLanguage": "ko-KR",
+                    "dateModified": last,
+                    "mainEntity": {
+                        "@type": "ItemList",
+                        "numberOfItems": len(items),
+                        "itemListElement": items,
+                    },
+                },
+            ],
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
+
+    today = datetime.now(KST).strftime("%Y-%m-%d")
+    html = PRICING_PAGE.format(
+        n=len(rows),
+        base=base,
+        brand=esc(cfg["site"]["name"]),
+        alt=esc(cfg["site"]["alt"]),
+        schema=schema,
+        rows="\n".join(body),
+        filters="\n".join(filters),
+        lastko=ko_date(last),
+        todayko=ko_date(today),
+        NAV_A=NAV_A, NAV_B=NAV_B,
+        MNAV_A=MNAV_A, MNAV_B=MNAV_B,
+        FOOT_A=FOOT_A, FOOT_B=FOOT_B,
+    )
+    write(os.path.join(ROOT, "pricing", "index.html"), html)
+    return len(rows)
+
+
+# 연재(시리즈) --------------------------------------------------------------
+
+SERIES_A, SERIES_B = "<!--SERIESNAV-->", "<!--/SERIESNAV-->"
+
+SERIES_PAGE = """<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{title} | {brand}</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{base}/series/{slug}/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{brand}">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="{base}/series/{slug}/">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="{brand}" href="{base}/rss.xml">
+
+<script type="application/ld+json">
+{schema}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">{alt} <span class="brand__sep">/</span> {brand}</span>
+    </a>
+    {NAV_A}
+    {NAV_B}
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    {MNAV_A}
+    {MNAV_B}
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 도구 비교</a> <span class="crumb__sep">›</span> <a href="/series/">연재</a> <span class="crumb__sep">›</span> <span>{label}</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#18181b" aria-hidden="true">{n}</span>
+      <span class="eyebrow__label" style="color:#52525b">SERIES · {n}편</span>
+    </div>
+    <h1>{h1}</h1>
+    <p class="page-hero__lead">{lead}</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ {n}편 연재</span>
+      <span class="chip">✓ 공식 문서 확인</span>
+      <span class="chip">✓ 최근 확인 {lastko}</span>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:32px;padding-bottom:24px">
+    <div class="prose">
+{intro}
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="mid"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-top:16px;padding-bottom:48px">
+    <div class="kicker-row">
+      <span class="kicker-tag">순서</span>
+      <span class="kicker-date">{n}편</span>
+    </div>
+    <ol class="chapters">
+{chapters}
+    </ol>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">{alt} / {brand}</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 여기 소개하는 어떤 회사와도 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 페이지를 확인하세요.</p>
+      </div>
+      {FOOT_A}
+      {FOOT_B}
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+"""
+
+SERIES_INDEX = SERIES_PAGE.replace(
+    '<a href="/series/">연재</a> <span class="crumb__sep">›</span> <span>{label}</span>',
+    "<span>연재</span>",
+)
+
+
+def build_series(cfg, metas):
+    """연재 허브를 만들고, 각 글에 이전/다음 안내를 넣을 자료를 돌려준다.
+
+    글의 주소는 절대 옮기지 않는다. 이미 색인된 주소를 바꾸면 순위가 날아간다.
+    허브는 얹는 층이다."""
+    path = os.path.join(ROOT, "series.json")
+    if not os.path.exists(path):
+        return {}, []
+
+    data = json.loads(read(path))
+    base = cfg["site"]["base"]
+    belongs = {}
+    made = []
+    cards = []
+
+    for s in data["series"]:
+        parts = [p for p in s["parts"] if metas.get(p["url"])]
+        if len(parts) < 2:
+            continue
+
+        dates = [metas[p["url"]].get("mod") or "" for p in parts]
+        last = max(d for d in dates if d) if any(dates) else ""
+
+        chapters = []
+        for i, p in enumerate(parts, 1):
+            m = metas[p["url"]]
+            chapters.append(
+                "\n".join([
+                    '      <li class="chapter">',
+                    '        <a class="chapter__link" href="%s">' % p["url"],
+                    '          <span class="chapter__no">%d</span>' % i,
+                    '          <span class="chapter__body">',
+                    '            <b class="chapter__title">%s</b>' % esc(m["title"]),
+                    '            <span class="chapter__why">%s</span>' % esc(p["why"]),
+                    '            <span class="chapter__meta">%s · %s</span>'
+                    % (esc(m.get("cat") or ""), ko_date(m.get("posted") or m.get("mod"))),
+                    "          </span>",
+                    "        </a>",
+                    "      </li>",
+                ])
+            )
+
+        intro = "\n".join("      <p>%s</p>" % x for x in s.get("intro", []))
+
+        items = [
+            {
+                "@type": "ListItem",
+                "position": i,
+                "url": base + p["url"],
+                "name": metas[p["url"]]["title"],
+            }
+            for i, p in enumerate(parts, 1)
+        ]
+        schema = json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {"@type": "ListItem", "position": 1, "name": "AI 도구 비교", "item": base + "/"},
+                            {"@type": "ListItem", "position": 2, "name": "연재", "item": base + "/series/"},
+                            {"@type": "ListItem", "position": 3, "name": s["label"],
+                             "item": "%s/series/%s/" % (base, s["slug"])},
+                        ],
+                    },
+                    {
+                        "@type": "CollectionPage",
+                        "@id": "%s/series/%s/#webpage" % (base, s["slug"]),
+                        "url": "%s/series/%s/" % (base, s["slug"]),
+                        "name": s["title"],
+                        "description": s["desc"],
+                        "inLanguage": "ko-KR",
+                        "dateModified": last or None,
+                        "mainEntity": {
+                            "@type": "ItemList",
+                            "numberOfItems": len(items),
+                            "itemListElement": items,
+                        },
+                    },
+                ],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+
+        html = SERIES_PAGE.format(
+            title=esc(s["title"]),
+            h1=esc(s["title"].split(" — ")[0]),
+            desc=esc(s["desc"]),
+            lead=s["lead"],
+            label=esc(s["label"]),
+            slug=s["slug"],
+            n=len(parts),
+            base=base,
+            brand=esc(cfg["site"]["name"]),
+            alt=esc(cfg["site"]["alt"]),
+            schema=schema,
+            intro=intro,
+            chapters="\n".join(chapters),
+            lastko=ko_date(last),
+            NAV_A=NAV_A, NAV_B=NAV_B,
+            MNAV_A=MNAV_A, MNAV_B=MNAV_B,
+            FOOT_A=FOOT_A, FOOT_B=FOOT_B,
+        )
+        write(os.path.join(ROOT, "series", s["slug"], "index.html"), html)
+        made.append("/series/%s/ (%d편)" % (s["slug"], len(parts)))
+
+        for i, p in enumerate(parts):
+            belongs[p["url"]] = {
+                "slug": s["slug"],
+                "label": s["label"],
+                "no": i + 1,
+                "total": len(parts),
+                "prev": parts[i - 1]["url"] if i > 0 else None,
+                "next": parts[i + 1]["url"] if i + 1 < len(parts) else None,
+            }
+
+        cards.append((s, parts))
+
+    if cards:
+        build_series_index(cfg, cards, metas)
+        made.append("/series/ (\ubaa9\ub85d %d\uac1c)" % len(cards))
+
+    return belongs, made
+
+
+def build_series_index(cfg, cards, metas):
+    """연재 목록. 허브가 여러 개일 때 들어오는 입구가 된다."""
+    base = cfg["site"]["base"]
+    rows, items = [], []
+    for i, (s, parts) in enumerate(cards, 1):
+        rows.append("\n".join([
+            '      <li class="chapter">',
+            '        <a class="chapter__link" href="/series/%s/">' % s["slug"],
+            '          <span class="chapter__no">%d</span>' % len(parts),
+            '          <span class="chapter__body">',
+            '            <b class="chapter__title">%s</b>' % esc(s["title"]),
+            '            <span class="chapter__why">%s</span>' % esc(s["desc"]),
+            '            <span class="chapter__meta">%d편 연재</span>' % len(parts),
+            "          </span>",
+            "        </a>",
+            "      </li>",
+        ]))
+        items.append({"@type": "ListItem", "position": i,
+                      "url": "%s/series/%s/" % (base, s["slug"]), "name": s["title"]})
+
+    schema = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "AI 도구 비교", "item": base + "/"},
+                {"@type": "ListItem", "position": 2, "name": "연재", "item": base + "/series/"}]},
+            {"@type": "CollectionPage", "@id": base + "/series/#webpage",
+             "url": base + "/series/", "name": "연재", "inLanguage": "ko-KR",
+             "mainEntity": {"@type": "ItemList", "numberOfItems": len(items),
+                            "itemListElement": items}},
+        ]}, ensure_ascii=False, indent=2)
+
+    html = SERIES_INDEX.format(
+        title="연재 - 순서대로 읽으면 답이 나오는 묶음",
+        h1="연재",
+        desc="흩어진 글을 순서대로 읽도록 묶었습니다. 한 편씩 봐도 되지만, 순서대로 보면 \"내 경우에는 어떻게 되는가\"까지 정리됩니다.",
+        lead="<b>한 편으로는 답이 안 나오는 질문이 있습니다.</b> \"무료로 만든 걸 팔아도 되나\" 같은 것은 서비스마다 조건이 달라서, 하나만 읽으면 자기 경우가 어디에 해당하는지 알기 어렵습니다. 그래서 관련된 글을 <b>읽는 순서</b>와 함께 묶어 두었습니다.",
+        label="연재", slug="", n=len(cards), base=base,
+        brand=esc(cfg["site"]["name"]), alt=esc(cfg["site"]["alt"]),
+        schema=schema,
+        intro="      <p>각 묶음의 첫 화면에 <b>왜 이 순서인지</b>를 적어 두었습니다. 급하시면 각 편의 첫 문단만 읽어도 답이 나오도록 썼습니다.</p>",
+        chapters="\n".join(rows), lastko="",
+        NAV_A=NAV_A, NAV_B=NAV_B, MNAV_A=MNAV_A, MNAV_B=MNAV_B,
+        FOOT_A=FOOT_A, FOOT_B=FOOT_B,
+    ).replace('<span class="chip">✓ 최근 확인 </span>', '<span class="chip">✓ 공식 문서 확인</span>')
+    # 목록 페이지는 슬러그가 비어 있어 /series// 가 된다. 한 번에 바로잡는다
+    html = html.replace("/series//", "/series/")
+    write(os.path.join(ROOT, "series", "index.html"), html)
+
+
+def build_series_nav(info, metas):
+    """글 안에 넣는 연재 안내. 위치는 본문 맨 앞 — 이 글이 어디쯤인지 먼저 알려준다."""
+    out = [
+        '<nav class="series-nav" aria-label="연재 안내">',
+        '      <div class="series-nav__top">',
+        '        <a class="series-nav__name" href="/series/%s/">%s</a>' % (info["slug"], esc(info["label"])),
+        '        <span class="series-nav__count">%d / %d편</span>' % (info["no"], info["total"]),
+        "      </div>",
+        '      <div class="series-nav__links">',
+    ]
+    for key, arrow in (("prev", "← 이전"), ("next", "다음 →")):
+        u = info[key]
+        if u and metas.get(u):
+            t = metas[u]["title"].split(" - ")[0].split(" — ")[0]
+            out.append('        <a class="series-nav__step" href="%s">%s · %s</a>' % (u, arrow, esc(t)))
+    out.append('        <a class="series-nav__step" href="/series/%s/">전체 순서 보기</a>' % info["slug"])
+    out += ["      </div>", "    </nav>"]
+    return "\n".join(out)
+
+
+def add_series_nav(text, url, belongs, metas):
+    info = belongs.get(url)
+    if not info or 'class="prose"' not in text:
+        return text
+    payload = build_series_nav(info, metas)
+
+    if SERIES_A in text and SERIES_B in text:
+        return re.sub(
+            re.escape(SERIES_A) + r".*?" + re.escape(SERIES_B),
+            lambda _: SERIES_A + "\n    " + payload + "\n    " + SERIES_B,
+            text,
+            count=1,
+            flags=re.S,
+        )
+
+    m = re.search(r'<div class="prose">\n', text)
+    if not m:
+        return text
+    blk = "    " + SERIES_A + "\n    " + payload + "\n    " + SERIES_B + "\n\n"
+    return text[: m.end()] + blk + text[m.end():]
+
+
 # 마커 주입 --------------------------------------------------------------
 
 
@@ -736,6 +1368,19 @@ def main():
     for s in made:
         print("카테고리 %s" % s)
 
+    npr = build_pricing(cfg)
+    if npr:
+        print("요금표 /pricing/ (%d개 서비스)" % npr)
+        metas["/pricing/"] = meta_of(os.path.join(ROOT, "pricing", "index.html"), brand)
+
+    belongs, smade = build_series(cfg, metas)
+    for s in smade:
+        print("연재 %s" % s)
+    for p in html_files():
+        u = url_of(p)
+        if u.startswith("/series/") and u not in metas:
+            metas[u] = meta_of(p, brand)
+
     rows = listed_pages(metas)
     postlist = build_postlist(rows)
     footer = build_footer(cfg)
@@ -759,6 +1404,7 @@ def main():
         text = add_toc(text)
         if TOC_A in text:
             tocs[0] += 1
+        text = add_series_nav(text, here, belongs, metas)
         text = add_share(text, here, cfg, short)
 
         # 블로그 목록은 /blog/ 만. 카테고리 페이지는 자기 목록을 이미 갖고 있다

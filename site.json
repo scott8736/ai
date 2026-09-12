@@ -117,6 +117,10 @@
   ],
   "nav_extra": [
     {
+      "href": "/pricing/",
+      "label": "요금비교"
+    },
+    {
       "href": "/blog/",
       "label": "블로그"
     }
@@ -129,6 +133,18 @@
     {
       "title": "사이트",
       "links": [
+        {
+          "href": "/pricing/",
+          "label": "요금 비교"
+        },
+        {
+          "href": "/editorial/",
+          "label": "편집 기준"
+        },
+        {
+          "href": "/series/",
+          "label": "연재"
+        },
         {
           "href": "/blog/",
           "label": "블로그"

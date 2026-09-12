@@ -69,6 +69,27 @@
     });
   });
 
+  /* ---------- 요금표 분류 거르기 ---------- */
+
+  var pfBtns = document.querySelectorAll(".pricing-filter__btn");
+
+  if (pfBtns.length) {
+    pfBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var want = btn.getAttribute("data-cat");
+
+        pfBtns.forEach(function (b) {
+          b.classList.toggle("is-on", b === btn);
+        });
+
+        document.querySelectorAll("tr[data-cat]").forEach(function (tr) {
+          var hit = want === "all" || tr.getAttribute("data-cat") === want;
+          tr.classList.toggle("is-hidden", !hit);
+        });
+      });
+    });
+  }
+
   /* ---------- 애드센스 ----------
 
      AD_SLOTS 에는 애드센스 콘솔에서 발급받은 "광고 단위 ID"(숫자 10자리)를 넣습니다.

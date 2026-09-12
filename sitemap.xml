@@ -126,6 +126,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/editorial/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/game/</loc>
     <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
@@ -166,7 +171,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/pricing/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/privacy.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/series/ai-output-rights/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/series/api-keys/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/series/free-limits/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/series/</loc>
     <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
