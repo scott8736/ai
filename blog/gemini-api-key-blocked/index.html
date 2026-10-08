@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>제미나이 API 키 안됨 - 제한 없는 키 거부, 확인과 해결</title>
+<meta name="description" content="제한을 걸지 않은 표준 키는 지금 제미나이 API가 거부합니다. AI Studio에서 Gemini API 전용 제한을 걸거나 새 키를 만드세요.">
+<link rel="canonical" href="https://ai.howtopackbook.com/blog/gemini-api-key-blocked/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#fcfcf9">
+<meta name="cat" content="제미나이">
+<meta name="kicker" content="오류 해결">
+<meta name="posted" content="2026-10-08">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 도구 연구소">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://ai.howtopackbook.com/blog/gemini-api-key-blocked/">
+<meta property="og:image" content="https://ai.howtopackbook.com/og/blog-gemini-api-key-blocked.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://ai.howtopackbook.com/og/blog-gemini-api-key-blocked.png">
+<meta property="og:title" content="제미나이 API 키 안됨 - 제한 없는 키 거부, 확인과 해결">
+<meta property="og:description" content="제한 없는 표준 키(Unrestricted)는 지금 거부됩니다. Restrict to Gemini API only로 제한을 걸거나 새 auth 키로 바꾸면 됩니다.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="제미나이 API 키 안됨 - 제한 없는 키 거부, 확인과 해결">
+<meta name="twitter:description" content="제한 없는 표준 키(Unrestricted)는 지금 거부됩니다. 제한을 걸거나 새 auth 키로 바꾸면 됩니다.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318181b'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="AI 도구 연구소" href="https://ai.howtopackbook.com/rss.xml">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI 도구 비교",
+          "item": "https://ai.howtopackbook.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "API",
+          "item": "https://ai.howtopackbook.com/api/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "제미나이 API 키 안됨 해결",
+          "item": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/"
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/#article",
+      "headline": "제미나이 API 키 안됨 - 제한 없는 키 거부, 확인과 해결",
+      "description": "제한을 걸지 않은 표준 키는 지금 제미나이 API가 거부합니다. AI Studio에서 Gemini API 전용 제한을 걸거나 새 키를 만드세요.",
+      "url": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/",
+      "mainEntityOfPage": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/",
+      "inLanguage": "ko-KR",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "author": {
+        "@type": "Organization",
+        "name": "AI 도구 연구소",
+        "url": "https://ai.howtopackbook.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AI 도구 연구소",
+        "url": "https://ai.howtopackbook.com/"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/#howto",
+      "name": "제미나이 API 키에 제한 걸기 (Restrict to Gemini API only)",
+      "inLanguage": "ko-KR",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "KRW", "value": "0" },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Unrestricted 키 찾기",
+          "text": "Google AI Studio의 API Keys 페이지에서 Unrestricted 라벨이 붙은 키를 찾습니다. 제한을 걸려면 연결된 구글 클라우드 프로젝트에 apikeys.keys.update 권한이 있어야 합니다."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Add restrictions 열기",
+          "text": "Unrestricted 라벨에 마우스를 올리고, 뜨는 창에서 Add restrictions 를 누릅니다."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Restrict to Gemini API only 선택",
+          "text": "Restrict to Gemini API only 를 고릅니다."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Restrict key 로 확정",
+          "text": "Restrict key 를 눌러 확정합니다. 명시적 제한이 걸린 표준 키는 계속 작동합니다."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ai.howtopackbook.com/blog/gemini-api-key-blocked/#faq",
+      "inLanguage": "ko-KR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "제미나이 API 키가 갑자기 안 되는 이유는 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "제한을 걸지 않은 표준 키라면 그게 원인일 가능성이 큽니다. 구글 공식 문서는 제미나이 API가 제한 없는 표준 키의 요청을 거부한다고 적고 있습니다. AI Studio에서 그 키에 Restrict to Gemini API only 제한을 걸거나, 새 키를 만들어 바꾸면 됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI Studio에서 키에 Blocked 태그가 붙어 있습니다. 무슨 뜻인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년 5월 7일부터 제미나이 API는 오랫동안 쓰지 않은 제한 없는 키를 차단하고, 이런 키에 Blocked 태그를 붙입니다. 얼마나 안 써야 차단되는지 기준 기간은 공식 문서에 나와 있지 않습니다. 새 키를 만들어 앱에 넣는 것이 가장 확실합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제한을 건 표준 키는 계속 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "쓸 수 있습니다. 공식 문서는 명시적 제한이 걸린 표준 키는 계속 작동한다고 적고 있습니다. 거부되는 것은 제한을 걸지 않은 표준 키입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "기존 키를 auth 키로 바꿀 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "공식 문서에는 기존 키를 auth 키로 바꾸는 기능이 없습니다. 새 auth 키를 만들어 앱의 키를 교체하고, 새 키가 잘 도는 것을 확인한 뒤 옛 키를 지우는 순서로 안내합니다. 2026년 5월 28일부터 AI Studio에서 새로 만드는 키는 자동으로 auth 키입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제한 없는 키를 쓰면 어떤 오류 메시지가 나오나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "2026년 10월 8일 확인한 공식 문서에는 제한 없는 키 전용 오류 문구나 HTTP 코드가 적혀 있지 않습니다. 오류 문서에 있는 것은 키가 없거나 무효·만료일 때의 401과 권한이 없을 때의 403이고, 유출 신고된 키는 Your API key was reported as leaked 라는 문구가 따로 있습니다. 오류 문구만으로 단정하지 말고 AI Studio에서 키 상태를 직접 확인하는 편이 정확합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "제한을 걸려는데 권한이 없다고 나옵니다.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "키에 제한을 걸려면 그 키가 속한 구글 클라우드 프로젝트에 apikeys.keys.update 권한이 있어야 합니다. 회사나 학교 프로젝트라면 관리자에게 권한을 받거나, 권한이 있는 프로젝트에서 새 키를 만들어야 합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8646375689901020" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__bar">
+    <a class="brand" href="/">
+      <span class="brand__mark">AI</span>
+      <span class="brand__name">AI Pack <span class="brand__sep">/</span> AI 도구 연구소</span>
+    </a>
+    <!--NAV-->
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/music/">뮤직</a>
+      <a href="/tts/">TTS</a>
+      <a href="/game/">게임</a>
+      <a href="/pricing/">요금비교</a>
+      <a href="/blog/">블로그</a>
+    </nav>
+    <!--/NAV-->
+    <div class="header__right">
+      <button class="menu-btn" type="button" id="menu-btn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <!--MNAV-->
+    <div class="wrap mobile-nav__list">
+      <a href="/">전체 비교</a>
+      <a href="/ai/">AI</a>
+      <a href="/api/">API</a>
+      <a href="/video/">영상</a>
+      <a href="/image/">이미지</a>
+      <a href="/software/">소프트웨어</a>
+      <a href="/music/">뮤직</a>
+      <a href="/tts/">TTS</a>
+      <a href="/game/">게임</a>
+      <a href="/pricing/">요금비교</a>
+      <a href="/blog/">블로그</a>
+      <a href="/discount/">할인 모음</a>
+    </div>
+    <!--/MNAV-->
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="crumb" aria-label="위치">
+      <a href="/">AI 도구 비교</a> <span class="crumb__sep">›</span> <a href="/api/">API</a> <span class="crumb__sep">›</span> <span>제미나이 API 키 안됨 해결</span>
+    </nav>
+  </div>
+
+  <section class="wrap page-hero">
+    <div class="eyebrow">
+      <span class="eyebrow__mark" style="background:#4285f4" aria-hidden="true">G</span>
+      <span class="eyebrow__label" style="color:#4285f4">GOOGLE GEMINI API</span>
+    </div>
+    <h1>제미나이 API 키가 안 될 때 — 제한 없는 키는 지금 거부됩니다</h1>
+    <p class="page-hero__lead"><b>제한을 걸지 않은 표준 키(Unrestricted)는 지금 제미나이 API가 거부합니다.</b> Google AI Studio의 API Keys 페이지에서 그 키에 <b>Add restrictions → Restrict to Gemini API only</b> 로 제한을 걸거나, 새 키(auth 키)를 만들어 바꾸면 됩니다. 아래는 내 키가 여기에 해당하는지 확인하는 법과 두 방법의 순서입니다.</p>
+    <div class="page-hero__meta">
+      <span class="chip">✓ Unrestricted·Blocked 확인</span>
+      <span class="chip">✓ 제한 걸기 4단계</span>
+      <span class="chip">✓ 오류 문구 대조</span>
+      <span class="chip">✓ 10월 8일 확인</span>
+    </div>
+  </section>
+  <div class="wrap">
+    <!--SHARE-->
+    <div class="share">
+      <span class="share__label">공유</span>
+      <button class="share__btn" type="button" data-copy="https://ai.howtopackbook.com/blog/gemini-api-key-blocked/">링크 복사</button>
+      <a class="share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fgemini-api-key-blocked%2F&amp;text=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%20API%20%ED%82%A4%20%EC%95%88%EB%90%A8" target="_blank" rel="noopener">X</a>
+      <a class="share__btn" href="https://share.naver.com/web/shareView?url=https%3A%2F%2Fai.howtopackbook.com%2Fblog%2Fgemini-api-key-blocked%2F&amp;title=%EC%A0%9C%EB%AF%B8%EB%82%98%EC%9D%B4%20API%20%ED%82%A4%20%EC%95%88%EB%90%A8" target="_blank" rel="noopener">네이버</a>
+    </div>
+    <!--/SHARE-->
+  </div>
+
+
+  <section class="wrap" style="padding-top:36px;padding-bottom:40px">
+    <div class="prose">
+    <!--SERIESNAV-->
+    <nav class="series-nav" aria-label="연재 안내">
+      <div class="series-nav__top">
+        <a class="series-nav__name" href="/series/api-keys/">API 키 발급</a>
+        <span class="series-nav__count">3 / 3편</span>
+      </div>
+      <div class="series-nav__links">
+        <a class="series-nav__step" href="/blog/youtube-api-key/">← 이전 · 유튜브 API 키 발급방법</a>
+        <a class="series-nav__step" href="/series/api-keys/">전체 순서 보기</a>
+      </div>
+    </nav>
+    <!--/SERIESNAV-->
+
+
+      <h2 id="한-줄-요약">한 줄 요약</h2>
+      <p>
+        <b>키를 받은 지 오래됐고 제한을 건 적이 없다면, 그 키는 지금 거부됩니다.</b>
+        구글 공식 문서의 문장 그대로 옮기면 <b>"제미나이 API는 제한을 걸지 않은 표준 키의 요청을 거부한다"</b>,
+        그리고 <b>"명시적 제한이 걸린 표준 키는 계속 작동한다"</b>입니다.
+      </p>
+      <p>
+        고치는 길은 둘입니다. <b>① 지금 키에 제한을 건다</b>(키 값이 그대로라 앱을 안 고쳐도 됨),
+        <b>② 새 키를 만들어 바꾼다</b>(지금 새로 만드는 키는 처음부터 제미나이 API로 제한된 auth 키).
+        키를 처음 받는 방법은 <a href="/blog/gemini-api-key/">제미나이 API 키 발급방법</a>에 따로 정리해 뒀습니다.
+      </p>
+
+      <div class="ad" data-ad="top"><div class="ad__box"></div></div>
+
+      <!--TOC-->
+      <nav class="toc" aria-label="목차">
+        <div class="toc__title">이 글의 순서</div>
+        <ol class="toc__list">
+          <li><a href="#한-줄-요약">한 줄 요약</a></li>
+          <li><a href="#내-키가-막혔는지-어떻게-확인하나요">내 키가 막혔는지 어떻게 확인하나요?</a></li>
+          <li><a href="#방법-1-지금-키에-제한을-거는-법은">방법 1: 지금 키에 제한을 거는 법은?</a></li>
+          <li><a href="#방법-2-새-auth-키로-바꾸려면">방법 2: 새 auth 키로 바꾸려면?</a></li>
+          <li><a href="#오류-메시지로-구분할-수-있나요">오류 메시지로 구분할 수 있나요?</a></li>
+          <li><a href="#키가-노출됐다면-어떤-순서로-하나요">키가 노출됐다면 어떤 순서로 하나요?</a></li>
+          <li><a href="#이-글을-쓰면서">이 글을 쓰면서</a></li>
+        </ol>
+      </nav>
+      <!--/TOC-->
+
+      <h2 id="내-키가-막혔는지-어떻게-확인하나요">내 키가 막혔는지 어떻게 확인하나요?</h2>
+      <p>
+        <b>AI Studio의 API Keys 페이지에서 키 옆에 붙은 표시를 봅니다.</b> 오류 문구보다 이쪽이 정확합니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>보이는 표시</th><th>뜻</th><th>할 일</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>Unrestricted</b> 라벨</td><td>제한을 걸지 않은 표준 키. 제미나이 API가 요청을 거부하는 대상</td><td>제한을 걸거나(방법 1) 새 키로 교체(방법 2)</td></tr>
+            <tr><td><b>Blocked</b> 태그</td><td>오랫동안 쓰지 않아 차단된 제한 없는 키</td><td>새 키로 교체(방법 2)</td></tr>
+            <tr><td>표시 없음 / 제한 걸린 표준 키</td><td>명시적 제한이 걸린 표준 키는 계속 작동</td><td>키 정책 문제가 아님 — 아래 「오류 메시지」 절로</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        공식 문서에 날짜가 붙은 변경은 두 가지입니다.
+      </p>
+      <ul>
+        <li><b>2026년 5월 7일부터</b> — 오랫동안 쓰지 않은 제한 없는 키를 차단하고, AI Studio에 <b>Blocked</b> 태그를 붙입니다. <b>"오랫동안"이 며칠인지는 문서에 없습니다.</b></li>
+        <li><b>2026년 5월 28일부터</b> — Google AI Studio에서 새로 만드는 모든 키는 자동으로 <b>auth 키</b>(authorization key)로 만들어집니다.</li>
+      </ul>
+      <p>
+        "제한 없는 키를 언제부터 전부 거부했느냐"에 대해서는 <b>공식 문서에 날짜가 적혀 있지 않습니다.</b>
+        문서는 현재형으로 "거부한다"고만 씁니다. 그래서 이 글도 날짜를 못 박지 않고 <b>"지금 거부된다"</b>로만 적습니다.
+      </p>
+      <p>
+        두 종류의 키가 어떻게 다른지도 짧게 짚어 둡니다. 공식 문서의 설명입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>종류</th><th>공식 문서의 설명</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>표준 키</b><br>Standard</td><td>요청을 구글 클라우드 프로젝트에 연결해 과금·할당량을 매기는 용도. <b>호출자가 누구인지는 특정하지 못함</b></td></tr>
+            <tr><td><b>auth 키</b><br>Authorization</td><td>클라우드 <b>서비스 계정에 직접 묶임</b>. 기본으로 Generative Language API(제미나이 API)로만 제한되고, 유출된 키를 빠르게 막는 장치가 있음. 단 auth 키로 보낸 요청은 서비스 계정 사용량 지표에 기록되지 않음</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="방법-1-지금-키에-제한을-거는-법은">방법 1: 지금 키에 제한을 거는 법은?</h2>
+      <p>
+        <b>키 값이 바뀌지 않으니 앱 설정을 손댈 필요가 없습니다.</b> 쓰던 키가 Unrestricted 로 떠 있고
+        Blocked 태그는 없을 때 가장 빠른 방법입니다. AI Studio에서 네 단계입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>할 일</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td>AI Studio <b>API Keys</b> 페이지에서 <b>Unrestricted</b> 라벨이 붙은 키를 찾는다</td></tr>
+            <tr><td class="n">2</td><td>라벨에 마우스를 올리고, 뜨는 창에서 <b>Add restrictions</b> 를 누른다</td></tr>
+            <tr><td class="n">3</td><td><b>Restrict to Gemini API only</b> 를 고른다</td></tr>
+            <tr><td class="n">4</td><td><b>Restrict key</b> 를 눌러 확정한다</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tip">
+        <b>버튼이 안 눌리면 권한 문제입니다.</b>
+        공식 문서는 키에 제한을 걸려면 연결된 구글 클라우드 프로젝트에 <code>apikeys.keys.update</code> 권한이 있어야 한다고 적습니다.
+        회사·학교 프로젝트라면 관리자에게 권한을 받거나, 권한이 있는 프로젝트에서 방법 2로 새 키를 만드세요.
+      </div>
+      <p>
+        더 단단히 막고 싶다면 구글 클라우드 콘솔에서 <b>IP 제한</b>을 추가로 걸 수 있습니다.
+        키의 <b>Application restrictions</b> 에서 <b>IP addresses</b> 를 고르고, 허용할 IP 주소나 대역을 적은 뒤 <b>Save</b> 를 누릅니다.
+        서버 한 곳에서만 호출한다면 쓸 만한 장치입니다.
+      </p>
+      <p>
+        한 가지 주의할 점이 있습니다. <b>지도(Maps) 같은 다른 구글 서비스용으로 만든 키를 제미나이에 같이 쓰지 마세요.</b>
+        공식 문서는 다른 API용으로 키를 제한할 때 Generative Language API를 고르지 말라고 안내하고,
+        그렇게 제한된 키로 보낸 <b>제미나이 요청은 실패한다</b>고 적습니다. 제미나이용 키는 따로 두는 게 맞습니다.
+      </p>
+      <p>
+        참고로 <b>Blocked 태그가 붙은 키에 제한을 걸면 다시 살아나는지</b>는 공식 문서에 나와 있지 않습니다.
+        그 경우는 방법 2로 가는 편이 확실합니다.
+      </p>
+
+      <div class="ad ad--mid" data-ad="mid"><div class="ad__box"></div></div>
+
+      <h2 id="방법-2-새-auth-키로-바꾸려면">방법 2: 새 auth 키로 바꾸려면?</h2>
+      <p>
+        <b>기존 키를 auth 키로 "변환"하는 기능은 공식 문서에 없습니다.</b>
+        문서가 안내하는 길은 <b>새 auth 키를 만들고 앱을 그 키로 바꾸는 것</b>입니다.
+        2026년 5월 28일 이후 AI Studio에서 만드는 키는 자동으로 auth 키라서, 지금 <b>Create API key</b> 를 누르면 됩니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>할 일</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td>AI Studio <b>API Keys</b> 페이지에서 <b>Create API key</b> 로 새 키를 만든다</td></tr>
+            <tr><td class="n">2</td><td>코드·환경변수(<code>GEMINI_API_KEY</code>)·배포 설정의 키를 새 키로 바꾼다</td></tr>
+            <tr><td class="n">3</td><td>새 키로 실제 호출이 되는지 확인한다</td></tr>
+            <tr><td class="n">4</td><td><b>그다음에</b> 옛 키를 삭제한다</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        auth 키는 처음부터 제미나이 API로만 제한돼 있어서, 방법 1의 제한 걸기를 따로 할 필요가 없습니다.
+        한 가지 차이는 알아 두세요 — 공식 문서는 <b>auth 키로 보낸 요청이 서비스 계정 사용량 지표에 기록되지 않는다</b>고 적습니다.
+        사용량을 그 지표로 보고 있었다면 확인 방법을 바꿔야 합니다.
+      </p>
+
+      <h2 id="오류-메시지로-구분할-수-있나요">오류 메시지로 구분할 수 있나요?</h2>
+      <p>
+        <b>정직하게 말하면, 오류 문구만으로는 단정할 수 없습니다.</b>
+        2026년 10월 8일 확인한 공식 문서(API 키·오류 코드·문제 해결 세 문서)에는
+        <b>"제한 없는 키라서 거부됐다"는 전용 오류 문구나 HTTP 코드가 적혀 있지 않습니다.</b>
+        인터넷에 "이 문구가 나오면 제한 없는 키"라고 적힌 글이 있다면 공식 근거는 없는 셈입니다.
+      </p>
+      <p>
+        공식 문서에 적힌 문구는 아래뿐입니다. 키와 관련해 볼 만한 것만 추렸습니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>코드</th><th>상태</th><th>공식 문서의 설명 (원문)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">401</td><td><code>authentication</code></td><td>The API key is missing, invalid, or expired.<br>(키가 없거나, 무효이거나, 만료됨)</td></tr>
+            <tr><td class="n">403</td><td><code>permission_denied</code></td><td>Your API key does not have permission for this resource.<br>(이 리소스에 대한 권한이 없음)</td></tr>
+            <tr><td>—</td><td>유출 신고</td><td>Your API key was reported as leaked. Please use another API key.<br>(키가 유출된 것으로 신고됨, 다른 키를 쓸 것)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        그래서 순서는 이렇게 잡는 게 맞습니다. <b>401·403이 나오면 먼저 AI Studio에서 그 키에 Unrestricted 라벨이나 Blocked 태그가 있는지 봅니다.</b>
+        있으면 위의 방법 1·2로, 없으면 키 값 오타·환경변수 미반영·프로젝트 권한 같은 일반 원인을 봅니다.
+        일반 원인별 조치는 <a href="/blog/gemini-api-key/">발급 가이드의 「막히면 여기부터」 표</a>에 정리돼 있습니다.
+        <b>"reported as leaked"</b> 문구가 나왔다면 다음 절의 순서를 그대로 따르세요.
+      </p>
+
+      <h2 id="키가-노출됐다면-어떤-순서로-하나요">키가 노출됐다면 어떤 순서로 하나요?</h2>
+      <p>
+        <b>새 키부터 만들고, 옛 키는 맨 나중에 끕니다.</b> 순서를 바꾸면 그 사이에 서비스가 멈춥니다.
+        공식 문서가 안내하는 순서입니다.
+      </p>
+      <div class="dtable">
+        <table>
+          <thead>
+            <tr><th>단계</th><th>할 일</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="n">1</td><td><b>새 키 생성</b></td></tr>
+            <tr><td class="n">2</td><td><b>앱을 새 키로 갱신</b></td></tr>
+            <tr><td class="n">3</td><td>새 키가 동작하는 것을 확인한 뒤, 클라우드 콘솔에서 <b>유출된 키를 비활성화</b>. 새 키가 완전히 활성화되기 전에는 옛 키를 지우지 않는다</td></tr>
+            <tr><td class="n">4</td><td><b>청구 로그와 API 사용량 점검</b> — 남이 쓴 흔적이 있는지 본다</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        다시 새지 않게 하는 원칙도 공식 문서에 적혀 있습니다.
+      </p>
+      <ul>
+        <li><b>키를 비밀번호처럼 다룹니다.</b></li>
+        <li><b>깃(Git) 같은 소스 관리 시스템에 키를 올리지 않습니다.</b></li>
+        <li><b>운영 환경에서 키를 클라이언트(웹·앱) 쪽에 노출하지 않습니다.</b> 서버에서 호출합니다.</li>
+      </ul>
+      <p>
+        auth 키는 유출된 키를 빠르게 막는 장치가 기본으로 붙어 있다는 점도 새 키로 옮길 이유가 됩니다.
+      </p>
+
+      <div class="tip">
+        <b>2026년 10월 8일 구글 공식 문서 확인 기준입니다.</b>
+        <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank" rel="noopener">API 키 문서 ↗</a>(2026-10-06 갱신),
+        <a href="https://ai.google.dev/gemini-api/docs/api-errors" target="_blank" rel="noopener">오류 코드 문서 ↗</a>(2026-09-20 갱신),
+        <a href="https://ai.google.dev/gemini-api/docs/troubleshooting" target="_blank" rel="noopener">문제 해결 문서 ↗</a>(2026-10-01 갱신)를 대조했습니다.
+        키 정책은 올해 여러 번 바뀌었으니, 조치 전에 API 키 문서를 한 번 더 확인하세요.
+      </div>
+
+      <h2 id="이-글을-쓰면서">이 글을 쓰면서</h2>
+      <p>
+        "제미나이 API 키 안됨"으로 찾아오는 분이 가장 먼저 알고 싶은 건 <b>"내 키가 막힌 건가, 내가 뭘 잘못한 건가"</b>일 겁니다.
+        그런데 공식 문서 세 개를 대조해 보니 <b>제한 없는 키에만 나오는 오류 문구는 어디에도 없었습니다.</b>
+        그래서 이 글은 오류 문구 대신 <b>AI Studio의 Unrestricted 라벨과 Blocked 태그</b>를 판단 기준으로 삼았습니다.
+      </p>
+      <p>
+        날짜도 같은 원칙으로 적었습니다. 공식 문서에 있는 날짜는 5월 7일과 5월 28일 두 개뿐이고,
+        "전면 거부"가 언제 시작됐는지는 적혀 있지 않습니다. 근거 없는 날짜를 붙이지 않았습니다.
+      </p>
+      <p>
+        다른 API 키도 함께 정리하고 있다면 <a href="/series/api-keys/">API 키 발급 연재</a>와
+        <a href="/blog/youtube-api-key/">유튜브 API 키 발급방법</a>을, API 글 전체는 <a href="/api/">API 글 모음</a>을 보시면 됩니다.
+      </p>
+
+    </div>
+  </section>
+
+  <div class="wrap"><div class="ad" data-ad="bottom"><div class="ad__box"></div></div></div>
+
+  <section class="wrap" style="padding-bottom:8px">
+    <div class="next-up">
+      <div class="next-up__title">이어서 볼 만한 것</div>
+      <div class="next-up__grid">
+        <a class="next-up__card" href="/blog/gemini-api-key/">
+          <b>제미나이 API 키 발급방법</b>
+          <span>카드 없이 3분, 무료 한도는 공개되지 않습니다</span>
+        </a>
+        <a class="next-up__card" href="/series/api-keys/">
+          <b>API 키 발급 연재</b>
+          <span>제미나이·유튜브 키를 순서대로</span>
+        </a>
+        <a class="next-up__card" href="/api/">
+          <b>API 발급 글 모음</b>
+          <span>공식 문서로 확인한 발급 절차와 한도</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap faq__inner">
+      <div>
+        <h2>자주 묻는 질문</h2>
+        <p class="faq__lead">2026년 10월 8일 구글 공식 문서 확인 기준입니다.</p>
+      </div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <h3 class="faq__q">제미나이 API 키가 갑자기 안 되는 이유는 무엇인가요?</h3>
+          <p class="faq__a">제한을 걸지 않은 표준 키라면 그게 원인일 가능성이 큽니다. 구글 공식 문서는 제미나이 API가 제한 없는 표준 키의 요청을 거부한다고 적고 있습니다. AI Studio에서 그 키에 Restrict to Gemini API only 제한을 걸거나, 새 키를 만들어 바꾸면 됩니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">AI Studio에서 키에 Blocked 태그가 붙어 있습니다. 무슨 뜻인가요?</h3>
+          <p class="faq__a">2026년 5월 7일부터 제미나이 API는 오랫동안 쓰지 않은 제한 없는 키를 차단하고, 이런 키에 Blocked 태그를 붙입니다. 얼마나 안 써야 차단되는지 기준 기간은 공식 문서에 나와 있지 않습니다. 새 키를 만들어 앱에 넣는 것이 가장 확실합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">제한을 건 표준 키는 계속 쓸 수 있나요?</h3>
+          <p class="faq__a">쓸 수 있습니다. 공식 문서는 명시적 제한이 걸린 표준 키는 계속 작동한다고 적고 있습니다. 거부되는 것은 제한을 걸지 않은 표준 키입니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">기존 키를 auth 키로 바꿀 수 있나요?</h3>
+          <p class="faq__a">공식 문서에는 기존 키를 auth 키로 바꾸는 기능이 없습니다. 새 auth 키를 만들어 앱의 키를 교체하고, 새 키가 잘 도는 것을 확인한 뒤 옛 키를 지우는 순서로 안내합니다. 2026년 5월 28일부터 AI Studio에서 새로 만드는 키는 자동으로 auth 키입니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">제한 없는 키를 쓰면 어떤 오류 메시지가 나오나요?</h3>
+          <p class="faq__a">2026년 10월 8일 확인한 공식 문서에는 제한 없는 키 전용 오류 문구나 HTTP 코드가 적혀 있지 않습니다. 오류 문서에 있는 것은 키가 없거나 무효·만료일 때의 401과 권한이 없을 때의 403이고, 유출 신고된 키는 Your API key was reported as leaked 라는 문구가 따로 있습니다. 오류 문구만으로 단정하지 말고 AI Studio에서 키 상태를 직접 확인하는 편이 정확합니다.</p>
+        </div>
+        <div class="faq__item">
+          <h3 class="faq__q">제한을 걸려는데 권한이 없다고 나옵니다.</h3>
+          <p class="faq__a">키에 제한을 걸려면 그 키가 속한 구글 클라우드 프로젝트에 apikeys.keys.update 권한이 있어야 합니다. 회사나 학교 프로젝트라면 관리자에게 권한을 받거나, 권한이 있는 프로젝트에서 새 키를 만들어야 합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:40px;padding-bottom:56px">
+    <div class="cta">
+      <div class="cta__q">키를 처음부터 다시 받아야 하나요?</div>
+      <div class="cta__d">카드 없이 발급하는 절차, 무료 한도, 무료 등급의 데이터 학습 여부까지 발급 가이드에 정리해 뒀습니다.</div>
+      <a class="cta__btn" href="/blog/gemini-api-key/">발급 가이드 보기</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__about">
+        <div class="site-footer__brand">
+          <span class="site-footer__mark">AI</span>
+          <span class="site-footer__name">AI Pack / AI 도구 연구소</span>
+        </div>
+        <p class="disclaimer">ai.howtopackbook.com은 여기 소개하는 어떤 회사와도 제휴관계가 없습니다. 모든 상표는 각 소유자 소유입니다. 이 사이트는 구독을 판매하지도 중개하지도 않으며, 게시된 정보는 참고용이므로 결제 전 공식 페이지를 확인하세요.</p>
+      </div>
+      <!--FOOTLINKS-->
+    <div class="link-cols">
+        <div class="link-col">
+          <h2 class="link-col__title">카테고리</h2>
+          <ul>
+            <li><a href="/ai/">AI</a></li>
+            <li><a href="/api/">API</a></li>
+            <li><a href="/video/">영상</a></li>
+            <li><a href="/image/">이미지</a></li>
+            <li><a href="/software/">소프트웨어</a></li>
+            <li><a href="/music/">뮤직</a></li>
+            <li><a href="/tts/">TTS</a></li>
+            <li><a href="/game/">게임</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">사이트</h2>
+          <ul>
+            <li><a href="/pricing/">요금 비교</a></li>
+            <li><a href="/editorial/">편집 기준</a></li>
+            <li><a href="/series/">연재</a></li>
+            <li><a href="/blog/">블로그</a></li>
+            <li><a href="/discount/">할인 모음</a></li>
+            <li><a href="/about/">소개</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><a href="/terms">이용약관</a></li>
+            <li><a href="/contact">문의</a></li>
+          </ul>
+        </div>
+        <div class="link-col">
+          <h2 class="link-col__title">공식</h2>
+          <ul>
+            <li><a href="https://gemini.google/kr/subscriptions/" target="_blank" rel="noopener">Gemini ↗</a></li>
+            <li><a href="https://openai.com/chatgpt/pricing/" target="_blank" rel="noopener">ChatGPT ↗</a></li>
+            <li><a href="https://claude.com/pricing" target="_blank" rel="noopener">Claude ↗</a></li>
+            <li><a href="https://ai.google.dev/" target="_blank" rel="noopener">Gemini API ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    <!--/FOOTLINKS-->
+    </div>
+    <div class="site-footer__bottom">
+      <span class="site-footer__copy">Copyright 2026 howtopackbook.com. All rights reserved.</span>
+      <span class="site-footer__made">Made for Korean AI users · Light, fast, no tracking beyond AdSense</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

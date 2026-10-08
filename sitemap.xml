@@ -26,6 +26,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://ai.howtopackbook.com/blog/chatgpt-go-vs-plus/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ai.howtopackbook.com/blog/claude-code/</loc>
     <lastmod>2026-09-08</lastmod>
     <priority>0.6</priority>
@@ -38,6 +43,11 @@
   <url>
     <loc>https://ai.howtopackbook.com/blog/elevenlabs-guide/</loc>
     <lastmod>2026-09-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai.howtopackbook.com/blog/gemini-api-key-blocked/</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
@@ -187,7 +197,7 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/series/api-keys/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>

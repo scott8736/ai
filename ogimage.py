@@ -88,7 +88,8 @@ def page_info(path, brand):
         "head": head.strip(),
         "sub": sub.strip(),
         "cat": meta("cat", t),
-        "posted": meta("posted", t),
+        # 카드 아래 "○월 ○일 확인" 은 마지막 확인일이다. 재확인하면 dateModified 를 올리므로 그쪽을 먼저 본다
+        "posted": (re.search(r'"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"', t) or [None, meta("posted", t)])[1],
         "raw": t,
     }
 

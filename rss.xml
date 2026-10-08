@@ -5,8 +5,22 @@
   <link>https://ai.howtopackbook.com/</link>
   <description>AI 도구의 요금·발급·사용법을 공식 페이지로 직접 확인해 정리하는 한국어 정보 사이트</description>
   <language>ko</language>
-  <lastBuildDate>Thu, 08 Oct 2026 15:16:12 +0900</lastBuildDate>
+  <lastBuildDate>Thu, 08 Oct 2026 15:44:03 +0900</lastBuildDate>
   <atom:link href="https://ai.howtopackbook.com/rss.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>챗GPT Go 플러스 차이 - 16,000원 더 내면 달라지는 것</title>
+    <link>https://ai.howtopackbook.com/blog/chatgpt-go-vs-plus/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/chatgpt-go-vs-plus/</guid>
+    <pubDate>Thu, 08 Oct 2026 09:00:00 +0900</pubDate>
+    <description>챗GPT Go(13,000원)와 Plus(29,000원), 공식 비교표에서 실제로 다른 칸만 골라 누가 어느 쪽인지 정리했습니다.</description>
+  </item>
+  <item>
+    <title>제미나이 API 키 안됨 - 제한 없는 키 거부, 확인과 해결</title>
+    <link>https://ai.howtopackbook.com/blog/gemini-api-key-blocked/</link>
+    <guid isPermaLink="true">https://ai.howtopackbook.com/blog/gemini-api-key-blocked/</guid>
+    <pubDate>Thu, 08 Oct 2026 09:00:00 +0900</pubDate>
+    <description>제한을 걸지 않은 표준 키는 지금 제미나이 API가 거부합니다. AI Studio에서 Gemini API 전용 제한을 걸거나 새 키를 만드세요.</description>
+  </item>
   <item>
     <title>일레븐랩스 요금 - 무료는 출처를 넣어도 수익화가 안 됩니다</title>
     <link>https://ai.howtopackbook.com/blog/elevenlabs-guide/</link>

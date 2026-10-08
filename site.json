@@ -37,7 +37,8 @@
         "/blog/gemini-guide/",
         "/blog/chatgpt-error/",
         "/blog/claude-code/",
-        "/blog/notion-ai/"
+        "/blog/notion-ai/",
+        "/blog/chatgpt-go-vs-plus/"
       ]
     },
     {
@@ -48,7 +49,8 @@
       "menu": true,
       "pages": [
         "/blog/gemini-api-key/",
-        "/blog/youtube-api-key/"
+        "/blog/youtube-api-key/",
+        "/blog/gemini-api-key-blocked/"
       ]
     },
     {

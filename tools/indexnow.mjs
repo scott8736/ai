@@ -5,7 +5,7 @@
 //   node tools/indexnow.mjs --urls /blog/suno-guide/ /pricing/ ← 주소를 직접 골라 전송
 //
 // 이 사이트는 HTML 을 저장소에 그대로 올리므로 빌드 없이 git 의 두 커밋을 비교한다.
-// 메뉴·푸터·CSS 를 고치면 46페이지가 전부 바뀌므로 title + description + <main> 글자만 본다.
+// 메뉴·푸터·CSS 를 고치면 46페이지가 전부 바뀌므로 <main> 본문 글자만 본다(contentOf 참고).
 // 바뀐 게 40개를 넘으면 공통 틀을 고친 것으로 보고 새 페이지만 보낸다.
 // 색인을 보장하지는 않는다. 구글은 IndexNow 를 받지 않는다.
 
@@ -19,19 +19,20 @@ const UA = 'Mozilla/5.0 (compatible; ai-howtopackbook-indexnow bot)';
 const args = process.argv.slice(2);
 const send = args.includes('--send') || args.includes('--urls');
 
+// <main> 본문 글자만 본다. title 은 빌더가 브랜드 꼬리를 붙였다 뗐다 하므로 빼고,
+// 빌더가 찍는 공유 버튼·목차 영역도 뺀다(10-08: 꼬리만 바뀐 43쪽이 "공통 틀 변경"으로 잡혀 0개 전송).
 function contentOf(html) {
-  const title = (html.match(/<title>([\s\S]*?)<\/title>/) || [])[1] || '';
-  const desc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
   const a = html.indexOf('<main');
   const b = html.indexOf('</main>', a);
   const main = a < 0 ? '' : html.slice(a, b < 0 ? undefined : b);
-  const text = main
+  return main
+    .replace(/<!--SHARE-->[\s\S]*?<!--\/SHARE-->/g, ' ')
+    .replace(/<!--TOC-->[\s\S]*?<!--\/TOC-->/g, ' ')
     .replace(/<script[\s\S]*?<\/script>/g, ' ')
     .replace(/<style[\s\S]*?<\/style>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  return `${title}\n${desc}\n${text}`;
 }
 
 // 파일 → 운영 주소. Cloudflare Pages 는 x.html 을 /x 로 308 하므로 확장자를 뗀다.
