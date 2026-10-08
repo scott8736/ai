@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ai.howtopackbook.com/about/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/ai/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/api/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -97,7 +97,7 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/chatgpt/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -112,27 +112,27 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/claude/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai.howtopackbook.com/contact.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://ai.howtopackbook.com/contact</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/discount/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/editorial/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/game/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/gemini/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -157,27 +157,27 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/image/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/music/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/pricing/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai.howtopackbook.com/privacy.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://ai.howtopackbook.com/privacy</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -192,37 +192,37 @@
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/series/free-limits/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/series/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/software/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai.howtopackbook.com/terms.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <loc>https://ai.howtopackbook.com/terms</loc>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/tools/capcut/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/tts/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ai.howtopackbook.com/video/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -83,12 +83,18 @@ for path in html_files():
         problems.append("%s  title 없음" % url)
     else:
         titles.setdefault(m.group(1).strip(), []).append(url)
+        # 네이버 서치어드바이저 간단체크 기준: title 40자 이내
+        if len(m.group(1).strip()) > 40:
+            problems.append("%s  title %d자 > 40" % (url, len(m.group(1).strip())))
 
     m = re.search(r'<meta name="description" content="(.*?)"', t, re.S)
     if not m or not m.group(1).strip():
         problems.append("%s  description 없음" % url)
     else:
         descs.setdefault(m.group(1).strip(), []).append(url)
+        # 네이버 서치어드바이저 간단체크 기준: description 80자 이내
+        if len(m.group(1).strip()) > 80 and url != "/404.html":
+            problems.append("%s  description %d자 > 80" % (url, len(m.group(1).strip())))
 
     m = re.search(r'<link rel="canonical" href="(.*?)"', t)
     if not m:

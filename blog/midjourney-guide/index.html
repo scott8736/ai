@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>미드저니 사용법 - Fast·Relax 모드와 플랜별 차이 | AI 도구 연구소</title>
-<meta name="description" content="미드저니를 디스코드에서 쓰는 기본 흐름과 Fast·Relax·Stealth 모드가 플랜마다 어떻게 갈리는지 공식 문서 기준으로 정리했습니다. 무료 플랜은 없습니다.">
+<title>미드저니 사용법 - Fast·Relax 모드와 플랜별 차이</title>
+<meta name="description" content="미드저니는 무료 플랜 없이 Basic 월 $10부터입니다. Relax는 Standard부터, Stealth는 Pro·Mega에서만 됩니다.">
 <link rel="canonical" href="https://ai.howtopackbook.com/blog/midjourney-guide/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#fcfcf9">
@@ -49,7 +49,7 @@
       "name": "미드저니 사용법",
       "inLanguage": "ko-KR",
       "datePublished": "2026-09-10",
-      "dateModified": "2026-09-10"
+      "dateModified": "2026-10-08"
     },
     {
       "@type": "FAQPage",
@@ -61,7 +61,7 @@
           "name": "미드저니 무료 플랜이 있나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독입니다. 예전에 있던 무료 체험이 사라진 뒤로 이미지를 생성해보려면 최소 요금제를 결제해야 합니다. 다만 정확한 플랜별 금액은 이 글에 적지 않았습니다 — 공식 요금 페이지에서 확인하세요."
+            "text": "없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독이고, 모바일 niji·journey 앱에서만 제한된 체험이 있습니다. 가장 싼 Basic이 월 10달러(연간 96달러)이고 Standard 30달러, Pro 60달러, Mega 120달러입니다. 연간 결제는 20% 할인됩니다."
           }
         },
         {
@@ -69,7 +69,7 @@
           "name": "Fast 모드와 Relax 모드는 뭐가 다른가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다."
+            "text": "생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간(Basic 3.3시간, Standard 15시간, Pro 30시간, Mega 60시간)만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다."
           }
         },
         {
@@ -153,7 +153,7 @@
       <span class="chip">✓ 디스코드 기본 흐름</span>
       <span class="chip">✓ Fast vs Relax</span>
       <span class="chip">✓ Stealth 모드 조건</span>
-      <span class="chip">✓ 2026년 9월 10일 확인</span>
+      <span class="chip">✓ 2026년 10월 8일 확인</span>
     </div>
   </section>
   <div class="wrap">
@@ -173,8 +173,8 @@
 
       <h2 id="한-줄-요약">한 줄 요약</h2>
       <p>
-        미드저니는 <b>무료 플랜이 없습니다.</b> 이미지를 한 장이라도 만들어보려면 최소 플랜을 결제해야 합니다.
-        플랜은 <b>Basic·Standard·Pro·Mega</b> 네 단계이고, 갈리는 기준은 성능이 아니라
+        미드저니는 <b>무료 플랜이 없습니다.</b> 모바일 niji·journey 앱의 제한된 체험을 빼면, 이미지를 만들어보려면 최소 플랜(Basic 월 $10)을 결제해야 합니다.
+        플랜은 <b>Basic·Standard·Pro·Mega</b> 네 단계(월 $10·$30·$60·$120)이고, 갈리는 기준은 성능이 아니라
         <b>얼마나 빨리 만들 수 있는지(Fast/Relax)</b> 와 <b>결과물을 비공개로 할 수 있는지(Stealth)</b> 입니다.
       </p>
 
@@ -204,7 +204,7 @@
         생성 속도를 정하는 게 <b>GPU 속도 모드</b>입니다. 공식 문서가 설명하는 핵심은 이렇습니다.
       </p>
       <ul>
-        <li><b>Fast 모드</b> — 빠르게 생성되지만, 플랜마다 정해진 시간만큼만 쓸 수 있습니다</li>
+        <li><b>Fast 모드</b> — 빠르게 생성되지만, 플랜마다 정해진 시간만큼만 쓸 수 있습니다 (Basic 3.3시간·Standard 15시간·Pro 30시간·Mega 60시간)</li>
         <li><b>Relax 모드</b> — 느리지만 제한이 느슨합니다. 다만 <b>Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없습니다.</b></li>
         <li><b>Turbo 모드</b> — Fast 보다도 더 빠른 상위 옵션입니다</li>
       </ul>
@@ -230,35 +230,31 @@
       <div class="dtable">
         <table>
           <thead>
-            <tr><th>플랜</th><th>Relax 모드</th><th>Stealth 모드</th></tr>
+            <tr><th>플랜</th><th>월간 결제</th><th>연간 결제</th><th>Fast 시간</th><th>Relax 모드</th><th>Stealth 모드</th></tr>
           </thead>
           <tbody>
-            <tr><td>Basic</td><td>불가</td><td>불가</td></tr>
-            <tr><td>Standard</td><td>가능</td><td>불가</td></tr>
-            <tr><td>Pro</td><td>가능</td><td><b>가능</b></td></tr>
-            <tr><td>Mega</td><td>가능</td><td><b>가능</b></td></tr>
-            <tr><td>정확한 요금</td><td colspan="2"><a href="https://www.midjourney.com/plans" target="_blank" rel="noopener">공식 페이지에서 확인 →</a></td></tr>
+            <tr><td>Basic</td><td class="n">$10</td><td class="n">$96</td><td class="n">3.3시간</td><td>불가</td><td>불가</td></tr>
+            <tr><td>Standard</td><td class="n">$30</td><td class="n">$288</td><td class="n">15시간</td><td>가능</td><td>불가</td></tr>
+            <tr><td>Pro</td><td class="n">$60</td><td class="n">$576</td><td class="n">30시간</td><td>가능</td><td><b>가능</b></td></tr>
+            <tr><td>Mega</td><td class="n">$120</td><td class="n">$1,152</td><td class="n">60시간</td><td>가능</td><td><b>가능</b></td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="tip">
-        이 글에는 정확한 요금을 적지 않았습니다. midjourney.com 과 docs.midjourney.com 이 자동 접근을
-        막고 있어서 <b>플랜별 정확한 금액을 확인하지 못했습니다.</b> 표의 "정확한 요금" 칸을 눌러
-        공식 페이지에서 그 시점의 금액을 확인하세요. 연간 결제 시 할인이 있다는 것까지는 공식 안내에서 확인했지만
-        정확한 할인율은 페이지 접근 후 직접 봐야 합니다.
+        2026년 10월 8일 <a href="https://www.midjourney.com/plans" target="_blank" rel="noopener">미드저니 공식 요금 페이지 ↗</a> 확인 기준입니다.
+        연간 결제는 <b>20% 할인</b>이 적용된 금액입니다. 금액은 바뀔 수 있으니 결제 전에 공식 페이지에서 한 번 더 확인하세요.
       </div>
 
       <h2 id="이-글을-쓰면서">이 글을 쓰면서</h2>
       <p>
-        미드저니 요금제 페이지는 오늘 두 번의 시도 모두 접근이 막혔습니다.
-        대신 <b>도움말 문서 여러 개</b>에서 확인한 사실 — 무료 플랜이 없다는 것, 플랜 이름과 개수,
-        Fast/Relax/Stealth 가 정확히 어느 플랜부터 열리는지 — 만 모아 이 글을 만들었습니다.
+        처음 이 글을 쓴 9월 10일에는 미드저니 요금제 페이지가 두 번의 시도 모두 접근이 막혔습니다.
+        그래서 <b>도움말 문서 여러 개</b>에서 확인한 사실 — 무료 플랜이 없다는 것, 플랜 이름과 개수,
+        Fast/Relax/Stealth 가 정확히 어느 플랜부터 열리는지 — 만 모아 글을 만들고, 금액은 링크로 넘겼습니다.
       </p>
       <p>
-        검색해서 나오는 다른 글들은 대부분 <b>플랜별 정확한 시간(GPU 아워)까지 구체적으로 적어놓는데,</b>
-        저는 오늘 그 숫자를 공식 문서에서 직접 확인하지 못했습니다. 확인 안 된 숫자를 적느니
-        확실한 것만 적고 나머지는 링크로 넘기는 쪽을 택했습니다.
+        <b>2026년 10월 8일 공식 페이지를 다시 확인해</b> 플랜별 금액과 Fast 시간(GPU 아워)을 위 표에 채웠습니다.
+        확인 안 된 숫자를 적느니 비워 두는 쪽을 택했던 자리를, 확인된 숫자로만 메웠습니다.
       </p>
 
     </div>
@@ -290,16 +286,16 @@
     <div class="wrap faq__inner">
       <div>
         <h2>자주 묻는 질문</h2>
-        <p class="faq__lead">2026년 9월 10일 공식 문서 확인 기준입니다.</p>
+        <p class="faq__lead">2026년 10월 8일 공식 문서 확인 기준입니다.</p>
       </div>
       <div class="faq__list">
         <div class="faq__item">
           <h3 class="faq__q">미드저니 무료 플랜이 있나요?</h3>
-          <p class="faq__a">없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독입니다. 예전에 있던 무료 체험이 사라진 뒤로 이미지를 생성해보려면 최소 요금제를 결제해야 합니다. 다만 정확한 플랜별 금액은 이 글에 적지 않았습니다 — 공식 요금 페이지에서 확인하세요.</p>
+          <p class="faq__a">없습니다. 공식 안내 기준으로 미드저니는 전 플랜이 유료 구독이고, 모바일 niji·journey 앱에서만 제한된 체험이 있습니다. 가장 싼 Basic이 월 10달러(연간 96달러)이고 Standard 30달러, Pro 60달러, Mega 120달러입니다. 연간 결제는 20% 할인됩니다.</p>
         </div>
         <div class="faq__item">
           <h3 class="faq__q">Fast 모드와 Relax 모드는 뭐가 다른가요?</h3>
-          <p class="faq__a">생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다.</p>
+          <p class="faq__a">생성 속도가 다릅니다. Fast 모드는 빠르게 생성되는 대신 매달 정해진 시간(Basic 3.3시간, Standard 15시간, Pro 30시간, Mega 60시간)만큼만 쓸 수 있고, Relax 모드는 느린 대신 제한이 느슨합니다. 공식 문서에 따르면 Basic 플랜 구독자는 Relax 모드 자체를 쓸 수 없고, 상위 플랜(Standard·Pro·Mega)부터 Relax 모드가 열립니다.</p>
         </div>
         <div class="faq__item">
           <h3 class="faq__q">Stealth 모드는 어느 플랜부터 되나요?</h3>

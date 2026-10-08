@@ -616,7 +616,7 @@ PRICING_PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>AI 요금 비교 - {n}개 서비스, 확인한 날짜까지 적었습니다 | {brand}</title>
-<meta name="description" content="{n}개 AI 서비스의 무료 범위와 유료 시작가를 한 표에 모았습니다. 숫자마다 어느 글에서 언제 공식 페이지를 보고 확인했는지 적어 두었습니다. {todayko} 기준.">
+<meta name="description" content="{n}개 AI 서비스의 무료 범위와 유료 시작가를 한 표에 모았습니다. 숫자마다 공식 페이지 확인 날짜를 적었습니다.">
 <link rel="canonical" href="{base}/pricing/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#fcfcf9">
@@ -1264,6 +1264,26 @@ def splice(text, kind, payload, old_re):
     )
 
 
+TITLE_MAX = 40  # 네이버 서치어드바이저 간단체크 기준
+
+
+def fit_title(text, brand):
+    """<title> 은 40자 이내. 브랜드 꼬리를 붙여도 40자 이내일 때만 붙인다.
+    본문 제목(core)이 40자를 넘으면 HTML 쪽을 고치라고 알린다."""
+    m = RE_TITLE.search(text)
+    if not m:
+        return text
+    core = m.group(1).strip()
+    for tail in (" | " + brand, " | AI요금제연구소"):
+        if core.endswith(tail):
+            core = core[: -len(tail)]
+    full = core + " | " + brand
+    want = full if len(full) <= TITLE_MAX else core
+    if len(core) > TITLE_MAX:
+        print("  제목 %d자 > %d: %s" % (len(core), TITLE_MAX, core))
+    return text[: m.start(1)] + want + text[m.end(1):]
+
+
 def rebrand(text, cfg):
     name = cfg["site"]["name"]
     alt = cfg["site"]["alt"]
@@ -1291,9 +1311,11 @@ def build_sitemap(cfg, pages):
         if url in ex:
             continue
         prio = "1.0" if url == "/" else ("0.8" if url.count("/") <= 2 else "0.6")
+        # Cloudflare Pages 는 /x.html 을 /x 로 308 한다. canonical 과 같은 /x 를 적는다
+        loc = url[:-5] if url.endswith(".html") else url
         rows += [
             "  <url>",
-            "    <loc>%s%s</loc>" % (base, url),
+            "    <loc>%s%s</loc>" % (base, loc),
             "    <lastmod>%s</lastmod>" % ((m or {}).get("mod") or today),
             "    <priority>%s</priority>" % prio,
             "  </url>",
@@ -1392,6 +1414,7 @@ def main():
         text = orig = read(path)
 
         text = rebrand(text, cfg)
+        text = fit_title(text, brand)
         text, s1 = splice(text, "nav", build_nav(cfg, here), OLD_NAV)
         text, _ = splice(text, "mnav", build_mnav(cfg, here), OLD_MNAV)
         text, _ = splice(text, "foot", footer, OLD_FOOT)

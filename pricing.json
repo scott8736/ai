@@ -21,7 +21,6 @@
     "  official 공식 요금 페이지",
     "  checked  그 글에서 확인한 날짜"
   ],
-
   "rows": [
     {
       "name": "제미나이",
@@ -31,23 +30,23 @@
       "paid_n": 7500,
       "commercial": null,
       "krw": true,
-      "note": "AI Plus 기준. Pro 월 29,000원",
+      "note": "AI Plus 기준. Pro 월 29,000원. 학생 혜택은 AI Plus 1년",
       "src": "/gemini/",
       "official": "https://gemini.google/kr/subscriptions/",
-      "checked": "2026-09-07"
+      "checked": "2026-10-08"
     },
     {
       "name": "ChatGPT",
       "cat": "AI 챗봇",
       "free": "있음",
-      "paid": "월 $8",
-      "paid_n": 11000,
+      "paid": "월 ₩13,000",
+      "paid_n": 13000,
       "commercial": null,
       "krw": true,
-      "note": "Go 기준. Plus 월 29,000원",
+      "note": "Go 기준(광고 포함될 수 있음). Plus 월 29,000원",
       "src": "/chatgpt/",
-      "official": "https://openai.com/chatgpt/pricing/",
-      "checked": "2026-09-07"
+      "official": "https://chatgpt.com/ko-KR/pricing/",
+      "checked": "2026-10-08"
     },
     {
       "name": "클로드",
@@ -57,10 +56,10 @@
       "paid_n": 27000,
       "commercial": null,
       "krw": false,
-      "note": "Pro 기준. 연간 결제 시 월 $17",
+      "note": "Pro 기준, 부가세 별도(한국 표시가 $22). 연간 결제 시 월 $17",
       "src": "/claude/",
       "official": "https://claude.com/pricing",
-      "checked": "2026-09-07"
+      "checked": "2026-10-08"
     },
     {
       "name": "제미나이 API",
@@ -73,7 +72,7 @@
       "note": "유료 전환 시 최소 $5 선불. 무료 등급은 입력이 학습에 쓰임",
       "src": "/blog/gemini-api-key/",
       "official": "https://ai.google.dev/gemini-api/docs/pricing",
-      "checked": "2026-09-12"
+      "checked": "2026-10-08"
     },
     {
       "name": "유튜브 Data API",
@@ -86,7 +85,7 @@
       "note": "가격표 자체가 없음. 할당량 초과 시 과금이 아니라 403 차단",
       "src": "/blog/youtube-api-key/",
       "official": "https://developers.google.com/youtube/v3/determine_quota_cost",
-      "checked": "2026-09-12"
+      "checked": "2026-10-08"
     },
     {
       "name": "캡컷",
@@ -98,34 +97,34 @@
       "krw": null,
       "note": "연 $179.99. 무료는 Pro 소재를 쓰면 워터마크",
       "src": "/tools/capcut/",
-      "official": "https://www.capcut.com/pricing",
-      "checked": "2026-09-08"
+      "official": "https://www.capcut.com/resource/capcut-standard-vs-pro",
+      "checked": "2026-10-08"
     },
     {
       "name": "브루",
       "cat": "영상",
       "free": "있음",
-      "paid": null,
-      "paid_n": null,
+      "paid": "월 ₩14,900",
+      "paid_n": 14900,
       "commercial": null,
-      "krw": null,
-      "note": "요금은 공식 페이지 기준으로만 안내",
+      "krw": true,
+      "note": "Light 기준(부가세 포함). 워터마크 삭제는 Light부터",
       "src": "/blog/vrew-guide/",
-      "official": "https://vrew.ai/ko/pricing/",
-      "checked": "2026-09-10"
+      "official": "https://vrew.ai/ko/payment/pricepolicy",
+      "checked": "2026-10-08"
     },
     {
       "name": "미드저니",
       "cat": "이미지",
       "free": "없음",
-      "paid": null,
-      "paid_n": null,
+      "paid": "월 $10",
+      "paid_n": 13500,
       "commercial": null,
       "krw": false,
-      "note": "무료 플랜이 없음. Basic부터 시작",
+      "note": "무료 플랜 없음. Basic 기준, Relax 무제한은 Standard 월 $30부터",
       "src": "/blog/midjourney-guide/",
-      "official": "https://www.midjourney.com/account/",
-      "checked": "2026-09-10"
+      "official": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      "checked": "2026-10-08"
     },
     {
       "name": "노션 AI",
@@ -135,23 +134,23 @@
       "paid_n": 14000,
       "commercial": null,
       "krw": true,
-      "note": "AI 전체 접근은 Business 월 ₩30,000부터",
+      "note": "연간 결제 기준(월간 ₩16,800). AI 전체는 Business부터",
       "src": "/blog/notion-ai/",
       "official": "https://www.notion.com/ko/pricing",
-      "checked": "2026-09-10"
+      "checked": "2026-10-08"
     },
     {
       "name": "캔바",
       "cat": "소프트웨어",
       "free": "있음",
-      "paid": null,
-      "paid_n": null,
+      "paid": "월 ₩9,900",
+      "paid_n": 9900,
       "commercial": null,
-      "krw": null,
-      "note": "Pro의 핵심은 브랜드 키트. 요금은 공식 페이지 기준",
+      "krw": true,
+      "note": "연 ₩99,000. Pro의 핵심은 브랜드 키트",
       "src": "/blog/canva-guide/",
       "official": "https://www.canva.com/ko_kr/pricing/",
-      "checked": "2026-09-10"
+      "checked": "2026-10-08"
     },
     {
       "name": "딥엘",
@@ -161,10 +160,10 @@
       "paid_n": null,
       "commercial": null,
       "krw": null,
-      "note": "문서 번역과 용어집이 유료의 핵심",
+      "note": "개인 플랜 이름은 Individual. 원화 가격은 공식 페이지 기준",
       "src": "/blog/deepl-guide/",
       "official": "https://www.deepl.com/ko/pro",
-      "checked": "2026-09-10"
+      "checked": "2026-10-08"
     },
     {
       "name": "수노",
@@ -174,10 +173,10 @@
       "paid_n": 13500,
       "commercial": "Pro부터",
       "krw": true,
-      "note": "상업 이용은 다운로드한 곡만. Pro 월 20곡 · Premier 월 60곡",
+      "note": "상업 이용은 다운로드한 곡만. Pro 월 20곡 · Premier(월 $30) 월 60곡",
       "src": "/blog/suno-guide/",
       "official": "https://suno.com/pricing",
-      "checked": "2026-09-12"
+      "checked": "2026-10-08"
     },
     {
       "name": "일레븐랩스",
@@ -190,7 +189,7 @@
       "note": "무료는 제목에 출처 표기 의무. 크레딧 최대 2개월 이월",
       "src": "/blog/elevenlabs-guide/",
       "official": "https://elevenlabs.io/pricing",
-      "checked": "2026-09-12"
+      "checked": "2026-10-08"
     },
     {
       "name": "타입캐스트",
@@ -200,10 +199,10 @@
       "paid_n": 9900,
       "commercial": "베이직부터",
       "krw": true,
-      "note": "한국어가 크레딧 효율 유리. 감정 조절은 프로(₩39,000)부터",
+      "note": "한국어가 크레딧 효율 유리. 감정 조절은 프로(₩39,000)부터. 플러스 ₩29,000 신설",
       "src": "/blog/typecast-guide/",
       "official": "https://typecast.ai/kr/pricing/",
-      "checked": "2026-09-12"
+      "checked": "2026-10-08"
     }
   ]
 }
