@@ -1,0 +1,32 @@
+# main 에 푸시하면 본문이 바뀐 페이지만 IndexNow(네이버·빙)로 알린다.
+# 직전 커밋과 이번 커밋의 HTML 을 비교하고, Cloudflare Pages 배포가 끝난 것을 확인한 뒤 보낸다.
+# 색인을 보장하지는 않는다. 구글은 IndexNow 를 받지 않는다.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 바뀐 페이지 알리기
+        run: |
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
+          node tools/indexnow.mjs "$BEFORE" HEAD --send
